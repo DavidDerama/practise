@@ -74,7 +74,7 @@ form input {
   font-size: 58px;
   font-weight: 800;
   text-align: center;
-  width: 211px;
+  max-width: 211px;
   background-color: transparent;
   border: 2px solid #b295ff;
   border-radius: 5px;
@@ -194,18 +194,19 @@ input::-webkit-inner-spin-button {
 }
 
 .notif {
-  background-color: var(--background);
-  padding: 9px 18px;
+  background-color: var(--header-color);
+  padding: 8px 15px;
   border-radius: 5px;
-  color: var(--label-color);
+  color: var(--background);
   font-size: var(--label-size);
-  font-weight: bold;
+  font-weight: 650;
   display: flex;
-  gap: 12px;
+  gap: 10px;
   opacity: 1;
+  border: 1px solid grey;
 
   animation-name: notif-fade;
-  animation-duration: 0.2s;
+  animation-duration: 0.3s;
   animation-timing-function: ease-out;
   animation-delay: 1s;
   animation-iteration-count: 1;
@@ -220,7 +221,7 @@ input::-webkit-inner-spin-button {
 .fa-check {
   color: var(--header-color);
   background-color: #55cd3a;
-  padding: 5px 8px;
+  padding: 5px 6.5px;
   font-size: calc(var(--label-size) - 3px);
   border: none;
   border-radius: 50%;
@@ -228,7 +229,9 @@ input::-webkit-inner-spin-button {
 }
 
 @keyframes notif-fade {
-  to {
+  100% {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(4px);
     opacity: 0;
   }
 }
