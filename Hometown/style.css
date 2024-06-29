@@ -1,0 +1,112 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial";
+}
+
+header {
+  height: 343px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #f2f2f2;
+  text-align: center;
+  background-image: url("images/torshov.jpg");
+  background-size: cover;
+  font-weight: 700;
+}
+
+header h1 {
+  background-color: #1d3557;
+  padding: 3px 12px;
+  font-size: 32px;
+  border-radius: 10px;
+}
+
+header h2 {
+  padding: 5px 28px;
+  background-color: #457b9d;
+  font-size: 18.72px;
+  width: 412px;
+  border-radius: 10px;
+}
+
+main {
+  padding: 39px 34px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 54px;
+  color: #1d3557;
+  background-color: #f1faee;
+}
+
+.activities {
+  display: flex;
+  gap: 33px;
+}
+
+.activity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.activity h4,
+p,
+main h3 {
+  margin: 0;
+}
+.activity img {
+  width: 100px;
+  border-radius: 50%;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+}
+
+.about {
+  padding: 23px 13px;
+  display: flex;
+  width: 400px;
+  gap: 12px;
+  background-color: #a8dadc;
+  border-radius: 10px;
+  box-shadow: 0 6px #1d3557;
+}
+
+.about-text {
+  text-align: center;
+}
+
+.about-text h3 {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.about-text q {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.about-text h4 {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.about img {
+  width: 180px;
+  border-radius: 10px;
+}

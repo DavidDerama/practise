@@ -1,0 +1,70 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: url(station.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Gloock", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+main {
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem 4rem;
+  backdrop-filter: blur(30px);
+  border-radius: 10px;
+  width: 500px;
+  box-shadow: 0 0 5px black;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 200px;
+  margin-top: 16px;
+}
+
+button {
+  padding: 10px 0;
+  border-radius: 10px;
+  border: 1px solid black;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #f2f2f2;
+}
+
+.increment {
+  background-color: darkred;
+}
+
+.increment:hover,
+.save:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.save {
+  background-color: darkgreen;
+}
+
+.passenger-count {
+  font-size: 3rem;
+  margin: 0;
+}

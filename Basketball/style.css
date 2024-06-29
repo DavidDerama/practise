@@ -1,0 +1,166 @@
+*,
+*::before,
+**::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Oliver", sans-serif;
+  background-color: #1b244a;
+  color: #f2f2f2;
+  display: flex;
+  overflow: hidden;
+}
+
+header {
+  background: linear-gradient(rgb(27, 36, 74), rgb(249, 79, 109));
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 2px 0 10px #1c1c1c;
+  border-right: 1px solid #1c1c1c;
+  height: 100vh;
+  width: 30vw;
+}
+
+.scores {
+  display: flex;
+  gap: 100px;
+  align-items: center;
+  justify-content: center;
+  width: 70vw;
+}
+
+.teams {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.teams h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.scorebox {
+  box-shadow: 0 0 5px black;
+  border-radius: 5px;
+  padding: 30px 20px;
+  max-width: 100px;
+  background-color: black;
+}
+
+.score {
+  font-weight: 400;
+  font-family: "Cursed Timer ULiL", sans-serif;
+  color: #f94f6d;
+  font-size: 60px;
+  margin: 0;
+}
+.timer {
+  font-weight: 400;
+  font-family: "Cursed Timer ULiL", sans-serif;
+  color: #f94f6d;
+  font-size: 30px;
+  margin: 0;
+  padding: 10px 20px;
+  background-color: black;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+button {
+  flex: 1 0 45px;
+  height: 45px;
+  background-color: transparent;
+  border: 2px solid #9aabd8;
+  font-weight: 400;
+  font-size: 18px;
+  border-radius: 5px;
+  color: #9aabd8;
+  font-family: "Cursed Timer ULiL", sans-serif;
+}
+
+.timer {
+  display: none;
+}
+
+.new-game {
+  display: none;
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+.tools {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+header {
+  font-weight: 700;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 50px;
+}
+
+.tools button {
+  background-color: #1c1c1c;
+  padding: 10px 20px;
+}
+
+.creator {
+  margin: 0;
+  font-weight: 300;
+}
+
+@media (max-width: 1000px) {
+  body {
+    flex-direction: column;
+    overflow: visible;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+  header,
+  .scores {
+    width: 100vw;
+  }
+
+  header {
+    height: 40vh;
+    border-right: none;
+    border-bottom: 1px solid #1c1c1c;
+  }
+  .scores {
+    height: 50vh;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+}

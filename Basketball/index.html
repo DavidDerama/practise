@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scoreboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <link href="https://fonts.cdnfonts.com/css/oliver-2" rel="stylesheet" />
+    <link
+      href="https://fonts.cdnfonts.com/css/cursed-timer-ulil"
+      rel="stylesheet"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <header>
+      <h1>Scoreboard</h1>
+      <p class="creator">Copyright &copy; David Derama</p>
+      <div class="tools">
+        <button class="start-game" data-start-game="0">Start Game</button>
+        <h3 class="timer" id="timer">0</h3>
+        <button class="new-game" data-new-game="0">New Game</button>
+      </div>
+    </header>
+
+    <main class="scores">
+      <section class="teams" id="home">
+        <h2 id="home-header">home</h2>
+        <div class="scorebox">
+          <h3 class="score" id="home-score">0</h3>
+        </div>
+        <div class="buttons">
+          <button class="add-btn" data-home-add="1" disabled>+1</button>
+          <button class="add-btn" data-home-add="2" disabled>+2</button>
+          <button class="add-btn" data-home-add="3" disabled>+3</button>
+        </div>
+      </section>
+
+      <section class="teams" id="guest">
+        <h2 id="guest-header">guest</h2>
+        <div class="scorebox">
+          <h3 class="score" id="guest-score">0</h3>
+        </div>
+        <div class="buttons">
+          <button class="add-btn" data-guest-add="1" disabled>+1</button>
+          <button class="add-btn" data-guest-add="2" disabled>+2</button>
+          <button class="add-btn" data-guest-add="3" disabled>+3</button>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
