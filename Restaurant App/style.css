@@ -12,26 +12,34 @@
   --div-padding: 2rem;
   --item-gaps: 1rem;
 
-  --header-size: 60px;
+  --header-size: 50px;
   --header-weight: 900;
   --header-color: #f2f2f2;
 
-  --second-header-size: 48px;
-  --third-header-size: 40px;
+  --second-header-size: 38px;
+  --third-header-size: 30px;
 
   --text-size: 16px;
   --text-weight: 400;
   --text-color: #c2c2c2;
 
   --label-size: 13px;
-  --label-color: #a2a2a2;
+  --label-color: hsl(0, 8%, 85%);
 }
 
 body {
   margin: 0;
   padding: 0;
   background-color: var(--background);
-  font-family: "Smythe", system-ui;
+  /* background: radial-gradient(
+    circle,
+    #16db99,
+    #00c3b6,
+    #00a7c5,
+    #0089c1,
+    #0069a9
+  ); */
+  font-family: "Gloock", sans-serif;
   padding: 3rem;
 }
 
@@ -41,8 +49,7 @@ body {
 
 header {
   padding: 46px;
-  background: url("https://images.unsplash.com/photo-1602083566722-8f58f1002fdd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
-    no-repeat center center fixed;
+  background: url("./images/header.jpg") no-repeat center center fixed;
   background-size: cover;
   height: 36vh;
   border-radius: 10px;
@@ -110,7 +117,7 @@ footer {
 }
 
 .product-info {
-  width: 80%;
+  width: 100%;
 }
 
 footer {
@@ -136,6 +143,11 @@ footer > h3 {
 .name-remove {
   display: flex;
   gap: 8px;
+}
+
+.name-remove h3,
+.name-remove button {
+  align-self: center;
 }
 
 .name-remove button:hover {
@@ -208,7 +220,7 @@ h3 {
 ul h3 {
   text-decoration-line: underline;
   text-decoration-style: "solid";
-  text-decoration-color: rgba(232, 54, 0, 1);
+  text-decoration-color: #16db99;
   text-decoration-thickness: 5px;
 }
 
@@ -226,8 +238,9 @@ label {
   color: var(--label-color);
 }
 
-button {
-  font-family: "Smythe", system-ui;
+button,
+input {
+  font-family: "Gloock", sans-serif;
 }
 
 button:hover,
@@ -256,7 +269,7 @@ i:hover {
 .notif-animation {
   animation-name: fade-notif;
   animation-duration: 0.5s;
-  animation-delay: 1s;
+  animation-delay: 0.6s;
   animation-timing-function: ease-in;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
@@ -266,6 +279,19 @@ i:hover {
 .notif label {
   color: var(--background);
   font-weight: 600;
+}
+
+.fa-moon,
+.fa-sun {
+  margin: 0;
+  padding: 0;
+  font-size: 2rem;
+  padding: 10px 14px;
+  border-radius: 50%;
+  color: var(--header-color);
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
 }
 
 @keyframes fade-notif {
@@ -321,7 +347,7 @@ dialog h2 {
 dialog img {
   position: absolute;
   height: 60px;
-  top: 10px;
+  top: 15px;
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -372,11 +398,14 @@ nav ul {
 }
 
 nav li {
-  padding: 10px 20px;
   border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+nav li a {
+  margin: 10px 20px;
 }
 
 a {
@@ -401,7 +430,7 @@ a:hover {
 }
 
 details {
-  color: var(--label-color);
+  color: grey;
   background: rgba(153, 0, 0, 0.25);
   backdrop-filter: blur(4px);
   font-size: 2rem;
@@ -417,7 +446,15 @@ summary {
   color: white;
 }
 
-.second-article h1 {
+details summary {
+  cursor: pointer;
+}
+
+details summary > * {
+  display: inline;
+}
+
+.article-content h1 {
   margin-bottom: 2rem;
 }
 
@@ -429,6 +466,10 @@ summary {
 }
 
 @media (max-width: 800px) {
+  .fa-moon,
+  .fa-sun {
+    display: none;
+  }
   .second-article h1 {
     margin-bottom: 2rem;
     text-align: center;
