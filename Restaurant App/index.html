@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>David's Diner</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" type="module" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Smythe&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="icon" type="image/x-icon" href="images/burger.png" />
+  </head>
+  <body>
+    <nav>
+    <h1>David's Diner</h1>
+<ul>
+    <li><a href="#about-us" >About Us</a></li>
+    <li><a href="#menu" >Menu</a></li>
+    <li><a href="#menu" >FAQ</a></li>
+
+</ul>
+    </nav>
+    <header>
+      <section class="header-content">
+        <q>The best burgers and pizzas in town.</q>
+      </section>
+    </header>
+    <div class="article-content" id="about-us"><img src="images/trophy-front-premium.png" alt=""><article><h1>Why David's Diner?
+</h1>
+
+<ul>
+    <h3>Taste the Best!</h3>
+    <li>Our pizza and burgers have won multiple awards for outstanding flavor.
+    </li>
+    <h3>Crave the Best! </h3>
+    <li>We are a top-selling restaurant, renowned nationwide.
+    </li>
+    <h3>Award-Winning Flavor! </h3> <li>
+        Our pizza and burgers have won multiple awards for their outstanding flavor and quality.</li>
+
+
+
+
+</ul>
+
+</article></div>
+    <main id="menu">
+        <h1>Menu:</h1>
+    </main>
+    <footer>
+      <h3>Your order</h3>
+      <div class="order-container"></div>
+      <div class="summary">
+        <div class="summary-info">
+          <h3>Total price:</h3>
+          <h3 class="total-price"></h3>
+        </div>
+
+        <button class="special-button" id="complete" >Complete order</button>
+      </div>
+    </footer>
+    <div class="notif-center"></div>
+    <dialog class="modal"><img src="images/wallet-front-color.png" alt=""><h2>Enter card details</h2> <form id="detail-info"><input type="text" placeholder="Enter your name" name="name" required> <input id="ccn" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" 
+        autocomplete="cc-number" maxlength="19" 
+        placeholder="xxxx xxxx xxxx xxxx" name="card"  required> <input type="text" placeholder="Enter CVV" maxlength="3"  name="cvv" required>
+    
+    
+    
+        <button class="special-button" type="submit">Complete order</button>
+    
+    </form><dialog>
+  </body>
+</html>
