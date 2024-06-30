@@ -175,6 +175,7 @@ footer > h3 {
   display: flex;
   align-items: center;
   gap: 2rem;
+  justify-content: space-between;
   padding: 2rem 0;
 }
 
@@ -204,6 +205,13 @@ h3 {
   font-size: var(--third-header-size);
 }
 
+ul h3 {
+  text-decoration-line: underline;
+  text-decoration-style: "solid";
+  text-decoration-color: rgba(232, 54, 0, 1);
+  text-decoration-thickness: 5px;
+}
+
 .price-ordered {
   font-size: 1.3rem;
 }
@@ -222,8 +230,10 @@ button {
   font-family: "Smythe", system-ui;
 }
 
-button:hover {
+button:hover,
+i:hover {
   cursor: pointer;
+  opacity: 0.8;
 }
 
 .notif-center {
@@ -245,9 +255,9 @@ button:hover {
 
 .notif-animation {
   animation-name: fade-notif;
-  animation-duration: 0.3s;
-  animation-delay: 1.5s;
-  animation-timing-function: ease-out;
+  animation-duration: 0.5s;
+  animation-delay: 1s;
+  animation-timing-function: ease-in;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   opacity: 1;
@@ -259,7 +269,13 @@ button:hover {
 }
 
 @keyframes fade-notif {
-  to {
+  0% {
+    transform: translate(0, 0px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(0, 8px);
     opacity: 0;
   }
 }
@@ -268,7 +284,19 @@ dialog {
   box-shadow: 5.19px 5.19px 255.44px 0px #00000080;
   border: 1px solid grey;
   padding-top: 80px;
-  position: relative;
+  width: 500px;
+  height: 524px;
+}
+
+.loading {
+  height: 40px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border: none;
 }
 
 dialog form {
@@ -322,6 +350,8 @@ nav ul {
   list-style-type: none;
   display: flex;
   gap: 10px;
+  margin: 0;
+  padding: 0;
 }
 
 .article-content ul {
@@ -360,21 +390,85 @@ a:hover {
   opacity: 0.7;
 }
 
-@media (max-width: 750px) {
-  nav,
+.header-order {
+  margin-top: 12px;
+  font-weight: 700;
+  background-color: #16db99;
+  font-size: 2rem;
+  padding: 10px 20px;
+  border-radius: 35px;
+  display: block;
+}
+
+details {
+  color: var(--label-color);
+  background: rgba(153, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  font-size: 2rem;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 20px;
+}
+
+summary {
+  color: white;
+}
+
+.second-article h1 {
+  margin-bottom: 2rem;
+}
+
+.faq-questions {
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  gap: var(--item-gaps);
+}
+
+@media (max-width: 800px) {
+  .second-article h1 {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  .second-article {
+    flex-direction: row-reverse;
+  }
+
+  .faq-questions {
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    gap: var(--item-gaps);
+  }
+
+  .second-article img {
+    display: none;
+  }
   main,
   header,
   .article-content {
-    width: 400px;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   nav {
     flex-direction: column;
   }
 
+  nav ul {
+    margin-top: 12px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   header q {
-    font-size: calc(var(--header-size) - 7px);
+    font-size: calc(var(--header-size) - 17px);
   }
   .article-content img {
     height: 20vh;
