@@ -31,6 +31,8 @@ body {
   padding: 0;
   font-family: "Source Sans 3", sans-serif;
   background-color: #ededed;
+  max-width: 375px;
+  margin: 0 auto;
 }
 
 i {
@@ -39,8 +41,6 @@ i {
 
 header,
 main {
-  max-width: 375px;
-  margin: 0 auto;
   overflow: hidden;
 }
 
@@ -114,8 +114,12 @@ header .logo {
   height: 100%;
   top: 0;
   margin: auto;
-  color: blue;
-  opacity: 0;
+}
+
+.heart-icon:hover {
+  background-color: grey;
+  opacity: 0.2;
+  backdrop-filter: blur(200px);
 }
 
 .likeAnimation {
@@ -146,8 +150,8 @@ header .logo {
 }
 
 .post-image img {
-  width: 100%;
   object-fit: cover;
+  -webkit-user-drag: none;
 }
 
 .buttons-comments {
@@ -187,4 +191,20 @@ header .logo {
 
 .buttons .fa-heart {
   font-size: 1.5rem;
+}
+
+@media (max-width: 500px) {
+  body {
+    margin: 0;
+  }
+
+  header,
+  main {
+    width: 100vw;
+  }
+
+  .post-image {
+    width: 100vw;
+    height: 100vw;
+  }
 }

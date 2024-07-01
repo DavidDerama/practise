@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderPosts();
 });
 
-function renderPosts() {
+function renderPosts(liked = "regular") {
   let html = "";
 
   posts.forEach((post, index) => {
@@ -24,10 +24,11 @@ function renderPosts() {
         </div>
         <div class="post-image" data-username="${post.username}">
           <img src="${post.post}" alt="" class="post-image" data-username="${post.username}"/>
+          <div class="heart-icon" data-username="${post.username}"></div>
         </div>
         <div class="buttons-comments">
           <div class="buttons">
-            <i class="fa-solid fa-heart ${likedClass}" data-like="${post.username}"></i>
+            <i class="fa-${liked} fa-heart ${likedClass}" data-like="${post.username}"></i>
             <button><img src="./images/icon-comment.png" alt="" /></button
             ><button><img src="./images/icon-dm.png" alt="" /></button>
           </div>
@@ -69,5 +70,5 @@ function handeLikes(username) {
     post.likes++;
   }
   post.isLiked = !post.isLiked;
-  renderPosts();
+  renderPosts("solid");
 }
