@@ -1,6 +1,6 @@
 import { menuArray } from "./data.js";
 
-const productContainer = document.querySelector("main");
+const productContainer = document.querySelector(".main-content");
 const cartEl = document.querySelector(".order-container");
 const totalPriceEl = document.querySelector(".total-price");
 const footer = document.querySelector("footer");
