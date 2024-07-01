@@ -1,0 +1,190 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --background: #1c1c1c;
+  --accent: #ffffff;
+  --content-max-width: 1200px;
+  --div-padding: 2rem;
+  --item-gaps: 1rem;
+
+  --header-size: 60px;
+  --header-weight: 900;
+  --header-color: #f2f2f2;
+
+  --second-header-size: 48px;
+  --third-header-size: 40px;
+
+  --text-size: 16px;
+  --text-weight: 400;
+  --text-color: #c2c2c2;
+
+  --label-size: 13px;
+  --label-color: #a2a2a2;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Source Sans 3", sans-serif;
+  background-color: #ededed;
+}
+
+i {
+  cursor: pointer;
+}
+
+header,
+main {
+  max-width: 375px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+header {
+  background-color: var(--accent);
+  height: 67px;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid #c6c6c6;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+header img {
+  align-self: center;
+}
+
+header .logo {
+  height: 53.02px;
+  width: 127px;
+}
+
+.post {
+  background-color: var(--accent);
+}
+
+.post-cred {
+  padding: 10px;
+  display: flex;
+  gap: 7px;
+}
+
+.profile-image {
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+}
+
+.post p {
+  margin: 0;
+}
+
+.post-image {
+  width: 375px;
+  height: 375px;
+  position: relative;
+  cursor: pointer;
+}
+
+.fa-solid {
+  color: #999;
+}
+
+.heart-icon {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  margin: auto;
+  color: blue;
+  opacity: 0;
+}
+
+.likeAnimation {
+  opacity: 1;
+  color: red;
+  animation-name: fade-appear;
+  animation-duration: 0.3s;
+  animation-delay: 0.4s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+}
+
+.postLiked {
+  color: red;
+}
+
+@keyframes fade-appear {
+  to {
+    opacity: 0;
+  }
+}
+
+.post-image .fa-heart {
+  font-size: calc(var(--header-size) * 2);
+  margin: 0;
+  color: inherit;
+}
+
+.post-image img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.buttons-comments {
+  padding: 21px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.avatar-name,
+.commenter-name,
+.likes {
+  font-weight: 700;
+  margin: 0;
+}
+
+.location {
+  margin: 0;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  padding: 0;
+}
+
+.buttons button {
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+.buttons button img {
+  width: 23.3px;
+  height: 23.3px;
+}
+
+.buttons .fa-heart {
+  font-size: 1.5rem;
+}
