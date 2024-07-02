@@ -1,12 +1,10 @@
-let arr = [];
-
 const postsContainer = document.querySelector("main");
 
 document.addEventListener("DOMContentLoaded", () => {
   fetchPosts();
 });
 
-function renderPosts(data, liked = "regular") {
+function renderPosts(data, liked = "solid") {
   let html = "";
 
   data.forEach((post, index) => {

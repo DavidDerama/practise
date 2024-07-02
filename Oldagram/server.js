@@ -47,10 +47,6 @@ app.put("/post/:id", (req, res) => {
   );
 });
 
-app.use((req, res) => {
-  res.send("Page not found");
-});
-
 app.listen(port, host, () => {
   console.log("Server running");
 });
