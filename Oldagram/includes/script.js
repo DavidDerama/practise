@@ -65,14 +65,6 @@ function handeLikes(username) {
     .then((data) => {
       renderPosts(data);
     });
-
-  // if (post.isLiked) {
-  //   post.likes--;
-  // } else {
-  //   post.likes++;
-  // }
-  // post.isLiked = !post.isLiked;
-  // renderPosts("solid");
 }
 
 function fetchPosts() {
