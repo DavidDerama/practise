@@ -1,0 +1,48 @@
+<%- include("osapohjat/header")%>
+<main>
+  <section class="main-content" id="main">
+    <h2>Employees</h2>
+    <div class="workers-section" id="workers">
+      <!-- <div class="worker">
+        <div class="avatar-info">
+          <div class="avatar">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <div class="info">
+            <p class="full-name"><span class="highlight">Bill Vautre</span></p>
+            <p class="company">
+              <span class="highlight">Company: </span>Schaefer, Crist and Feest
+            </p>
+            <p class="job-desc">
+              <span class="highlight">Job Description: </span>Product Management
+            </p>
+            <p class="city"><span class="highlight">City:</span>Bantul</p>
+          </div>
+        </div>
+        <button class="open-edit" data-edit>
+          <i data-edit><i class="fa-regular fa-pen-to-square"></i></i>
+        </button>
+      </div> -->
+    </div>
+
+    <div class="addworker" id="add-worker">
+      <form id="worker-form">
+        <fieldset>
+          <legend>Add an employe</legend>
+          <label for="etunimi">Etunimi:</label>
+          <input type="text" placeholder="Etunimi:" name="etunimi" required />
+          <label for="sukunimi">Sukunimi:</label>
+          <input type="text" placeholder="Sukunimi:" name="sukunimi" required />
+          <label for="yritys">Yritys:</label>
+          <input type="text" placeholder="Yritys:" name="yritys" required />
+          <label for="osasto">Osasto:</label>
+          <input type="text" placeholder="Osasto:" name="osasto" required />
+          <label for="kaupunki">Kaupunki:</label>
+          <input type="text" placeholder="Kaupunki:" name="kaupunki" required />
+          <button type="submit" id="form-submit">Add</button>
+        </fieldset>
+      </form>
+    </div>
+  </section>
+</main>
+<%- include("osapohjat/footer")%>
