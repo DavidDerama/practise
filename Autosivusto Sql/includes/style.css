@@ -1,0 +1,83 @@
+:root {
+  --background: #1c1c1c;
+  --accent: #ffffff;
+  --content-max-width: 1200px;
+  --div-padding: 2rem;
+  --item-gaps: 1rem;
+
+  --header-size: 60px;
+  --header-weight: 900;
+  --header-color: #f2f2f2;
+
+  --second-header-size: 48px;
+  --third-header-size: 40px;
+
+  --text-size: 16px;
+  --text-weight: 400;
+  --text-color: #c2c2c2;
+
+  --label-size: 13px;
+  --label-color: #a2a2a2;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  font-family: "Gloock", sans-serif;
+}
+
+header,
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: var(--header-size);
+  color: var(--header-color);
+  font-weight: var(--header-weight);
+}
+
+.todo {
+  border: 1px solid rgb(203 213 225);
+  border-radius: 0.25rem;
+  overflow: hidden;
+  background-color: var(--header-color);
+}
+.todo__input {
+  align-items: center;
+  display: flex;
+
+  border: transparent;
+  height: 2rem;
+  outline: none;
+  padding: 0 1rem;
+  width: 100%;
+}
+.todo__task {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+
+  border-top: 1px solid rgb(203 213 225);
+  padding: 0 1rem;
+}
+.todo__label {
+  flex: 1;
+}
+.todo__button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  height: 2rem;
+  padding: 0 1rem;
+  text-decoration: underline;
+}
