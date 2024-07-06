@@ -262,17 +262,37 @@ i {
   color: var(--header-color);
 }
 
-dialog {
+/* .modal-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  width: 60vw;
+} */
+
+.modal-form {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+
   background-color: var(--background);
   border: 1px solid black;
   border-radius: 10px;
   padding: 3rem;
-  width: 30vw;
+  width: 100vw;
+  height: 100vh;
   color: var(--header-color);
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  text-align: left;
 }
 
 dialog::backdrop {
@@ -305,6 +325,7 @@ dialog::backdrop {
   font-weight: 500;
   font-family: "Gabarito", sans-serif;
   border: 1px solid var(--header-color);
+  width: 20vw;
 }
 
 .modal-form button:hover {

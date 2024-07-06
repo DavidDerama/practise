@@ -2,13 +2,17 @@ const autotContainer = document.getElementById("autot-koti");
 const hakuTulos = document.getElementById("hakutulos");
 const hakuForm = document.getElementById("auto-haku");
 const hakuLocal = JSON.parse(localStorage.getItem("hakutulos"));
-const modal = document.querySelector("dialog");
 const lisaaBtn = document.getElementById("lisaa-btn");
 const lisaaForm = document.getElementById("lisaa-form");
 
-document.addEventListener("DOMContentLoaded", () => {
-  modal.showModal();
+if (autotContainer) {
+  document.addEventListener("DOMContentLoaded", () => {
+    lisaaForm.style.display = "none";
+    renderAutot();
+  });
+}
 
+function renderAutot() {
   fetch("/api/autot", {
     method: "GET",
     headers: { "Content-Type": "applciation/json" },
@@ -35,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .join("");
       autotContainer.innerHTML = html;
     });
-});
+}
 
 hakuForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -57,6 +61,8 @@ hakuForm.addEventListener("submit", (e) => {
 });
 
 if (hakuTulos) {
+  lisaaForm.style.display = "none";
+
   const hakuHtml = hakuLocal
     .map((el) => {
       return `<div class="auto">
@@ -78,7 +84,7 @@ if (hakuTulos) {
 }
 
 lisaaBtn.addEventListener("click", () => {
-  modal.showModal();
+  lisaaForm.style.display = "flex";
 });
 
 lisaaForm.addEventListener("submit", (e) => {
@@ -89,5 +95,19 @@ lisaaForm.addEventListener("submit", (e) => {
   const vuosimalli = formData.get("vuosimalli");
   const omistaja = formData.get("omistaja");
 
-  console.log(merkki);
+  fetch("/lisaa", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      merkki: merkki,
+      malli: malli,
+      vuosimalli: vuosimalli,
+      omistaja: omistaja,
+    }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      renderAutot();
+      lisaaForm.style.display = "none";
+    });
 });
