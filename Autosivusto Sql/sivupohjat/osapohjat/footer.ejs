@@ -1,13 +1,13 @@
 <form class="modal-form" id="lisaa-form">
     <legend>Lisää auto</legend>
     <label for="merkki">Merkki:</label>
-    <input type="text" name="merkki">
+    <input type="text" name="merkki" required>
     <label for="merkki">Malli:</label>
-    <input type="text"  name="malli">
+    <input type="text"  name="malli" required>
     <label for="merkki">Vuosimalli:</label>
-    <input type="text"  maxlength="4" name="vuosimalli">
+    <input type="number" name="vuosimalli" required>
     <label for="merkki">Omistaja:</label>
-        <input type="text"  name="omistaja">
+        <input type="text"  name="omistaja" required>
         <button type="submit">Lähetä</button>
 </form>
 </body>
