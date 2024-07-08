@@ -31,6 +31,24 @@ body {
   padding: 0;
   font-family: "Satoshi", sans-serif;
   background: var(--background);
+
+  --sb-track-color: #232e33;
+  --sb-thumb-color: var(--label-color);
+  --sb-size: 10px;
+}
+
+body::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 3px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 3px;
 }
 
 h1 {
@@ -70,6 +88,7 @@ p {
 main {
   width: var(--content-max-width);
 }
+
 .watchlist-header {
   background: url(./watchlist.jpg) top center fixed;
   background-size: cover;
@@ -90,7 +109,6 @@ main {
   display: block;
   margin: 0 auto;
   padding: 61px 0;
-  height: 70vh;
 }
 
 .main-content {
@@ -119,11 +137,12 @@ header a:hover {
 
 .header-content {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 h1 {
-  text-shadow: 0.07em 0 black, 0 0.07em black, -0.07em 0 black, 0 -0.07em black;
+  text-shadow: 0.04em 0 black, 0 0.04em black, -0.04em 0 black, 0 -0.04em black;
 }
 
 .header-content h1,
@@ -157,7 +176,7 @@ h1 {
   border: none;
   color: var(--header-color);
   font-family: "Satoshi", sans-serif;
-  width: 600px;
+  width: 400px;
 }
 
 .movie-search input:focus {
@@ -219,6 +238,11 @@ h1 {
   object-fit: cover;
   border-radius: 5px;
   height: 200px;
+}
+
+.movie-image:hover img {
+  opacity: 0.6;
+  cursor: pointer;
 }
 
 .notif-center {
@@ -315,4 +339,12 @@ h1 {
 
 .fa-x {
   color: red;
+}
+
+.save {
+  height: 4rem;
+}
+
+span {
+  color: var(--accent);
 }

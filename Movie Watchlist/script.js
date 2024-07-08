@@ -56,7 +56,7 @@ if (homeMainEl) {
         if (data.Response.includes("False")) {
           renderNotif("Movie not found", "fa-x");
         } else {
-          getMovieDesc(data.Search);
+          getMovieDesc(data.Search.slice(0, 5));
         }
       });
   });
