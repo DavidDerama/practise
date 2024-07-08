@@ -1,7 +1,7 @@
 :root {
   --background: #1c1c1c;
-  --accent: #ffffff;
-  --content-max-width: 1200px;
+  --accent: #6019e6;
+  --content-max-width: 1000px;
   --div-padding: 2rem;
   --item-gaps: 1rem;
 
@@ -10,9 +10,9 @@
   --header-color: #f2f2f2;
 
   --second-header-size: 48px;
-  --third-header-size: 40px;
+  --third-header-size: 30px;
 
-  --text-size: 16px;
+  --text-size: 20px;
   --text-weight: 400;
   --text-color: #c2c2c2;
 
@@ -42,7 +42,7 @@ h1 {
 
 h2 {
   font-size: var(--second-header-size);
-  color: var(--header-color);
+  color: var(--label-color);
   font-weight: var(--header-weight);
   margin: 0;
 }
@@ -59,10 +59,9 @@ p {
   font-weight: var(--text-weight);
   margin: 0;
 }
-
-p {
-  font-size: var(--label-size);
-  color: var(--label-color);
+.label {
+  font-size: 1rem;
+  color: var(--background);
   font-weight: var(--text-weight);
   margin: 0;
 }
@@ -70,31 +69,32 @@ p {
 .header-content,
 main {
   width: var(--content-max-width);
-  border: 1px solid white;
+}
+.watchlist-header {
+  background: url(./watchlist.jpg) top center fixed;
+  background-size: cover;
 }
 
 header {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url(https://m.media-amazon.com/images/M/MV5BMjIwMjc2NDAyNF5BMl5BanBnXkFtZTcwNTU0ODY2NA@@._V1_FMjpg_UX1000_.jpg)
+  background: url(https://theultimaterabbit.com/wp-content/uploads/2023/03/rocky-2.jpg)
     no-repeat bottom center fixed;
   background-size: cover;
-  height: 30vh;
+  height: 40vh;
   position: relative;
 }
 
 main {
   display: block;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 61px 0;
   height: 70vh;
 }
 
 .main-content {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
 }
 
@@ -106,7 +106,10 @@ header a {
   padding: 20px 30px;
   border-radius: 10px;
   border: 0.1px solid var(--header-color);
-  background-color: var(--background);
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+
   box-shadow: 20px 20px 60px #181818, -20px -20px 60px #202020;
 }
 
@@ -117,7 +120,6 @@ header a:hover {
 .header-content {
   display: flex;
   justify-content: space-between;
-  padding: 42px;
 }
 
 h1 {
@@ -155,10 +157,12 @@ h1 {
   border: none;
   color: var(--header-color);
   font-family: "Satoshi", sans-serif;
+  width: 600px;
 }
 
 .movie-search input:focus {
   outline: none;
+  background-color: transparent;
 }
 
 .search-input {
@@ -188,4 +192,127 @@ h1 {
 
 .button {
   align-self: center;
+}
+
+.movie {
+  display: flex;
+  gap: 21px;
+  width: 100%;
+  padding: 20px 0;
+  border-bottom: 1.5px solid var(--label-color);
+}
+
+.movie-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 34px 0;
+}
+
+.title-rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.movie-image img {
+  object-fit: cover;
+  border-radius: 5px;
+  height: 200px;
+}
+
+.notif-center {
+  position: fixed;
+  width: 400px;
+  height: 130px;
+  margin: 0;
+  top: 0;
+  translate: -50%;
+  left: 50%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.notif {
+  background-color: var(--header-color);
+  display: flex;
+  gap: 12px;
+  border-radius: 30px;
+  padding: 10px 20px;
+  animation-name: notif-slide;
+  animation-duration: 0.6s;
+  animation-delay: 0.5s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  margin-top: 1rem;
+}
+
+.movie-info ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 18px;
+  margin-bottom: 12px;
+}
+
+.movie-info button {
+  padding: 12px 14px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  background-image: linear-gradient(
+    to bottom,
+    #000000,
+    #090909,
+    #111111,
+    #171717,
+    #1c1c1c
+  );
+  color: var(--header-color);
+  border: 1px solid var(--label-color);
+  cursor: pointer;
+}
+
+.movie-info button:hover {
+  opacity: 0.8;
+}
+
+.watchlist-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: bolder;
+}
+
+.welcome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  height: 50vh;
+  color: var(--label-color);
+}
+
+@keyframes notif-slide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    translate: 0 5px;
+  }
+}
+
+.notif i,
+.notif p {
+  align-self: center;
+}
+
+.fa-x {
+  color: red;
 }

@@ -14,6 +14,9 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="icon" type="image/x-icon" href="./favicon.jpg">
+
+
   </head>
   <body>
     <header>
@@ -23,7 +26,7 @@
       </section>
       <form class="movie-search" id="movie-search">
         <div class="search-input">
-          <input type="text" name="search" id="" placeholder="Rocky..." />
+          <input type="text" name="search" id="" placeholder="Rocky..." autocomplete="off" required/>
         </div>
         <button type="submit">
           <i class="fa-solid fa-magnifying-glass"></i>
@@ -31,7 +34,15 @@
       </form>
     </header>
     <main>
-      <section class="main-content"></section>
+      <section class="main-content" id="main-content">
+        <div class="welcome">
+            <h2><i class="fa-solid fa-film"></i></h2>
+            <h2>Start Exploring</h2>
+        </div>
+      </section>
     </main>
+    <div class="notif-center">
+      </div>
+    </div>
   </body>
 </html>
