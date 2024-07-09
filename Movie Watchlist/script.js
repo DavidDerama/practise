@@ -2,6 +2,7 @@ const form = document.getElementById("movie-search");
 const homeMainEl = document.getElementById("main-content");
 const watchlistEl = document.querySelector(".watchlist");
 const notifCenter = document.querySelector(".notif-center");
+const trailerFrame = document.querySelector("iframe");
 let watchlistArr = [];
 
 const watchlist = JSON.parse(localStorage.getItem("watchlist"));
@@ -68,6 +69,13 @@ document.addEventListener("click", (e) => {
   if (e.target.dataset.trailer) {
     const movieId = e.target.dataset.trailer;
     renderTrailer(movieId);
+  }
+
+  if (!e.target.dataset.hideTrailer) {
+    trailerFrame.style.display = "none";
+    trailerFrame.src = "";
+    document.querySelector("header").style.filter = "none";
+    document.querySelector("main").style.filter = "none";
   }
 });
 
@@ -153,14 +161,21 @@ function renderTrailer(movieId) {
           const filteredResults = results.filter((movie) => {
             return movie.official && movie.type.includes("Trailer");
           });
-          const trailerId = filteredResults[0].key;
-          const trailerLink = `https://www.youtube.com/embed/${trailerId}?si=-l0VOGSng81FHOP8`;
-          const trailerFrame = document.querySelector("iframe");
 
-          trailerFrame.src = trailerLink;
-          document.querySelector("header").style.filter = "blur(10px)";
-          document.querySelector("main").style.filter = "blur(10px)";
-          trailerFrame.style.display = "block";
+          if (filteredResults.length) {
+            const randomOrder = Math.floor(
+              Math.random() * filteredResults.length
+            );
+            console.log(results);
+            const trailerLink = `https://www.youtube.com/embed/${filteredResults[randomOrder].key}?si=-l0VOGSng81FHOP8`;
+
+            trailerFrame.src = trailerLink;
+            document.querySelector("header").style.filter = "blur(10px)";
+            document.querySelector("main").style.filter = "blur(10px)";
+            trailerFrame.style.display = "block";
+          } else {
+            renderNotif("Trailer not found", "fa-x");
+          }
         });
     });
 }
