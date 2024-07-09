@@ -53,12 +53,13 @@ document.addEventListener("click", (e) => {
     }
   }
   if (e.target.dataset.remove) {
-    const index = e.target.dataset.remove;
+    const index = parseInt(e.target.dataset.remove);
     const newArr = watchlist.splice(index, 1);
     localStorage.setItem("watchlist", JSON.stringify(newArr));
     getWatchlist();
     renderNotif("Movie removed from watchlist", "fa-check");
     if (!watchlist.length) {
+      localStorage.clear();
       watchlistEl.innerHTML = `<div class="welcome">
             <h2><i class="fa-solid fa-film"></i></h2>
             <h2>Add a movie to your watchlist</h2>
@@ -102,9 +103,9 @@ function getMovieDesc(arr) {
               <div class="movie-info">
                   <div class="title-rating" data-trailer="${data.imdbID}"><h3 data-trailer="${data.imdbID}">${data.Title}</h3><p>⭐${data.imdbRating}</p></div>
                   <ul>
-                      <li><p>${data.Year}</p></li>
-                      <li><p>${data.Runtime}</p></li>
-                      <li><p>${data.Genre}</p></li>
+                      <li class="mobile-hide"><p>${data.Year}</p></li>
+                      <li class="mobile-hide"><p>${data.Runtime}</p></li>
+                      <li class="mobile-hide"><p>${data.Genre}</p></li>
                       <li class="watchlist-btn">
                           <button class="add-watch" data-movie-id="${data.imdbID}"><i class="fa-solid fa-plus" data-movie-id="${data.imdbID}"></i></button>
                           <p>Watchlist</p>
@@ -130,9 +131,9 @@ function getWatchlist() {
                   <div class="movie-info">
                       <div class="title-rating"><h3>${data.Title}</h3><p>⭐${data.imdbRating}</p></div>
                       <ul>
-                          <li><p>${data.Year}</p></li>
-                          <li><p>${data.Runtime}</p></li>
-                          <li><p>${data.Genre}</p></li>
+                          <li class="mobile-hide"><p>${data.Year}</p></li>
+                          <li class="mobile-hide"><p>${data.Runtime}</p></li>
+                          <li class="mobile-hide"><p>${data.Genre}</p></li>
                       </ul>
                       <div class="desc">
                       <p>${data.Plot}</p><button class="remove-watch" data-remove="${index}">Remove</button>

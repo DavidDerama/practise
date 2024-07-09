@@ -451,6 +451,14 @@ iframe {
     width: calc(1920px / 3);
     height: calc(1080px / 3);
   }
+  .mobile-hide {
+    display: none;
+  }
+
+  .movie ul {
+    margin-top: 1rem;
+    order: 3;
+  }
 }
 
 @media (max-width: 700px) {
@@ -460,9 +468,6 @@ iframe {
   }
   main {
     padding: 4rem 0;
-  }
-  .movie ul {
-    display: none;
   }
 
   .movie-search {
