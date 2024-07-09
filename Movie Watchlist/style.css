@@ -37,6 +37,11 @@ body {
   --sb-size: 10px;
 }
 
+button,
+input {
+  font-family: "Satoshi", sans-serif;
+}
+
 body::-webkit-scrollbar {
   width: var(--sb-size);
 }
@@ -90,7 +95,7 @@ main {
 }
 
 .watchlist-header {
-  background: url(./watchlist.jpg) top center fixed;
+  background: url(./hogwarts.jpg) no-repeat center bottom fixed;
   background-size: cover;
 }
 
@@ -114,6 +119,7 @@ main {
 .main-content {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
 }
 
 header a {
@@ -161,13 +167,13 @@ h1 {
     #171717,
     #1c1c1c
   );
-  border: 1px solid var(--label-color);
+  border: 0.1px solid dimgrey;
   display: flex;
   justify-content: space-between;
   padding-left: 23px;
-  width: 40vw;
+  width: 35vw;
   height: 60px;
-  border-radius: 10px;
+  border-radius: 30px;
   overflow: hidden;
 }
 
@@ -175,8 +181,7 @@ h1 {
   background: transparent;
   border: none;
   color: var(--header-color);
-  font-family: "Satoshi", sans-serif;
-  width: 400px;
+  width: 550px;
 }
 
 .movie-search input:focus {
@@ -215,10 +220,30 @@ h1 {
 
 .movie {
   display: flex;
-  gap: 21px;
-  width: 100%;
-  padding: 20px 0;
-  border-bottom: 1.5px solid var(--label-color);
+  align-items: center;
+  gap: 12px;
+  backdrop-filter: blur(24px);
+  border-radius: 8px;
+  border: 2px solid var(--accent);
+  padding: 20px;
+  box-shadow: 0 8px 32px 0 rgba(44, 44, 44, 0.37);
+}
+
+.main-movie {
+  animation-name: movie-fade;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes movie-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .movie-info {
@@ -241,8 +266,9 @@ h1 {
 }
 
 .movie-image:hover img {
-  opacity: 0.6;
   cursor: pointer;
+  outline: 3px solid var(--header-color);
+  outline-offset: -2px;
 }
 
 .notif-center {
@@ -284,7 +310,7 @@ h1 {
   margin-bottom: 12px;
 }
 
-.movie-info button {
+.add-watch {
   padding: 12px 14px;
   border-radius: 50%;
   border: none;
@@ -298,6 +324,19 @@ h1 {
     #1c1c1c
   );
   color: var(--header-color);
+  border: 1px solid var(--label-color);
+  cursor: pointer;
+}
+
+.remove-watch {
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 1rem;
+  border: none;
+  background: transparent;
+  background-color: red;
+  color: var(--background);
+  font-weight: bold;
   border: 1px solid var(--label-color);
   cursor: pointer;
 }
@@ -318,7 +357,7 @@ h1 {
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  height: 50vh;
+  height: 40vh;
   color: var(--label-color);
 }
 
@@ -347,4 +386,70 @@ h1 {
 
 span {
   color: var(--accent);
+}
+
+.desc {
+  flex-direction: column;
+  display: flex;
+  gap: 5px;
+  align-items: start;
+}
+
+iframe {
+  position: fixed;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  width: calc(1920px / 2);
+  height: calc(1080px / 2);
+  border-radius: 10px;
+  border: 1px solid pink;
+  display: none;
+  z-index: 9999;
+}
+
+@media (max-width: 1100px) {
+  header,
+  main {
+    width: 100vw;
+  }
+
+  main {
+    padding: 4rem 3rem;
+  }
+
+  .movie-search {
+    width: 80vw;
+  }
+
+  .movie-search input {
+    width: 60vw;
+  }
+}
+
+@media (max-width: 600px) {
+  h1,
+  h2 {
+    font-size: calc((var(--header-size) / 1.7));
+  }
+  main {
+    padding: 4rem 0;
+  }
+  .movie ul {
+    display: none;
+  }
+
+  .movie-search {
+    width: 90vw;
+  }
+
+  .movie {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    border-bottom: 1px solid var(--label-color);
+  }
 }
