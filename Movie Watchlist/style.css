@@ -95,7 +95,7 @@ main {
 }
 
 .watchlist-header {
-  background: url(./hogwarts.jpg) no-repeat center bottom fixed;
+  background: url(./images/hogwarts.jpg) no-repeat center bottom fixed;
   background-size: cover;
 }
 
@@ -103,8 +103,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url(https://theultimaterabbit.com/wp-content/uploads/2023/03/rocky-2.jpg)
-    no-repeat bottom center fixed;
+  background: url(./images/rocky.jpg) no-repeat bottom center fixed;
   background-size: cover;
   height: 40vh;
   position: relative;
@@ -414,6 +413,20 @@ iframe {
   display: none;
   z-index: 9999;
   box-shadow: 0 0 100px 50px rgb(31, 30, 30);
+  animation-name: trailer-fade;
+  animation-duration: 0.6s;
+  animation-timing-function: ease;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes trailer-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @media (max-width: 1100px) {
@@ -433,9 +446,14 @@ iframe {
   .movie-search input {
     width: 60vw;
   }
+
+  iframe {
+    width: calc(1920px / 3);
+    height: calc(1080px / 3);
+  }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   h1,
   h2 {
     font-size: calc((var(--header-size) / 1.7));
@@ -457,5 +475,9 @@ iframe {
     box-shadow: none;
     border-radius: 0;
     border-bottom: 1px solid var(--label-color);
+  }
+  iframe {
+    width: calc(1920px / 5);
+    height: calc(1080px / 5);
   }
 }
