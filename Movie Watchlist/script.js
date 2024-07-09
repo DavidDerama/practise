@@ -111,7 +111,7 @@ function getMovieDesc(arr) {
                   <img src="${data.Poster}" alt="" data-trailer="${data.imdbID}">
               </div>
               <div class="movie-info">
-                  <div class="title-rating" data-trailer="${data.imdbID}"><h3 data-trailer="${data.imdbID}">${data.Title}</h3><p>⭐${data.imdbRating}</p></div>
+                  <div class="title-rating"><h3 data-trailer="${data.imdbID}">${data.Title}</h3><p>⭐${data.imdbRating}</p></div>
                   <ul>
                       <li class="mobile-hide"><p>${data.Year}</p></li>
                       <li class="mobile-hide"><p>${data.Runtime}</p></li>
@@ -139,7 +139,7 @@ function getWatchlist() {
                       <img src="${data.Poster}" alt="">
                   </div>
                   <div class="movie-info">
-                      <div class="title-rating"><h3>${data.Title}</h3><p>⭐${data.imdbRating}</p></div>
+                      <div class="title-rating"><h3 data-trailer="${data.imdbID}">${data.Title}</h3><p>⭐${data.imdbRating}</p></div>
                       <ul>
                           <li class="mobile-hide"><p>${data.Year}</p></li>
                           <li class="mobile-hide"><p>${data.Runtime}</p></li>
