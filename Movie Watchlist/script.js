@@ -73,10 +73,13 @@ document.addEventListener("click", (e) => {
   }
 
   if (!e.target.dataset.hideTrailer) {
-    trailerFrame.style.display = "none";
-    trailerFrame.src = "";
-    document.querySelector("header").style.filter = "none";
-    document.querySelector("main").style.filter = "none";
+    hideTrailer();
+  }
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    hideTrailer();
   }
 });
 
@@ -86,6 +89,13 @@ function renderNotif(message, status) {
     <i class="fa-solid ${status}"></i>
     <p class="label">${message}</p>
   </div>`;
+}
+
+function hideTrailer() {
+  trailerFrame.style.display = "none";
+  trailerFrame.src = "";
+  document.querySelector("header").style.filter = "none";
+  document.querySelector("main").style.filter = "none";
 }
 
 function getMovieDesc(arr) {
