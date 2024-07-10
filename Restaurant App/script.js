@@ -31,19 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   let html = "";
-  //   html += menuArray
-  //     .map((product) => {
-  //       html += `<section class="item-product">
-  //                <h1 class="emoji">${product.emoji}</h1>
-  //         <div class="product-info">
-  //           <h3>${product.name}</h3>
-  //           <label>${product.ingredients.join(", ")}</label>
-  //           <p>${product.price}</p>
-  //         </div>
-  //         <><i class="fa-solid fa-plus"></i></>
-  //       </section>`;
-  //     })
-  //     .join("");
 
   html += menuArray
     .map((product) => {
