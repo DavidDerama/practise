@@ -180,7 +180,7 @@ h1 {
   background: transparent;
   border: none;
   color: var(--header-color);
-  width: 550px;
+  width: 20vw;
 }
 
 .movie-search input:focus {
