@@ -22,7 +22,7 @@ if (homeMainEl) {
     e.preventDefault();
     const formData = new FormData(form);
     const keyword = formData.get("search");
-    fetch(`http://www.omdbapi.com/?s=${keyword}&apikey=70717e7f&type=movie`)
+    fetch(`https://www.omdbapi.com/?s=${keyword}&apikey=70717e7f&type=movie`)
       .then((res) => res.json())
       .then((data) => {
         if (data.Response.includes("False")) {
@@ -135,8 +135,8 @@ function getWatchlist() {
       .then((res) => res.json())
       .then((data) => {
         watchlistEl.innerHTML += `<div class="movie">
-                  <div class="movie-image">
-                      <img src="${data.Poster}" alt="">
+                  <div class="movie-image" data-trailer="${data.imdbID}">
+                      <img src="${data.Poster}" data-trailer="${data.imdbID}" alt="">
                   </div>
                   <div class="movie-info">
                       <div class="title-rating"><h3 data-trailer="${data.imdbID}">${data.Title}</h3><p>⭐${data.imdbRating}</p></div>

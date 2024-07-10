@@ -15,17 +15,19 @@ let cart = [];
 let isLightMode = false;
 
 document.addEventListener("DOMContentLoaded", () => {
-  if (localStorageTheme.includes("disabled")) {
-    document.body.style.background = "#1c1c1c";
-    localStorage.setItem("isLightMode", "disabled");
-    themeChange.classList.remove("fa-sun");
-    themeChange.classList.add("fa-moon");
-  } else if (localStorageTheme.includes("enabled")) {
-    document.body.style.background =
-      "radial-gradient(circle, #16db99, #00c3b6, #00a7c5, #0089c1, #0069a9)";
-    themeChange.classList.remove("fa-moon");
-    themeChange.classList.add("fa-sun");
-    localStorage.setItem("isLightMode", "enabled");
+  if (localStorageTheme) {
+    if (localStorageTheme.includes("disabled")) {
+      document.body.style.background = "#1c1c1c";
+      localStorage.setItem("isLightMode", "disabled");
+      themeChange.classList.remove("fa-sun");
+      themeChange.classList.add("fa-moon");
+    } else if (localStorageTheme.includes("enabled")) {
+      document.body.style.background =
+        "radial-gradient(circle, #16db99, #00c3b6, #00a7c5, #0089c1, #0069a9)";
+      themeChange.classList.remove("fa-moon");
+      themeChange.classList.add("fa-sun");
+      localStorage.setItem("isLightMode", "enabled");
+    }
   }
 
   let html = "";
