@@ -101,8 +101,6 @@ document.addEventListener("submit", (e) => {
   e.preventDefault();
   const formData = new FormData(form);
   const name = formData.get("name");
-  const card = formData.get("card");
-  const cvv = formData.get("cvv");
 
   modal.innerHTML = `<img src="images/loading.svg" alt="" class="loading">`;
 
@@ -111,16 +109,6 @@ document.addEventListener("submit", (e) => {
     notifEl.innerHTML = `  <div class="notif notif-animation">
       <i class="fa-solid fa-check"></i><label>Thanks, ${name}! Your order is on its way!</label>
     </div>`;
-    modal.innerHTML = `<img src="images/wallet-front-color.png" alt=""><h2>Enter card details</h2> <form id="detail-info"><input type="text" placeholder="Enter your name" name="name" required> <input id="ccn" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" 
-    autocomplete="cc-number" maxlength="19" 
-    placeholder="xxxx xxxx xxxx xxxx" name="card"  required> <input type="text" placeholder="Enter CVV" maxlength="3"  name="cvv" required>
-    
-
-
-
-    <button class="special-button" type="submit">Complete order</button>
-
-</form>`;
   }, 3000);
 });
 
