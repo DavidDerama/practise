@@ -1,3 +1,25 @@
+:root {
+  --background: #1c1c1c;
+  --accent: #ffffff;
+  --content-max-width: 1200px;
+  --div-padding: 2rem;
+  --item-gaps: 1rem;
+
+  --header-size: 60px;
+  --header-weight: 900;
+  --header-color: #f2f2f2;
+
+  --second-header-size: 48px;
+  --third-header-size: 40px;
+
+  --text-size: 16px;
+  --text-weight: 400;
+  --text-color: #c2c2c2;
+
+  --label-size: 13px;
+  --label-color: #a2a2a2;
+}
+
 *,
 *::before,
 *::after {
@@ -7,4 +29,5 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: var(--background);
 }
