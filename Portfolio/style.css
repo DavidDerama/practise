@@ -30,12 +30,13 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--background);
+  font-family: "Gloock", sans-serif;
 }
 
 h1 {
   font-size: var(--header-size);
   color: var(--header-color);
-  font-family: "Gloock", sans-serif;
+  font-weight: var(--header-weight);
   margin: 0;
 }
 
