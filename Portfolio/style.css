@@ -31,3 +31,17 @@ body {
   padding: 0;
   background-color: var(--background);
 }
+
+h1 {
+  font-size: var(--header-size);
+  color: var(--header-color);
+  font-family: "Gloock", sans-serif;
+  margin: 0;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
