@@ -1,0 +1,77 @@
+:root {
+  --background: #1c1c1c;
+  --accent: #ffffff;
+  --content-max-width: 1200px;
+  --div-padding: 2rem;
+  --item-gaps: 1rem;
+
+  --header-size: 40px;
+  --header-weight: 900;
+  --header-color: #f2f2f2;
+
+  --second-header-size: 28px;
+  --third-header-size: 20px;
+
+  --text-size: 16px;
+  --text-weight: 400;
+  --text-color: #c2c2c2;
+
+  --label-size: 13px;
+  --label-color: #a2a2a2;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: var(--background);
+  color: var(--header-color);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: var(--header-color);
+  font-weight: var(--header-weight);
+  font-size: var(--header-size);
+  margin: 0;
+}
+
+h2 {
+  color: var(--header-color);
+  font-weight: var(--header-weight);
+  font-size: var(--second-header-size);
+  margin: 0;
+}
+
+h3 {
+  color: var(--header-color);
+  font-weight: var(--header-weight);
+  font-size: var(--third-header-size);
+  margin: 0;
+}
+
+p {
+  color: var(--text-color);
+  font-weight: var(--text-weight);
+  font-size: var(--text-size);
+  margin: 0;
+}
+
+.label {
+  color: var(--label-color);
+  font-weight: bold;
+  font-size: var(--label-size);
+}
+
+.website {
+  margin-top: 8px;
+}
