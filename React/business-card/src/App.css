@@ -2,6 +2,7 @@
   border-radius: 10px;
   overflow: hidden;
   width: calc(317px * 1.3);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 header {
