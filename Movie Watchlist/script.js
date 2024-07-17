@@ -54,8 +54,8 @@ document.addEventListener("click", (e) => {
   }
   if (e.target.dataset.remove) {
     const index = parseInt(e.target.dataset.remove);
-    const newArr = watchlist.splice(index, 1);
-    localStorage.setItem("watchlist", JSON.stringify(newArr));
+    watchlist.splice(index, 1);
+    localStorage.setItem("watchlist", JSON.stringify(watchlist));
     getWatchlist();
     renderNotif("Movie removed from watchlist", "fa-check");
     if (!watchlist.length) {
