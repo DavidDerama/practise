@@ -10,7 +10,9 @@ export default function Section(props) {
             <i class="fa-solid fa-location-pin"></i>
             {props.item.location}
           </h2>
-          <a href={props.item.googleMapsUrl}>View on Google Maps</a>
+          <a href={props.item.googleMapsUrl} target="_blank">
+            View on Google Maps
+          </a>
         </div>
         <h2 className="title">{props.item.title}</h2>
         <h3 className="date">
