@@ -55,8 +55,8 @@ main section:last-child {
 
 .section--image img {
   border-radius: 5px;
-  height: 270px;
-  width: 270px;
+  height: 290px;
+  width: 290px;
   object-fit: cover;
 }
 
@@ -107,7 +107,7 @@ main section:last-child {
   border: 1px solid var(--background);
 }
 
-@media (max-width: 850px) {
+@media (max-width: 1000px) {
   section {
     width: 85vw;
     flex-direction: column;
