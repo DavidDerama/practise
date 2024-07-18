@@ -63,7 +63,7 @@ main section:last-child {
 .section--desc {
   display: flex;
   flex-direction: column;
-  gap: 9px;
+  gap: 12px;
   padding: 0 19px;
 }
 
