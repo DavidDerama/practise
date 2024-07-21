@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Meme from "./components/Meme";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
 export default function App() {
@@ -19,7 +21,6 @@ export default function App() {
   }, []);
 
   function handleChange(event) {
-    console.log(event.target.value);
     const { name, value } = event.target;
     setFormData((prev) => {
       return {
@@ -35,6 +36,10 @@ export default function App() {
     const imgUrl = allMemes[order].url;
 
     setFormData((prev) => {
+      toast.success("Meme Changed", {
+        closeButton: false,
+      });
+
       return {
         ...prev,
         randomImgUrl: imgUrl,
@@ -44,6 +49,14 @@ export default function App() {
 
   return (
     <div className="app">
+      <ToastContainer
+        autoClose="500"
+        position="bottom-right"
+        hideProgressBar="true"
+        style={{
+          width: "fit-content",
+        }}
+      />
       <Header />
       <main>
         <form onSubmit={handleSubmit}>
