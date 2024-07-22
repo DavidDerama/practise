@@ -50,11 +50,13 @@ export default function App() {
   return (
     <div className="app">
       <ToastContainer
-        autoClose="500"
+        autoClose="1000"
         position="bottom-right"
         hideProgressBar="true"
+        limit={6}
         style={{
           width: "fit-content",
+          fontSize: "14px",
         }}
       />
       <Header />

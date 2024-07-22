@@ -16,14 +16,16 @@ header {
 }
 
 main {
+  max-width: 70%;
+  margin: 0 auto;
   display: flex;
   align-items: center;
-  border: 1px solid black;
+  width: 100%;
   flex: 1;
   flex-direction: column;
   gap: 32px;
   color: var(--background);
-  padding: 28px 37px;
+  padding: 28px 0px;
 }
 
 main form {
@@ -32,9 +34,8 @@ main form {
   flex-wrap: wrap;
 }
 
-main form,
-.meme img {
-  max-width: 477px;
+main form {
+  width: 100%;
 }
 
 main input,
@@ -43,7 +44,7 @@ main button {
 }
 
 main input {
-  flex: 1 0 222px;
+  flex: 1 1 222px;
   font-size: 1rem;
   padding: 7px 10px;
   border: 1px solid #d1d5db;
@@ -51,7 +52,7 @@ main input {
 }
 
 main button {
-  flex: 1 0 100%;
+  flex: 1 1 100%;
   background: linear-gradient(90deg, #672280 1.18%, #a626d3 100%);
   border-radius: 5px;
   padding: 10px 0;
@@ -78,7 +79,7 @@ main button:hover {
 
 .meme img {
   border-radius: 6px;
-  object-fit: cover;
+  max-height: 30vh;
 }
 
 .meme {
