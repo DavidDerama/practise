@@ -14,7 +14,7 @@ export default function Question(props) {
     }
 
     return (
-      <>
+      <div className="questions">
         {props.showCorrect ? (
           <input
             type="radio"
@@ -22,8 +22,8 @@ export default function Question(props) {
             className="radio-input"
             id={itemId}
             value={item}
-            onClick={props.getAnswer}
             disabled
+            defaultChecked={false}
           />
         ) : (
           <input
@@ -44,7 +44,7 @@ export default function Question(props) {
             {decode(item)}
           </label>
         )}
-      </>
+      </div>
     );
   });
   return (

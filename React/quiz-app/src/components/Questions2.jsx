@@ -11,13 +11,9 @@ export default function Question(props) {
     }
 
     return (
-      <>
+      <div className="questions">
         {props.showCorrect ? (
-          <button
-            type="button"
-            onClick={(event) => props.getAnswer(event, item)}
-            className="question--option"
-          >
+          <button type="button" className="question--option" disabled>
             {item}
           </button>
         ) : (
@@ -38,7 +34,7 @@ export default function Question(props) {
             {decode(item)}
           </label>
         )} */}
-      </>
+      </div>
     );
   });
   return (

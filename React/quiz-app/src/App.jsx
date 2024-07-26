@@ -79,7 +79,7 @@ export default function App() {
   }
 
   function getAnswer(event, valueFromBtn) {
-    console.log(valueFromBtn);
+    event.target.style.backgroundColor = "pink";
     const { name, value } = event.target;
     setFormData((prev) => {
       return { ...prev, [name]: value };
