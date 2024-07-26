@@ -1,0 +1,66 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --background: #1c1c1c;
+  --accent: #ffffff;
+  --content-max-width: 1200px;
+  --div-padding: 2rem;
+  --item-gaps: 1rem;
+
+  --header-size: 48px;
+  --header-weight: 900;
+  --header-color: #f2f2f2;
+
+  --second-header-size: 38px;
+  --third-header-size: 30px;
+
+  --text-size: 16px;
+  --text-weight: 400;
+  --text-color: #c2c2c2;
+
+  --label-size: 13px;
+  --label-color: #a2a2a2;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, sans-serif;
+  color: #293264;
+  background-color: #f5f7fb;
+  background-image: url("blobs.png");
+  background-repeat: no-repeat;
+  background-size: 25%;
+  background-position: bottom left;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--header-size);
+  font-weight: var(--header-weight);
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: var(--header-weight);
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+p {
+  font-size: var(--text-size);
+  font-weight: var(--text-weight);
+}
