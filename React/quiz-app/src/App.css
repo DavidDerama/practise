@@ -6,11 +6,8 @@
   height: 100vh;
   width: 100vw;
   position: fixed;
-  background-color: #f5f7fb;
-  background-image: url("blobs.png");
-  background-repeat: no-repeat;
-  background-size: 25%;
-  background-position: bottom left;
+  background-image: url("https://products.ls.graphics/mesh-gradients/images/38.-Sky-Blue_1.jpg");
+  background-size: cover;
 }
 
 .landing h1 {
@@ -27,6 +24,8 @@
   width: 193px;
   margin-top: 29px;
   font-size: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  font-weight: bold;
 }
 
 .landing--start:hover,
@@ -44,8 +43,8 @@ main {
 }
 
 .question-container {
-  padding: 1rem;
-  max-width: var(--content-max-width);
+  padding: 1.2rem;
+  width: var(--content-max-width);
   border-bottom: 0.8px solid #dbdef0;
 }
 
@@ -57,7 +56,11 @@ main {
 
 .question--option {
   padding: 10px 20px;
-  border: 1px solid #293264;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 15px;
   background-color: transparent;
   font-size: 12px;
@@ -70,8 +73,16 @@ main {
   cursor: pointer;
 }
 
-.question--option.selected {
-  background-color: #d6dbf5;
+/* .question--option:focus {
+  outline: 1px solid white;
+  outline-offset: -2px;
+  background-color: #1092ca;
+} */
+
+.question--option--selected {
+  outline: 1px solid white;
+  outline-offset: -2px;
+  background-color: #1092ca;
 }
 
 input,
@@ -88,7 +99,9 @@ input[type="radio"] {
 }
 
 input[type="radio"]:checked + label {
-  background-color: #d6dbf5;
+  outline: 1px solid white;
+  outline-offset: -2px;
+  background-color: #1092ca;
 }
 
 input[type="radio"]:disabled + label {

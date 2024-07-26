@@ -16,26 +16,23 @@ export default function Question(props) {
     return (
       <>
         {props.showCorrect ? (
-          <input
-            type="radio"
-            name={name}
-            className="radio-input"
-            id={itemId}
-            value={item}
-            onClick={props.getAnswer}
-            disabled
-          />
+          <button
+            type="button"
+            onClick={(event) => props.getAnswer(event, item)}
+            className="question--option"
+          >
+            {item}
+          </button>
         ) : (
-          <input
-            type="radio"
-            name={name}
-            className="radio-input"
-            id={itemId}
-            value={item}
-            onClick={props.getAnswer}
-          />
+          <button
+            type="button"
+            onClick={(event) => props.getAnswer(event, item)}
+            className="question--option"
+          >
+            {item}
+          </button>
         )}
-        {props.showCorrect ? (
+        {/* {props.showCorrect ? (
           <label htmlFor={itemId} className="question--option" style={styles}>
             {decode(item)}
           </label>
@@ -43,7 +40,7 @@ export default function Question(props) {
           <label htmlFor={itemId} className="question--option">
             {decode(item)}
           </label>
-        )}
+        )} */}
       </>
     );
   });

@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
-import "./App.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Landing from "./components/Landing.jsx";
 import Questions from "./components/Questions.jsx";
+import "./App.css";
+import Confetti from "react-confetti";
 
 export default function App() {
   const [landing, setLanding] = useState(true);
@@ -15,11 +18,12 @@ export default function App() {
   });
   const [showCorrect, setShowCorrect] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
+  const [userAnswers, setUserAnswers] = useState([]);
 
   function startGame() {
     setShowCorrect(false);
     fetch(
-      "https://opentdb.com/api.php?amount=5&category=9&difficulty=medium&type=multiple"
+      "https://opentdb.com/api.php?amount=5&category=9&difficulty=easy&type=multiple"
     )
       .then((res) => res.json())
       .then((data) => {
@@ -35,7 +39,6 @@ export default function App() {
               answers: [...shufflled],
             });
           });
-          console.log(newArr);
           setQuestions(newArr);
         }
       });
@@ -43,7 +46,14 @@ export default function App() {
   }
 
   function newGame() {
-    startGame();
+    const resolveAfter3Sec = new Promise((resolve) =>
+      setTimeout(resolve, 3000)
+    );
+    toast.promise(resolveAfter3Sec, {
+      pending: "New quiz being made",
+      success: "New quiz  made",
+      error: "Error",
+    });
     setFormData({
       question1: "",
       question2: "",
@@ -51,8 +61,11 @@ export default function App() {
       question4: "",
       question5: "",
     });
-    console.log(showCorrect);
-    console.log(formData);
+    setCorrectCount(0);
+    setTimeout(() => {
+      startGame();
+      notify();
+    }, 3000);
   }
 
   function shuffle(arr) {
@@ -65,8 +78,8 @@ export default function App() {
     return arr;
   }
 
-  function getAnswer(event) {
-    event.target.style = { backgroundColor: "green" };
+  function getAnswer(event, valueFromBtn) {
+    console.log(valueFromBtn);
     const { name, value } = event.target;
     setFormData((prev) => {
       return { ...prev, [name]: value };
@@ -77,6 +90,8 @@ export default function App() {
     event.preventDefault();
     setShowCorrect(true);
     const userAnswers = [...Object.values(formData)];
+    setUserAnswers(userAnswers);
+    console.log(userAnswers);
     let sum = 0;
     for (let i = 0; i < questions.length; i++) {
       if (userAnswers[i] == questions[i].correct_answer) {
@@ -97,6 +112,7 @@ export default function App() {
         getAnswer={getAnswer}
         question={item.question}
         answers={item.answers}
+        userAnswers={userAnswers}
         correct_answer={item.correct_answer}
         showCorrect={showCorrect}
         questionIndex={index}
@@ -113,6 +129,18 @@ export default function App() {
 
   return (
     <div className="app">
+      {correctCount === 5 && <Confetti />}
+      <ToastContainer
+        autoClose="1000"
+        position="top-center"
+        hideProgressBar="true"
+        limit={3}
+        style={{
+          width: "fit-content",
+          fontSize: "14px",
+        }}
+      />
+
       {landing && <Landing startGame={startGame} />}
       <main>
         <form onSubmit={handleSubmit}>

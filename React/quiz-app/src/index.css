@@ -11,12 +11,12 @@
   --div-padding: 2rem;
   --item-gaps: 1rem;
 
-  --header-size: 48px;
+  --header-size: 60px;
   --header-weight: 900;
   --header-color: #f2f2f2;
 
-  --second-header-size: 38px;
-  --third-header-size: 30px;
+  --second-header-size: 28px;
+  --third-header-size: 20px;
 
   --text-size: 16px;
   --text-weight: 400;
@@ -24,6 +24,7 @@
 
   --label-size: 13px;
   --label-color: #a2a2a2;
+  --toastify-toast-min-height: auto;
 }
 
 body {
@@ -31,11 +32,8 @@ body {
   padding: 0;
   font-family: system-ui, sans-serif;
   color: #293264;
-  background-color: #f5f7fb;
-  background-image: url("blobs.png");
-  background-repeat: no-repeat;
-  background-size: 25%;
-  background-position: bottom left;
+  background-image: url("https://products.ls.graphics/mesh-gradients/images/38.-Sky-Blue_1.jpg");
+  background-size: cover;
 }
 
 h1,
@@ -43,6 +41,7 @@ h2,
 h3,
 p {
   margin: 0;
+  color: var(--header-color);
 }
 
 h1 {
@@ -51,8 +50,8 @@ h1 {
 }
 
 h2 {
-  font-size: 2rem;
-  font-weight: var(--header-weight);
+  font-size: var(--second-header-size);
+  font-weight: 300;
 }
 
 h3 {
@@ -63,4 +62,10 @@ h3 {
 p {
   font-size: var(--text-size);
   font-weight: var(--text-weight);
+}
+
+.label {
+  font-weight: bold;
+  font-size: var(--label-size);
+  margin: 6px;
 }
