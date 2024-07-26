@@ -102,11 +102,6 @@ export default function App() {
   }
 
   const questionsEL = questions.map((item, index) => {
-    // const answers = [...item.incorrect_answers];
-    // answers.push(item.correct_answer);
-    // console.log(answers);
-    // const shufflled = shuffle(answers);
-    // console.log(shufflled);
     return (
       <Questions
         getAnswer={getAnswer}
@@ -165,3 +160,9 @@ export default function App() {
     </div>
   );
 }
+
+// const answers = [...item.incorrect_answers];
+// answers.push(item.correct_answer);
+// console.log(answers);
+// const shufflled = shuffle(answers);
+// console.log(shufflled);
