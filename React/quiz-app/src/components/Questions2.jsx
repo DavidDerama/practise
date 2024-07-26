@@ -5,9 +5,6 @@ export default function Question(props) {
   const answersEl = props.answers.map((item) => {
     const itemId = nanoid();
     const name = `question${props.questionIndex + 1}`;
-    const styles = {
-      background: props.correct_answer == item ? "#94D7A2" : "#F8BCBC",
-    };
 
     if (props.userAnswers.length > 0) {
       console.log(props.userAnswers[parseInt(props.questionIndex)]);
