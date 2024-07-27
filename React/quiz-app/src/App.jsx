@@ -3,8 +3,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Landing from "./components/Landing.jsx";
 import Questions from "./components/Questions.jsx";
-import "./App.css";
 import Confetti from "react-confetti";
+import "./App.css";
 
 export default function App() {
   const [landing, setLanding] = useState(true);
