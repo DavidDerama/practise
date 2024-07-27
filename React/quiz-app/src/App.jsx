@@ -9,13 +9,7 @@ import "./App.css";
 export default function App() {
   const [landing, setLanding] = useState(true);
   const [questions, setQuestions] = useState([]);
-  const [formData, setFormData] = useState({
-    question1: "",
-    question2: "",
-    question3: "",
-    question4: "",
-    question5: "",
-  });
+  const [formData, setFormData] = useState([]);
   const [showCorrect, setShowCorrect] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
   const [userAnswers, setUserAnswers] = useState([]);
@@ -50,13 +44,7 @@ export default function App() {
     setNewGameBtn(false);
     const resolveAfterTimeout = new Promise((resolve) =>
       setTimeout(() => {
-        setFormData({
-          question1: "",
-          question2: "",
-          question3: "",
-          question4: "",
-          question5: "",
-        });
+        setFormData([]);
         setCorrectCount(0);
         startGame();
         resolve();
@@ -83,15 +71,14 @@ export default function App() {
     event.target.style.backgroundColor = "pink";
     const { name, value } = event.target;
     setFormData((prev) => {
-      return { ...prev, [name]: value };
+      return [...prev, value];
     });
   }
 
   function handleSubmit(event) {
     event.preventDefault();
     setShowCorrect(true);
-    const userAnswers = [...Object.values(formData)];
-    setUserAnswers(userAnswers);
+    setUserAnswers(formData);
     console.log(userAnswers);
     let sum = 0;
     for (let i = 0; i < questions.length; i++) {
