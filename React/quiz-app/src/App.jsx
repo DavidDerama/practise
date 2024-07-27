@@ -12,13 +12,12 @@ export default function App() {
   const [formData, setFormData] = useState([]);
   const [showCorrect, setShowCorrect] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
-  const [userAnswers, setUserAnswers] = useState([]);
   const [newGameBtn, setNewGameBtn] = useState(false);
 
   function startGame() {
     setShowCorrect(false);
     fetch(
-      "https://opentdb.com/api.php?amount=5&category=9&difficulty=easy&type=multiple"
+      "https://opentdb.com/api.php?amount=6&category=9&difficulty=easy&type=multiple"
     )
       .then((res) => res.json())
       .then((data) => {
@@ -68,21 +67,24 @@ export default function App() {
   }
 
   function getAnswer(event) {
-    event.target.style.backgroundColor = "pink";
     const { name, value } = event.target;
     setFormData((prev) => {
       return [...prev, value];
     });
+    console.log(formData);
+  }
+
+  function handleOptionsOnChange(event) {
+    const { value } = event.target;
+    alert(value);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
     setShowCorrect(true);
-    setUserAnswers(formData);
-    console.log(userAnswers);
     let sum = 0;
     for (let i = 0; i < questions.length; i++) {
-      if (userAnswers[i] == questions[i].correct_answer) {
+      if (formData[i] == questions[i].correct_answer) {
         sum++;
       }
     }
@@ -97,7 +99,7 @@ export default function App() {
         getAnswer={getAnswer}
         question={item.question}
         answers={item.answers}
-        userAnswers={userAnswers}
+        userAnswers={formData}
         correct_answer={item.correct_answer}
         showCorrect={showCorrect}
         questionIndex={index}
@@ -127,7 +129,12 @@ export default function App() {
         }}
       />
 
-      {landing && <Landing startGame={startGame} />}
+      {landing && (
+        <Landing
+          startGame={startGame}
+          handleOptionsOnChange={handleOptionsOnChange}
+        />
+      )}
       <main>
         <form onSubmit={handleSubmit}>
           {questionsEL}
@@ -146,7 +153,9 @@ export default function App() {
                 <button className="submit--btn" onClick={newGame}>
                   New Game
                 </button>
-                <h3>You scored {correctCount} / 5 correct answers</h3>
+                <h3>
+                  You scored {correctCount} / {questions.length} correct answers
+                </h3>
               </>
             )}
           </div>

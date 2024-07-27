@@ -147,3 +147,23 @@ button:disabled {
     flex-direction: column;
   }
 }
+
+.landing form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.options {
+  display: flex;
+  gap: 12px;
+  padding: 1rem 0;
+  margin-top: 1rem;
+}
+
+.options select {
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+}
