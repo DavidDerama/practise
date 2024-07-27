@@ -19,6 +19,7 @@ export default function App() {
   const [showCorrect, setShowCorrect] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
   const [userAnswers, setUserAnswers] = useState([]);
+  const [newGameBtn, setNewGameBtn] = useState(false);
 
   function startGame() {
     setShowCorrect(false);
@@ -46,26 +47,26 @@ export default function App() {
   }
 
   function newGame() {
-    const resolveAfter3Sec = new Promise((resolve) =>
-      setTimeout(resolve, 3000)
+    setNewGameBtn(false);
+    const resolveAfterTimeout = new Promise((resolve) =>
+      setTimeout(() => {
+        setFormData({
+          question1: "",
+          question2: "",
+          question3: "",
+          question4: "",
+          question5: "",
+        });
+        setCorrectCount(0);
+        startGame();
+        resolve();
+      }, 3000)
     );
-    toast.promise(resolveAfter3Sec, {
+    toast.promise(resolveAfterTimeout, {
       pending: "New quiz being made",
       success: "New quiz  made",
       error: "Error",
     });
-    setFormData({
-      question1: "",
-      question2: "",
-      question3: "",
-      question4: "",
-      question5: "",
-    });
-    setCorrectCount(0);
-    setTimeout(() => {
-      startGame();
-      notify();
-    }, 3000);
   }
 
   function shuffle(arr) {
@@ -78,7 +79,7 @@ export default function App() {
     return arr;
   }
 
-  function getAnswer(event, valueFromBtn) {
+  function getAnswer(event) {
     event.target.style.backgroundColor = "pink";
     const { name, value } = event.target;
     setFormData((prev) => {
@@ -99,6 +100,8 @@ export default function App() {
       }
     }
     setCorrectCount(sum);
+    event.target.reset();
+    setNewGameBtn(true);
   }
 
   const questionsEL = questions.map((item, index) => {
@@ -111,6 +114,7 @@ export default function App() {
         correct_answer={item.correct_answer}
         showCorrect={showCorrect}
         questionIndex={index}
+        newGameBtn={newGameBtn}
       />
     );
   });
@@ -129,7 +133,7 @@ export default function App() {
         autoClose="1000"
         position="top-center"
         hideProgressBar="true"
-        limit={3}
+        limit={1}
         style={{
           width: "fit-content",
           fontSize: "14px",
@@ -149,11 +153,15 @@ export default function App() {
           )}
         </form>
         {showCorrect && (
-          <div className="results">
-            <h3>You scored {correctCount} / 5 correct answers</h3>
-            <button className="submit--btn" onClick={newGame}>
-              New Game
-            </button>
+          <div className="new-game">
+            {newGameBtn && (
+              <>
+                <button className="submit--btn" onClick={newGame}>
+                  New Game
+                </button>
+                <h3>You scored {correctCount} / 5 correct answers</h3>
+              </>
+            )}
           </div>
         )}
       </main>

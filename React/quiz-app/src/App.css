@@ -18,14 +18,16 @@
 .submit--btn {
   padding: 16px 28px;
   background-color: #4d5b9e;
-  border-radius: 15px;
+  border-radius: 25px;
   border: none;
   color: var(--header-color);
   width: 193px;
-  margin-top: 29px;
   font-size: 1rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   font-weight: bold;
+}
+.landing--start {
+  margin-top: 29px;
 }
 
 .landing--start:hover,
@@ -37,39 +39,37 @@
 main {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  height: 100vh;
+  align-items: center;
+  padding: 40px 0;
+  margin: 0 auto;
+  max-width: var(--content-max-width);
 }
 
 .question-container {
-  padding: 1.2rem;
-  width: var(--content-max-width);
+  padding: 24px 0;
   border-bottom: 0.8px solid #dbdef0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .question-options {
   display: flex;
-  gap: 12px;
-  margin-top: 9px;
+  flex-wrap: wrap;
+  gap: 2rem;
   padding: 6px 0;
 }
 
-.question-options button:focus {
-  outline: 1px solid white;
-  outline-offset: -2px;
-}
-
 .question--option {
-  padding: 10px 20px;
+  padding: 10px 25px;
   background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(4px);
-  border-radius: 10px;
+  border-radius: 25px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 15px;
   background-color: transparent;
-  font-size: 12px;
+  font-size: 1rem;
   color: #293264;
   font-weight: bold;
 }
@@ -79,22 +79,10 @@ main {
   cursor: pointer;
 }
 
-/* .question--option:focus {
-  outline: 1px solid white;
-  outline-offset: -2px;
-  background-color: #1092ca;
-} */
-
 .selected {
   outline: 1px solid white;
   outline-offset: -2px;
   background-color: pink;
-}
-
-input,
-label {
-  margin: 0;
-  padding: 0;
 }
 
 input[type="radio"] {
@@ -115,17 +103,47 @@ button:disabled {
   cursor: not-allowed;
   background-color: grey;
   opacity: 0.6;
+  user-select: none;
 }
 
 .results {
-  padding: 2rem 0;
+  margin-top: 1rem;
   display: flex;
-  gap: 1rem;
-  width: var(--content-max-width);
+  width: 100%;
+}
+
+.new-game {
+  margin-top: 2.5rem;
+  display: flex;
+  align-items: center;
+  max-width: var(--content-max-width);
+  min-width: 400px;
+  gap: 2rem;
+}
+
+.new-game h3,
+.new-game button {
+  align-self: center;
 }
 
 .results button,
 .results h3 {
   align-self: center;
   margin: 0;
+}
+
+.showUserSelected {
+  outline: 4px dashed white;
+  outline-offset: -2px;
+}
+
+@media (max-width: 600px) {
+  .results {
+    justify-content: center;
+    align-items: center;
+  }
+  .new-game {
+    gap: 1rem;
+    flex-direction: column;
+  }
 }

@@ -5,9 +5,13 @@ export default function Question(props) {
   const answersEl = props.answers.map((item) => {
     const itemId = nanoid();
     const name = `question${props.questionIndex + 1}`;
-    const styles = {
+    const showCorrectStyle = {
       background: props.correct_answer == item ? "#94D7A2" : "#F8BCBC",
     };
+
+    const specificItem = props.userAnswers[parseInt(props.questionIndex)];
+
+    const showUserSelected = specificItem === item && "showUserSelected";
 
     if (props.userAnswers.length > 0) {
       console.log(props.userAnswers[parseInt(props.questionIndex)]);
@@ -23,7 +27,6 @@ export default function Question(props) {
             id={itemId}
             value={item}
             disabled
-            defaultChecked={false}
           />
         ) : (
           <input
@@ -36,7 +39,11 @@ export default function Question(props) {
           />
         )}
         {props.showCorrect ? (
-          <label htmlFor={itemId} className="question--option" style={styles}>
+          <label
+            htmlFor={itemId}
+            className={`question--option ${showUserSelected}`}
+            style={showCorrectStyle}
+          >
             {decode(item)}
           </label>
         ) : (
@@ -49,14 +56,7 @@ export default function Question(props) {
   });
   return (
     <section className="question-container">
-      <h2>
-        {decode(props.question)} || {props.correct_answer}
-      </h2>
-      {props.showCorrect && (
-        <p className="label">{`Your Answer: ${decode(
-          props.userAnswers[parseInt(props.questionIndex)]
-        )}`}</p>
-      )}
+      <h2>{decode(props.question)}</h2>
       <div className="question-options">{answersEl}</div>
     </section>
   );
