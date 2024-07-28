@@ -24,6 +24,7 @@ export default function App() {
   const [fetchUrl, setFetchUrl] = useState("");
 
   function startGame(url) {
+    setQuestions([]);
     setShowCorrect(false);
     fetch(url)
       .then((res) => res.json())
@@ -68,18 +69,19 @@ export default function App() {
 
   function newGame() {
     setNewGameBtn(false);
+    setFormData([]);
+    setCorrectCount(0);
+
+    setNewGameBtn(false);
     const resolveAfterTimeout = new Promise((resolve) =>
       setTimeout(() => {
-        setFormData([]);
-        setQuestions([]);
-        setCorrectCount(0);
         startGame(fetchUrl);
         resolve();
       }, 2500)
     );
     toast.promise(resolveAfterTimeout, {
-      pending: "New quiz being made",
-      success: "New quiz  made",
+      pending: "Loading...",
+      success: "New quiz made",
       error: "Error",
     });
   }
@@ -149,6 +151,7 @@ export default function App() {
   }
 
   function changeGame() {
+    setNewGameBtn(false);
     const resolveAfterTimeout = new Promise((resolve) =>
       setTimeout(() => {
         setLanding(true);
