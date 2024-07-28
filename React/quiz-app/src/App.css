@@ -45,7 +45,7 @@ main {
   flex-direction: column;
   padding: 40px 0;
   margin: 0 auto;
-  width: var(--content-max-width);
+  max-width: var(--content-max-width);
 }
 
 .question-container {
@@ -139,17 +139,6 @@ button:disabled {
   outline-offset: -2px;
 }
 
-@media (max-width: 600px) {
-  .results {
-    justify-content: center;
-    align-items: center;
-  }
-  .new-game {
-    gap: 1rem;
-    flex-direction: column;
-  }
-}
-
 .landing form {
   display: flex;
   flex-direction: column;
@@ -175,4 +164,21 @@ button:disabled {
 
 .options select:hover {
   cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 40px 20px;
+  }
+  .results {
+    justify-content: center;
+    align-items: center;
+  }
+  .new-game {
+    gap: 1rem;
+    flex-direction: column;
+  }
+  .options {
+    flex-direction: column;
+  }
 }

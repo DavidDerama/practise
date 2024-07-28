@@ -19,6 +19,8 @@ export default function App() {
     format: "multiple",
   });
 
+  const [userAnswers, setUserAnswers] = useState({});
+
   const [fetchUrl, setFetchUrl] = useState("");
 
   function startGame(url) {
@@ -48,11 +50,21 @@ export default function App() {
             });
           });
         }
-        console.log(newArr);
         setQuestions(newArr);
       });
     setLanding(false);
   }
+
+  useEffect(() => {
+    const arr = [];
+    questions.forEach((item, index) => {
+      const name = `question${index + 1}`;
+      arr.push({ [name]: "" });
+    });
+    const mergeObj = Object.assign({}, ...arr);
+
+    setUserAnswers(mergeObj);
+  }, [questions]);
 
   function newGame() {
     setNewGameBtn(false);
@@ -82,11 +94,17 @@ export default function App() {
   }
 
   function getAnswer(event) {
-    const { value } = event.target;
-    setFormData((prev) => {
-      return [...prev, value];
+    const { name, value } = event.target;
+    // setFormData((prev) => {
+    //   return [...prev, value];
+    // });
+    setUserAnswers((prev) => {
+      return {
+        ...prev,
+        [name]: value,
+      };
     });
-    console.log(formData);
+    console.log(userAnswers);
   }
 
   function handleOptionsOnChange(event) {
@@ -110,24 +128,33 @@ export default function App() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    if (formData.length !== questions.length) {
-      toast.info("Answer all the questions");
-    } else {
-      setShowCorrect(true);
-      let sum = 0;
-      for (let i = 0; i < questions.length; i++) {
-        if (formData[i] == questions[i].correct_answer) {
-          sum++;
-        }
+    const answers = Object.values(userAnswers);
+    console.log(answers);
+
+    setShowCorrect(true);
+    let sum = 0;
+    for (let i = 0; i < questions.length; i++) {
+      if (answers[i] == questions[i].correct_answer) {
+        sum++;
       }
-      setCorrectCount(sum);
-      event.target.reset();
-      setNewGameBtn(true);
     }
+    setCorrectCount(sum);
+    event.target.reset();
+    setNewGameBtn(true);
   }
 
   function changeGame() {
-    setLanding(true);
+    const resolveAfterTimeout = new Promise((resolve) =>
+      setTimeout(() => {
+        setLanding(true);
+        setFormData([]);
+        setCorrectCount(0);
+        resolve();
+      }, 4000)
+    );
+    toast.promise(resolveAfterTimeout, {
+      pending: "Back to the menu",
+    });
   }
 
   const questionsEL = questions.map((item, index) => {
@@ -136,7 +163,7 @@ export default function App() {
         getAnswer={getAnswer}
         question={item.question}
         answers={item.answers}
-        userAnswers={formData}
+        userAnswers={Object.values(userAnswers)}
         correct_answer={item.correct_answer}
         showCorrect={showCorrect}
         questionIndex={index}
@@ -214,6 +241,4 @@ export default function App() {
 
 // const answers = [...item.incorrect_answers];
 // answers.push(item.correct_answer);
-// console.log(answers);
 // const shufflled = shuffle(answers);
-// console.log(shufflled);

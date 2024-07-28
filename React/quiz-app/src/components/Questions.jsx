@@ -52,7 +52,9 @@ export default function Question(props) {
   });
   return (
     <section className="question-container">
-      <h2>{decode(props.question)}</h2>
+      <h2>
+        {props.questionIndex + 1}. {decode(props.question)}
+      </h2>
       <div className="question-options">{answersEl}</div>
     </section>
   );

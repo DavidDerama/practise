@@ -35,6 +35,7 @@ body {
   background-image: url("https://products.ls.graphics/mesh-gradients/images/38.-Sky-Blue_1.jpg");
   background-size: cover;
   font-family: "Gloock", sans-serif;
+  overflow-x: hidden;
 }
 
 h1,
