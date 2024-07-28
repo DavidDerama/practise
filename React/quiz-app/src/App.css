@@ -14,6 +14,10 @@
   margin-bottom: 7px;
 }
 
+h1 {
+  text-align: center;
+}
+
 .landing--start,
 .submit--btn {
   padding: 16px 28px;
@@ -39,11 +43,9 @@
 main {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   padding: 40px 0;
   margin: 0 auto;
-  max-width: var(--content-max-width);
+  width: var(--content-max-width);
 }
 
 .question-container {
@@ -116,7 +118,7 @@ button:disabled {
   margin-top: 2.5rem;
   display: flex;
   align-items: center;
-  max-width: var(--content-max-width);
+  width: var(--content-max-width);
   min-width: 400px;
   gap: 2rem;
 }
@@ -166,4 +168,11 @@ button:disabled {
   padding: 10px 20px;
   border-radius: 5px;
   border: none;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+}
+
+.options select:hover {
+  cursor: pointer;
 }

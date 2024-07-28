@@ -1,16 +1,20 @@
 export default function Landing(props) {
   return (
     <div className="landing">
-      <h1>Quizzical</h1>
+      <h1>Quiz App</h1>
       <h2>Test your knowledge</h2>
-      <form>
+      <form onSubmit={props.handleOptionsSubmit}>
         <div className="options">
-          <select name="category" id="" onChange={props.handleOptionsOnChange}>
-            <option value="13" selected>
-              Any Category
+          <select
+            name="category"
+            id=""
+            onChange={props.handleOptionsOnChange}
+            value={props.optionsFormData.category}
+          >
+            <option value="9" selected>
+              General Knowledge
             </option>
-            <option value="9">General Knowledge</option>
-            <option value="4">Music</option>
+            <option value="12">Music</option>
             <option value="11">Film</option>
             <option value="10">Books</option>
             <option value="15">Video Games</option>
@@ -19,17 +23,27 @@ export default function Landing(props) {
             name="difficulty"
             id=""
             onChange={props.handleOptionsOnChange}
+            value={props.optionsFormData.difficulty}
           >
-            <option value="easy">Easy</option>
+            <option value="easy" selected>
+              Easy
+            </option>
             <option value="medium">Medium</option>
             <option value="hard">Hard</option>
           </select>
-          <select name="choices" id="" onChange={props.handleOptionsOnChange}>
-            <option value="&type=multiple">Multiple Choice</option>
-            <option value="&type=boolean">Truth / False</option>
+          <select
+            name="format"
+            id=""
+            onChange={props.handleOptionsOnChange}
+            value={props.optionsFormData.format}
+          >
+            <option value="multiple" selected>
+              Multiple Choice
+            </option>
+            <option value="boolean">Truth / False</option>
           </select>
         </div>
-        <button className="landing--start" onClick={props.startGame}>
+        <button type="submit" className="landing--start">
           Start quiz
         </button>
       </form>

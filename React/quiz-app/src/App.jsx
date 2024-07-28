@@ -13,16 +13,21 @@ export default function App() {
   const [showCorrect, setShowCorrect] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
   const [newGameBtn, setNewGameBtn] = useState(false);
+  const [options, setOptions] = useState({
+    category: "9",
+    difficulty: "easy",
+    format: "multiple",
+  });
 
-  function startGame() {
+  const [fetchUrl, setFetchUrl] = useState("");
+
+  function startGame(url) {
     setShowCorrect(false);
-    fetch(
-      "https://opentdb.com/api.php?amount=6&category=9&difficulty=easy&type=multiple"
-    )
+    fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        if (data.results.length > 1) {
-          const newArr = [];
+        const newArr = [];
+        if (data.results[0].type == "multiple") {
           data.results.forEach((item) => {
             const answers = [...item.incorrect_answers];
             answers.push(item.correct_answer);
@@ -33,8 +38,18 @@ export default function App() {
               answers: [...shufflled],
             });
           });
-          setQuestions(newArr);
+        } else if (data.results[0].type == "boolean") {
+          data.results.forEach((item) => {
+            const answers = ["True", "False"];
+            newArr.push({
+              question: item.question,
+              correct_answer: item.correct_answer,
+              answers: [...answers],
+            });
+          });
         }
+        console.log(newArr);
+        setQuestions(newArr);
       });
     setLanding(false);
   }
@@ -45,9 +60,9 @@ export default function App() {
       setTimeout(() => {
         setFormData([]);
         setCorrectCount(0);
-        startGame();
+        startGame(fetchUrl);
         resolve();
-      }, 3000)
+      }, 2500)
     );
     toast.promise(resolveAfterTimeout, {
       pending: "New quiz being made",
@@ -67,7 +82,7 @@ export default function App() {
   }
 
   function getAnswer(event) {
-    const { name, value } = event.target;
+    const { value } = event.target;
     setFormData((prev) => {
       return [...prev, value];
     });
@@ -75,22 +90,44 @@ export default function App() {
   }
 
   function handleOptionsOnChange(event) {
-    const { value } = event.target;
-    alert(value);
+    const { name, value } = event.target;
+    setOptions((prev) => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
+  }
+
+  function handleOptionsSubmit(event) {
+    event.preventDefault();
+    const { category, difficulty, format } = options;
+
+    const fetchUrl = `https://opentdb.com/api.php?amount=5&category=${category}&difficulty=${difficulty}&type=${format}`;
+    setFetchUrl(fetchUrl);
+    startGame(fetchUrl);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    setShowCorrect(true);
-    let sum = 0;
-    for (let i = 0; i < questions.length; i++) {
-      if (formData[i] == questions[i].correct_answer) {
-        sum++;
+    if (formData.length !== questions.length) {
+      toast.info("Answer all the questions");
+    } else {
+      setShowCorrect(true);
+      let sum = 0;
+      for (let i = 0; i < questions.length; i++) {
+        if (formData[i] == questions[i].correct_answer) {
+          sum++;
+        }
       }
+      setCorrectCount(sum);
+      event.target.reset();
+      setNewGameBtn(true);
     }
-    setCorrectCount(sum);
-    event.target.reset();
-    setNewGameBtn(true);
+  }
+
+  function changeGame() {
+    setLanding(true);
   }
 
   const questionsEL = questions.map((item, index) => {
@@ -122,6 +159,7 @@ export default function App() {
         autoClose="1000"
         position="top-center"
         hideProgressBar="true"
+        closeButton={false}
         limit={1}
         style={{
           width: "fit-content",
@@ -133,34 +171,43 @@ export default function App() {
         <Landing
           startGame={startGame}
           handleOptionsOnChange={handleOptionsOnChange}
+          handleOptionsSubmit={handleOptionsSubmit}
+          optionsFormData={options}
+          changeGame={changeGame}
         />
       )}
-      <main>
-        <form onSubmit={handleSubmit}>
-          {questionsEL}
-          {questions.length > 1 ? (
-            <div className="results" style={styles}>
-              <button className="submit--btn">Check answers</button>
-            </div>
-          ) : (
-            <h1>Loading....</h1>
-          )}
-        </form>
-        {showCorrect && (
-          <div className="new-game">
-            {newGameBtn && (
-              <>
-                <button className="submit--btn" onClick={newGame}>
-                  New Game
-                </button>
-                <h3>
-                  You scored {correctCount} / {questions.length} correct answers
-                </h3>
-              </>
+      {!landing && (
+        <main>
+          <form onSubmit={handleSubmit}>
+            <div className="questionsContain">{questionsEL}</div>
+            {questions.length > 1 ? (
+              <div className="results" style={styles}>
+                <button className="submit--btn">Check answers</button>
+              </div>
+            ) : (
+              <h1>Loading....</h1>
             )}
-          </div>
-        )}
-      </main>
+          </form>
+          {showCorrect && (
+            <div className="new-game">
+              {newGameBtn && (
+                <>
+                  <h3>
+                    You scored {correctCount} / {questions.length} correct
+                    answers
+                  </h3>
+                  <button className="submit--btn" onClick={newGame}>
+                    New Game
+                  </button>
+                  <button className="submit--btn" onClick={changeGame}>
+                    Change Game
+                  </button>
+                </>
+              )}
+            </div>
+          )}
+        </main>
+      )}
     </div>
   );
 }

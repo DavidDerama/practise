@@ -34,6 +34,7 @@ body {
   color: #293264;
   background-image: url("https://products.ls.graphics/mesh-gradients/images/38.-Sky-Blue_1.jpg");
   background-size: cover;
+  font-family: "Gloock", sans-serif;
 }
 
 h1,
@@ -68,4 +69,11 @@ p {
   font-weight: bold;
   font-size: var(--label-size);
   margin: 6px;
+}
+
+select,
+option,
+label,
+button {
+  font-family: "Gloock", sans-serif;
 }

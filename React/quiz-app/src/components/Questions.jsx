@@ -13,10 +13,6 @@ export default function Question(props) {
 
     const showUserSelected = specificItem === item && "showUserSelected";
 
-    if (props.userAnswers.length > 0) {
-      console.log(props.userAnswers[parseInt(props.questionIndex)]);
-    }
-
     return (
       <div className="questions">
         {props.showCorrect ? (
