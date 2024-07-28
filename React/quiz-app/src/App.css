@@ -118,7 +118,7 @@ button:disabled {
   margin-top: 2.5rem;
   display: flex;
   align-items: center;
-  width: var(--content-max-width);
+  max-width: var(--content-max-width);
   min-width: 400px;
   gap: 2rem;
 }
