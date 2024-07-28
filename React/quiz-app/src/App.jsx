@@ -71,6 +71,7 @@ export default function App() {
     const resolveAfterTimeout = new Promise((resolve) =>
       setTimeout(() => {
         setFormData([]);
+        setQuestions([]);
         setCorrectCount(0);
         startGame(fetchUrl);
         resolve();
@@ -104,7 +105,7 @@ export default function App() {
         [name]: value,
       };
     });
-    console.log(userAnswers);
+    console.log(userAnswers.question1);
   }
 
   function handleOptionsOnChange(event) {
@@ -128,19 +129,23 @@ export default function App() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    const answers = Object.values(userAnswers);
-    console.log(answers);
+    if (Object.values(userAnswers).every((answer) => answer !== "")) {
+      const answers = Object.values(userAnswers);
+      console.log(answers);
 
-    setShowCorrect(true);
-    let sum = 0;
-    for (let i = 0; i < questions.length; i++) {
-      if (answers[i] == questions[i].correct_answer) {
-        sum++;
+      setShowCorrect(true);
+      let sum = 0;
+      for (let i = 0; i < questions.length; i++) {
+        if (answers[i] == questions[i].correct_answer) {
+          sum++;
+        }
       }
+      setCorrectCount(sum);
+      event.target.reset();
+      setNewGameBtn(true);
+    } else {
+      toast.info("Answer all the questions", { containerId: "A" });
     }
-    setCorrectCount(sum);
-    event.target.reset();
-    setNewGameBtn(true);
   }
 
   function changeGame() {
@@ -193,6 +198,18 @@ export default function App() {
           fontSize: "14px",
         }}
       />
+      <ToastContainer
+        autoClose="1000"
+        position="bottom-right"
+        hideProgressBar="true"
+        closeButton={false}
+        limit={6}
+        containerId="A"
+        style={{
+          width: "fit-content",
+          fontSize: "16px",
+        }}
+      />
 
       {landing && (
         <Landing
@@ -212,7 +229,7 @@ export default function App() {
                 <button className="submit--btn">Check answers</button>
               </div>
             ) : (
-              <h1>Loading....</h1>
+              <h1></h1>
             )}
           </form>
           {showCorrect && (
