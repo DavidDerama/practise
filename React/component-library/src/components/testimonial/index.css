@@ -4,6 +4,7 @@
   width: 100%;
   height: 400px;
   position: relative;
+  margin-bottom: 5rem;
 }
 
 .quote {
@@ -50,11 +51,10 @@
 
 @media (max-width: 1000px) {
   .testimonial {
-    margin: 0 auto;
+    margin: 5rem auto;
     padding: 64px 16px;
     width: 376px;
     height: 551px;
-    border: 1px solid black;
   }
 
   .testimonial-img {

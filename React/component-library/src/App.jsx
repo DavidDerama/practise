@@ -4,6 +4,7 @@ import Badge from "./components/badges/index.jsx";
 import Banner from "./components/banners/index.jsx";
 import Card from "./components/cards/index.jsx";
 import Testimonial from "./components/testimonial/index.jsx";
+import useEffectOnUpdate from "./hooks/useEffectOnUpdate.jsx";
 import "./App.css";
 
 function App() {
@@ -90,6 +91,16 @@ function App() {
             adipiscing nunc urna, sit.{" "}
           </Testimonial.Quote>
           <Testimonial.Author>May Andersons</Testimonial.Author>
+          <Testimonial.Location>Workcation, CTO</Testimonial.Location>
+        </Testimonial>
+        <Testimonial>
+          <Testimonial.Img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2z-KXBX_nvo8AIGsXqeQKPC-W3R8aJuysbQ&s"></Testimonial.Img>
+          <Testimonial.Quote>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed urna
+            nulla vitae laoreet augue. Amet feugiat est integer dolor auctor
+            adipiscing nunc urna, sit.{" "}
+          </Testimonial.Quote>
+          <Testimonial.Author>Kendrick Lamar</Testimonial.Author>
           <Testimonial.Location>Workcation, CTO</Testimonial.Location>
         </Testimonial>
       </section>
