@@ -4,7 +4,7 @@ import Badge from "./components/badges/index.jsx";
 import Banner from "./components/banners/index.jsx";
 import Card from "./components/cards/index.jsx";
 import Testimonial from "./components/testimonial/index.jsx";
-import useEffectOnUpdate from "./hooks/useEffectOnUpdate.jsx";
+import Menu from "./components/menu/index.jsx";
 import "./App.css";
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
   ];
 
   const results = ["success", "warning", "error", "neutral"];
+
   return (
     <main className="app">
       <Header />
@@ -103,6 +104,16 @@ function App() {
           <Testimonial.Author>Kendrick Lamar</Testimonial.Author>
           <Testimonial.Location>Workcation, CTO</Testimonial.Location>
         </Testimonial>
+      </section>
+      <section className="menu-toggle">
+        <Menu onOpen={() => console.log("Opened/closed")}>
+          <Menu.Button>Menu</Menu.Button>
+          <Menu.Dropdown>
+            <Menu.Item>Home</Menu.Item>
+            <Menu.Item>About</Menu.Item>
+            <Menu.Item>Contact</Menu.Item>
+          </Menu.Dropdown>
+        </Menu>
       </section>
     </main>
   );
