@@ -7,7 +7,7 @@
 :root {
   --background: #1c1c1c;
   --accent: #ffffff;
-  --content-max-width: 1200px;
+  --content-max-width: 900px;
   --div-padding: 2rem;
   --item-gaps: 1rem;
 
@@ -50,4 +50,5 @@ h1 {
 
 h2 {
   font-size: var(--third-header-size);
+  margin-bottom: 2rem;
 }
