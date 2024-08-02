@@ -7,7 +7,7 @@ export default function useEffectOnUpdate(effectFunction, deps) {
     if (firstRender.current) {
       firstRender.current = false;
     } else {
-      effectFunction;
+      effectFunction();
     }
   }, deps);
 }

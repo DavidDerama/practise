@@ -1,4 +1,4 @@
-export default function Banner({ children, result }) {
+export default function Banner({ children, result, id }) {
   const messageDisplay = () => {
     if (result === "success") {
       return { message: "Congratulations!", icon: "fa-circle-check" };
@@ -14,11 +14,13 @@ export default function Banner({ children, result }) {
     }
   };
 
+  console.log(id);
+
   const display = messageDisplay();
   return (
     <div className={`banner ${result}`}>
       <div className="banner--message">
-        <i class={`fa-solid ${display.icon}`}></i>
+        <i className={`fa-solid ${display.icon}`}></i>
         <p>{display.message}</p>
       </div>
       {children}

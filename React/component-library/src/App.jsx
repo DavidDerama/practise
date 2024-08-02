@@ -5,6 +5,7 @@ import Banner from "./components/banners/index.jsx";
 import Card from "./components/cards/index.jsx";
 import Testimonial from "./components/testimonial/index.jsx";
 import Menu from "./components/menu/index.jsx";
+import { nanoid } from "nanoid";
 import "./App.css";
 
 function App() {
@@ -29,8 +30,13 @@ function App() {
         <div className="squareBox">
           {colors.map((color) => {
             return (
-              <Badge shape="square" background={`${color}`} className={color}>
-                <Badge.Text>Badge</Badge.Text>
+              <Badge
+                shape="square"
+                background={`${color}`}
+                className={color}
+                key={color}
+              >
+                <Badge.Text key={color}>Badge</Badge.Text>
               </Badge>
             );
           })}
@@ -38,8 +44,13 @@ function App() {
         <div className="squareBox">
           {colors.map((color) => {
             return (
-              <Badge shape="pill" background={`${color}`} className={color}>
-                <Badge.Text>Badge</Badge.Text>
+              <Badge
+                shape="pill"
+                background={`${color}`}
+                className={color}
+                key={color}
+              >
+                <Badge.Text key={color}>Badge</Badge.Text>
               </Badge>
             );
           })}
@@ -50,8 +61,8 @@ function App() {
         <div className="multi-line">
           {results.map((result) => {
             return (
-              <Banner result={result}>
-                <Banner.Desc>
+              <Banner result={result} key={result} id={result}>
+                <Banner.Desc key={result}>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Aliquid pariatur, ipsum similique veniam.
                 </Banner.Desc>
@@ -61,7 +72,7 @@ function App() {
         </div>
         <div className="single-line">
           {results.map((result) => {
-            return <Banner result={result}></Banner>;
+            return <Banner result={result} key={result} id={result}></Banner>;
           })}
         </div>
       </section>
