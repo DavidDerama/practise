@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>We are the Champions</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" type="module" defer></script>
+  </head>
+  <body>
+    <div class="header-form">
+        <header>
+          <img src="./logo.png" alt="" />
+          <h1>We are the Champions</h1>
+        </header>
+        <form id="endorsement">
+            <textarea
+              type="textarea"
+              name="endorsement"
+              id="endorsement-input"
+              placeholder="Write your endorsement here"
+              col="5"
+              row="5"
+            ></textarea>
+            <div class="messenger">
+              <input type="text" name="from" placeholder="From" required/>
+              <input type="text" name="to" placeholder="To" required/>
+            </div>
+            <button type="submit">Publish</button>
+          </form>
+    </div>
+    <main class="comments">
+        <h2>- Endorsements -</h2>
+        <div class="comments-section"></div>
+  </body>
+</html>
