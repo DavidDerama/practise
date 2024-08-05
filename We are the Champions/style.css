@@ -7,25 +7,37 @@
   --background: #1c1c1c;
   --accent: #ffffff;
   --content-max-width: 1200px;
+  --mobile-content-max-width: 400px;
   --div-padding: 2rem;
   --item-gaps: 1rem;
 
   --header-size: 60px;
+  --mobile-header-size: 32px;
   --header-weight: 900;
   --header-color: #f2f2f2;
+  --header-spacing: -0.4px;
+  --header-line-height: 1;
 
   --second-header-size: 48px;
+  --mobile-second-header-size: 18px;
+
   --third-header-size: 40px;
+  --mobile-third-header-size: 14px;
 
   --text-size: 16px;
+  --mobile-text-size: 12px;
   --text-weight: 400;
   --text-color: #c2c2c2;
+  --text-line-height: 1.625;
+  --text-max-width: 450px;
 
   --label-size: 13px;
   --label-color: #a2a2a2;
 }
+
 h1 {
-  font-size: 2rem;
+  font-size: var(--mobile-header-size);
+  text-align: center;
   font-weight: 700;
 }
 h2 {
@@ -44,7 +56,7 @@ body {
   background-color: var(--background);
   color: var(--header-color);
   margin: 0;
-  padding: 9;
+  padding: 2rem;
   max-width: 390px;
   margin: 0 auto;
   font-family: system-ui, sans-serif;
@@ -72,7 +84,8 @@ form {
 }
 
 .messenger input {
-  flex: 1 150.85px;
+  width: 0;
+  flex: 1 0 50px;
   text-align: center;
 }
 
@@ -133,6 +146,7 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 13px;
+  width: 100%;
 }
 
 .comment {
@@ -154,12 +168,28 @@ h2 {
   margin-bottom: 40px;
 }
 
+.clear {
+  background: transparent;
+  border: 3px solid white;
+  color: var(--header-color);
+  padding: 12px;
+}
+
+.clear:hover {
+  cursor: pointer;
+  opacity: 0.7;
+  background-color: var(--accent);
+  color: var(--background);
+  backdrop-filter: blur(100px);
+}
+
 @media (min-width: 1000px) {
   body {
     display: flex;
     max-width: 100vw;
     padding-bottom: 0;
     height: 100vh;
+    padding: 0;
   }
 
   .header-form,
@@ -167,6 +197,10 @@ h2 {
     width: 50vw;
     display: flex;
     flex-direction: column;
+  }
+
+  form {
+    width: 40%;
   }
 
   .comments {

@@ -10,6 +10,7 @@ import {
 const form = document.getElementById("endorsement");
 const commentsSection = document.querySelector(".comments-section");
 const commentsDisplay = document.querySelector(".comments");
+const clearBtn = document.querySelector(".clear");
 
 const firebaseConfig = {
   databaseURL:
@@ -18,8 +19,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
-
-console.log(database);
 
 const referenceInDb = ref(database, "endorsements");
 
@@ -46,21 +45,30 @@ function sendToDb(obj) {
   push(referenceInDb, obj);
 }
 
-function render(arr) {
-  commentsSection.innerHTML = "";
-  const html = arr
-    .map((el) => {
-      return `
-      <div class="comment">
-          <p class="bold-text">To ${el.toSender}</p>
-          <p class="message">
-            ${el.message}
-          </p>
-          <p class="bold-text">${el.fromPerson}e</p>
-        </div>
-        `;
-    })
-    .join("");
-  commentsSection.innerHTML = html;
-  commentsDisplay.style.display = "flex";
+clearBtn.addEventListener("click", () => {
+  remove(referenceInDb);
+  render();
+});
+
+function render(arr = null) {
+  if (arr) {
+    commentsSection.innerHTML = "";
+    const html = arr
+      .map((el) => {
+        return `
+        <div class="comment">
+            <p class="bold-text">To ${el.toSender}</p>
+            <p class="message">
+              ${el.message}
+            </p>
+            <p class="bold-text">From ${el.fromPerson}e</p>
+          </div>
+          `;
+      })
+      .join("");
+    commentsSection.innerHTML = html;
+    commentsDisplay.style.display = "flex";
+  } else {
+    commentsSection.innerHTML = "";
+  }
 }
