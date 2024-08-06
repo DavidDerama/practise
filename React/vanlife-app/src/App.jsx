@@ -4,9 +4,8 @@ import "./App.css";
 import HomeLayout from "./components/HomeLayout";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Vans from "./pages/Vans";
-import VanDetails from "./pages/VanDetails";
-
+import Vans from "./pages/Vans/Vans";
+import VanDetails from "./pages/Vans/VanDetails";
 import "./server";
 
 export default function App() {

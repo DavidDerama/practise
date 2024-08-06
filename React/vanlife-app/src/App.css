@@ -10,7 +10,6 @@ main {
 
 .content {
   max-width: var(--content-max-width);
-  border: 1px solid pink;
   margin: 0 auto;
   display: flex;
 }
@@ -32,12 +31,15 @@ main .content {
 }
 
 .home {
-  background-image: url("./assets/home.png");
-  background-size: cover;
   align-items: center;
   gap: 22px;
   justify-content: center;
   padding: 0 26px;
+}
+
+.home--main {
+  background-image: url("./assets/home.png");
+  background-size: cover;
 }
 
 .home,
@@ -54,7 +56,7 @@ footer .content {
 }
 
 footer {
-  /* background-color: black; */
+  background-color: black;
 }
 
 .vans {
@@ -127,7 +129,6 @@ button:hover {
 .about-container {
   display: flex;
   align-items: center;
-  border: 1px solid brown;
   height: 100%;
 }
 
@@ -269,6 +270,7 @@ button:hover {
 
 .normal-filter {
   background: #ffead0;
+  transition: all 0.3s ease;
   border: none;
 }
 
@@ -292,12 +294,16 @@ button:hover {
   border-radius: 10px;
 }
 
+.product--content h3 {
+  font-weight: normal;
+}
+
 .product-desc {
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: center;
-  max-width: 45%;
+  width: 45%;
   gap: 20px;
 }
 

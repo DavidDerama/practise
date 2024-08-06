@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSearchParams, Link } from "react-router-dom";
-import VanContainer from "../components/VanContainer";
+import VanContainer from "../../components/VanContainer";
 
 export default function Vans() {
   const [vans, setVans] = useState([]);

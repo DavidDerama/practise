@@ -1,4 +1,3 @@
-import vanImg from "../assets/van.png";
 import { Link, useLocation, useSearchParams } from "react-router-dom";
 
 export default function VanContainer(props) {
