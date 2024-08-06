@@ -1,9 +1,15 @@
 import vanImg from "../assets/van.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
 
 export default function VanContainer(props) {
+  const location = useLocation();
+
   return (
-    <Link to={`${props.id}`} state={props} className="van--container">
+    <Link
+      to={`${props.id}`}
+      state={{ props, prevLocation: location }}
+      className="van--container"
+    >
       <div className="van--content">
         <div className="van--image">
           <img src={props.imageUrl} alt="" />

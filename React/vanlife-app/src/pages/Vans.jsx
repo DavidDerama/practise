@@ -27,7 +27,6 @@ export default function Vans() {
     fetch("/api/vans")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setVans(data.vans);
       });
   }, []);
@@ -35,8 +34,6 @@ export default function Vans() {
   const displayedVans = filterByType
     ? vans.filter((item) => item.type === filterByType)
     : vans;
-
-  console.log(displayedVans);
 
   const vansEl = displayedVans.map((item) => {
     return (
@@ -50,8 +47,6 @@ export default function Vans() {
       />
     );
   });
-
-  console.log(selected);
 
   return (
     <main>

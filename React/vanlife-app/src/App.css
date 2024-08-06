@@ -78,8 +78,10 @@ nav {
   color: var(--header-color);
 }
 
-a:hover {
+a:hover,
+button:hover {
   opacity: 0.8;
+  cursor: pointer;
 }
 
 .home--action {
@@ -218,7 +220,8 @@ a:hover {
   flex-direction: column;
 }
 
-.van--type {
+.van--type,
+.product--type {
   padding: 6px 12px;
   align-self: self-start;
   border-radius: 5px;
@@ -227,6 +230,7 @@ a:hover {
 
 .van--detail {
   padding: var(--div-padding) 24px;
+  justify-content: center;
 }
 
 .filters {
@@ -234,11 +238,6 @@ a:hover {
   align-items: center;
   gap: VAR(--item-gaps);
   margin-top: 22px;
-}
-
-.filters button:hover {
-  cursor: pointer;
-  opacity: 0.9;
 }
 
 .filters a {
@@ -271,4 +270,48 @@ a:hover {
 .normal-filter {
   background: #ffead0;
   border: none;
+}
+
+.van--detail a {
+  font-size: 15.95px;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--header-color);
+  display: flex;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.product--content {
+  display: flex;
+  gap: 24px;
+}
+
+.product--content img {
+  width: 497.32px;
+  border-radius: 10px;
+}
+
+.product-desc {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  max-width: 45%;
+  gap: 20px;
+}
+
+.product--name--type {
+  display: flex;
+  gap: 12px;
+}
+
+.product-desc button {
+  width: 100%;
+  padding: 20px 0;
+  font-size: 18px;
+  font-weight: 700;
+  background: #ff8c38;
+  border: none;
+  border-radius: 5px;
 }
