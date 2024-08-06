@@ -70,9 +70,13 @@ nav a {
   font-weight: 600;
 }
 
+a:focus {
+  outline: none;
+}
+
 nav {
   display: flex;
-  gap: 12px;
+  gap: 32px;
 }
 
 .logo {
@@ -80,9 +84,11 @@ nav {
   color: var(--header-color);
 }
 
-a:hover,
-button:hover {
+a:hover {
   opacity: 0.8;
+}
+
+button:hover {
   cursor: pointer;
 }
 
@@ -97,6 +103,12 @@ button:hover {
   text-decoration: none;
   border-radius: 5px;
   color: var(--header-color);
+}
+
+.home--action:hover {
+  outline: 2px solid white;
+  outline-offset: -2px;
+  opacity: 1;
 }
 
 .about--hero {
@@ -134,14 +146,15 @@ button:hover {
 
 .about-image {
   display: flex;
-  justify-content: center;
   align-items: center;
   width: 100%;
+  min-height: 500px;
 }
 
 .about-image img {
-  height: 300px;
-  border-radius: 500px;
+  object-fit: cover;
+  max-width: 100%;
+  border-radius: 20px;
 }
 
 .about--desc {
