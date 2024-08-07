@@ -15,8 +15,6 @@ export default function HostLayout() {
 
   const isAuthenticated = useOutletContext();
 
-  console.log(isAuthenticated);
-
   return isAuthenticated ? (
     <div className="content host-layout ">
       <nav className="host-main-nav">

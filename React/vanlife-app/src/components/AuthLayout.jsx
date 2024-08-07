@@ -6,7 +6,5 @@ export default function AuthLayout() {
     localStorage.getItem("isLoggedIn")
   );
 
-  console.log(isAunenticated);
-
   return <Outlet context={isAunenticated} />;
 }
