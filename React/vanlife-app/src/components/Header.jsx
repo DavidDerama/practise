@@ -2,8 +2,7 @@ import { NavLink, Link } from "react-router-dom";
 
 export default function Header() {
   const style = {
-    textDecoration: "underline",
-    fontWeight: "700",
+    fontWeight: "800",
   };
 
   return (

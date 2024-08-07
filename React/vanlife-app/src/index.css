@@ -43,6 +43,23 @@ body {
   background-color: var(--background);
   color: var(--header-color);
   font-family: system-ui, sans-serif;
+  --sb-track-color: #232e33;
+  --sb-thumb-color: #f2f2f2;
+  --sb-size: 10px;
+}
+
+body::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 3px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 3px;
 }
 
 h1,

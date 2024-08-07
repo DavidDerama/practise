@@ -8,25 +8,30 @@ export default function VanDetails() {
 
   const [van, setVan] = useState({});
 
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     fetch(`/api/vans/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        setVan(data.vans);
+        setTimeout(() => {
+          setVan(data.vans);
+          setIsLoading((prev) => !prev);
+        }, 1);
       });
   }, []);
 
-  const backLink = state.prevLocation
+  const backLink = state?.prevLocation
     ? `${state.prevLocation.pathname + state.prevLocation.search}`
     : "../vans";
 
   return (
-    van && (
-      <main className="content van--detail">
-        <Link to={backLink}>
-          <p>←</p>
-          <p>Back to all vans</p>
-        </Link>
+    <main className="content van--detail">
+      <Link to={backLink}>
+        <p>←</p>
+        <p>Back to all vans</p>
+      </Link>
+      {!isLoading ? (
         <div className="product--content">
           <img src={van.imageUrl} alt="" />
           <div className="product-desc">
@@ -41,7 +46,9 @@ export default function VanDetails() {
             <button>Rent this van</button>
           </div>
         </div>
-      </main>
-    )
+      ) : (
+        <h1>Loading.....</h1>
+      )}
+    </main>
   );
 }
