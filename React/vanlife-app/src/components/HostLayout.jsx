@@ -1,11 +1,21 @@
-import { Outlet, NavLink, useOutletContext, Navigate } from "react-router-dom";
+import {
+  Outlet,
+  NavLink,
+  useOutletContext,
+  Navigate,
+  useLocation,
+} from "react-router-dom";
 
 export default function HostLayout() {
   const style = {
     fontWeight: "800",
   };
 
+  const location = useLocation();
+
   const isAuthenticated = useOutletContext();
+
+  console.log(isAuthenticated);
 
   return isAuthenticated ? (
     <div className="content host-layout ">
@@ -32,6 +42,6 @@ export default function HostLayout() {
       <Outlet />
     </div>
   ) : (
-    <Navigate to="../about" />
+    <Navigate to="../login" state={location} />
   );
 }

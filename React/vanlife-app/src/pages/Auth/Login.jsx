@@ -1,10 +1,15 @@
 import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export default function Login() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+
+  const prevLocation = useLocation();
+
+  const navigate = useNavigate();
 
   const [error, setError] = useState(null);
 
@@ -17,6 +22,8 @@ export default function Login() {
       };
     });
   }
+
+  const prevLocationLink = `../${prevLocation.state?.pathname}` || "../host";
 
   function handelSubmit(event) {
     event.preventDefault();
@@ -34,7 +41,8 @@ export default function Login() {
         if (data.message) {
           setError(data.message);
         } else if (data.user) {
-          console.log(data);
+          localStorage.setItem("isLoggedIn", true);
+          navigate(prevLocationLink, { replace: true });
         }
       });
   }

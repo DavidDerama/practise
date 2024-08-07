@@ -531,7 +531,7 @@ form {
 }
 
 .login h2,
-h3 {
+.login h3 {
   text-shadow: 0.07em 0 black, 0 0.07em black, -0.07em 0 black, 0 -0.07em black;
 }
 
@@ -577,4 +577,11 @@ form button {
 
 .error {
   color: red;
+}
+
+.error-page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

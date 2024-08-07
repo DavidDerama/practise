@@ -17,6 +17,7 @@ import Pricing from "./pages/Host/Pricing";
 import Photos from "./pages/Host/Photos";
 import AuthLayout from "./components/AuthLayout";
 import Login from "./pages/Auth/Login";
+import Error from "./pages/Error";
 import "./server";
 
 export default function App() {
@@ -44,7 +45,7 @@ export default function App() {
               </Route>
               <Route />
             </Route>
-            <Route path="*" element={<h1>Not Found 404</h1>} />
+            <Route path="*" element={<Error />} />
           </Route>
         </Routes>
       </BrowserRouter>
