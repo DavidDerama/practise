@@ -35,8 +35,6 @@ export default function App() {
               <Route path="host" element={<HostLayout />}>
                 <Route index element={<Dashboard />} />
                 <Route path="vans" element={<HostVans />} />
-                <Route path="income" element={<Income />} />
-                <Route path="reviews" element={<Reviews />} />
                 <Route path="vans/:id" element={<HostVanDetail />}>
                   <Route index element={<Details />} />
                   <Route path="pricing" element={<Pricing />} />
@@ -51,4 +49,9 @@ export default function App() {
       </BrowserRouter>
     </div>
   );
+}
+
+{
+  /* <Route path="income" element={<Income />} />
+<Route path="reviews" element={<Reviews />} /> */
 }

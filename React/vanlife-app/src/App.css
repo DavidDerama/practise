@@ -114,9 +114,10 @@ button:hover {
 }
 
 .about--hero {
-  background-image: url(./assets/about.png);
+  background-image: url("https://images.unsplash.com/photo-1530035415911-95194de4ebcc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-size: cover;
   min-height: 233.21px;
+  border-radius: 10px;
 }
 
 .highlight--box {
@@ -156,7 +157,7 @@ button:hover {
 .about-image img {
   object-fit: cover;
   max-width: 100%;
-  border-radius: 20px;
+  border-radius: 600px;
 }
 
 .about--desc {
@@ -252,8 +253,15 @@ button:hover {
 .filters {
   display: flex;
   align-items: center;
-  gap: VAR(--item-gaps);
+  gap: var(--item-gaps);
   margin-top: 22px;
+  flex-wrap: wrap;
+  max-width: 500px;
+}
+
+.filters a,
+.filters button {
+  flex-basis: 100px;
 }
 
 .filters a {
@@ -261,7 +269,7 @@ button:hover {
 }
 
 .filters button {
-  padding: 8px 26px;
+  padding: 10px 0;
   border-radius: 5px;
 }
 
@@ -373,8 +381,9 @@ button:hover {
   align-items: center;
 }
 
-.details a {
-  text-decoration: none;
+.details button {
+  background-color: transparent;
+  border: none;
   color: var(--background);
   font-size: 16px;
   font-weight: 500;
@@ -498,8 +507,9 @@ button:hover {
 .host-van-detail-page {
   display: flex;
   gap: 32px;
-  max-width: var/--content-max-width;
+  max-width: var(--content-max-width);
   height: 500px;
+  flex: 1;
 }
 
 .van-header-right {
@@ -526,7 +536,7 @@ form {
   justify-content: center;
   align-items: center;
   margin-top: 48px;
-  width: 500px;
+  width: 50%;
   gap: 12px;
 }
 
@@ -584,4 +594,46 @@ form button {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 1000px) {
+  .host-van-detail-page {
+    flex-direction: column;
+  }
+
+  .product--content {
+    flex-direction: column;
+  }
+
+  .product--content img {
+    width: 100%;
+  }
+
+  .product-desc {
+    width: 100%;
+  }
+
+  .about-image {
+    display: none;
+  }
+
+  .about--desc {
+    max-width: 100%;
+    border: 1px solid black;
+  }
+
+  .about-container {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .left {
+    flex-direction: column;
+    align-items: start;
+  }
+  .details button {
+    display: none;
+  }
 }

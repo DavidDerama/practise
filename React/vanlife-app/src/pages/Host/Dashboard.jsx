@@ -42,7 +42,7 @@ export default function Dashboard() {
           <h2>$2,260</h2>
         </div>
         <div className="details">
-          <Link to="income">Details</Link>
+          <button>Details</button>
         </div>
       </section>
       <section className="review-score">
@@ -51,12 +51,12 @@ export default function Dashboard() {
           <div className="img-text">
             <img src={star} alt="" />
             <h2>
-              5.0<span className="normal">/5</span>
+              5.0/<span className="normal">5</span>
             </h2>
           </div>
         </div>
         <div className="details">
-          <Link to="reviews">Details</Link>
+          <button>Details</button>
         </div>
       </section>
       <section className="listed-vans">
