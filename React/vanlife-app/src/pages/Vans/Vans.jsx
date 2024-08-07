@@ -57,19 +57,25 @@ export default function Vans() {
             onClick={() => {
               handleFilterChange("type", "simple");
             }}
-            className={filterByType === "simple" ? "selected" : "normal-filter"}
+            className={
+              filterByType === "simple" ? "simple selected" : "normal-filter"
+            }
           >
             Simple
           </button>
           <button
             onClick={() => handleFilterChange("type", "luxury")}
-            className={filterByType === "luxury" ? "selected" : "normal-filter"}
+            className={
+              filterByType === "luxury" ? "luxury selected" : "normal-filter"
+            }
           >
             Luxury
           </button>
           <button
             onClick={() => handleFilterChange("type", "rugged")}
-            className={filterByType === "rugged" ? "selected" : "normal-filter"}
+            className={
+              filterByType === "rugged" ? "rugged selected" : "normal-filter"
+            }
           >
             Rugged
           </button>
