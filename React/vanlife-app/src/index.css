@@ -20,8 +20,8 @@
   --third-header-size: 40px;
   --mobile-third-header-size: 14px;
 
-  --text-size: 14px;
-  --mobile-text-size: 14px;
+  --text-size: 16px;
+  --mobile-text-size: 16px;
   --text-weight: 400;
   --text-color: #c2c2c2;
   --text-line-height: 1.625;
@@ -67,4 +67,16 @@ h2,
 h3,
 p {
   margin: 0;
+}
+
+p {
+  font-size: var(--text-size);
+  color: var(--text-color);
+  font-weight: var(--text-weight);
+  line-height: var(--text-line-height);
+}
+
+h3 {
+  font-size: var(--third-header-size);
+  color: var(--text-color);
 }

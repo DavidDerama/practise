@@ -40,7 +40,7 @@ export default function VanDetails() {
               <span className={`product--type ${van.type}`}>{van.type} </span>
             </div>
             <h3>
-              <span className="bold">${van.price}</span>/day
+              <span className="bold detail-price">${van.price}</span>/day
             </h3>
             <p>{van.description}</p>
             <button>Rent this van</button>

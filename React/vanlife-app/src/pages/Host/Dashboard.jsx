@@ -38,7 +38,7 @@ export default function Dashboard() {
       <section className="summary">
         <div className="info">
           <h2>Welcome!</h2>
-          <p>Income last 30 days</p>
+          <p className="bold-income">Income last 30 days</p>
           <h2>$2,260</h2>
         </div>
         <div className="details">
@@ -51,7 +51,7 @@ export default function Dashboard() {
           <div className="img-text">
             <img src={star} alt="" />
             <h2>
-              5.0/<span className="normal">5</span>
+              5.0<span className="normal">/5</span>
             </h2>
           </div>
         </div>

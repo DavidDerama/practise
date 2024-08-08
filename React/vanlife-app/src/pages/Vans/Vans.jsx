@@ -81,7 +81,6 @@ export default function Vans() {
           </button>
           {filterByType && <Link to=".">Clear filters</Link>}
         </div>
-        <div className="filters"></div>
         <div className="vans--container">{vansEl}</div>
       </section>
     </main>

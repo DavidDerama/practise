@@ -35,7 +35,6 @@ main .content {
   line-height: var(--header-line-height);
   font-weight: var(--header-weight);
   font-size: var(--header-size);
-  width: 80%;
 }
 
 .home {
@@ -148,15 +147,19 @@ button:hover {
   color: var(--header-color);
 }
 
+.highlight--box h3 {
+  color: var(--background);
+}
+
 .about-container {
   display: flex;
   align-items: center;
   height: 100%;
+  gap: 48px;
 }
 
 .about-image {
   display: flex;
-  align-items: center;
   width: 100%;
   min-height: 500px;
 }
@@ -164,7 +167,7 @@ button:hover {
 .about-image img {
   object-fit: cover;
   max-width: 100%;
-  border-radius: 600px;
+  border-radius: 30px;
 }
 
 .about--desc {
@@ -172,7 +175,7 @@ button:hover {
   flex-direction: column;
   gap: 24px;
   max-width: 50%;
-  padding: var(--div-padding) 24px;
+  padding: var(--div-padding) 0 var(--div-padding) 24px;
 }
 
 .about--desc ul {
@@ -222,6 +225,9 @@ button:hover {
 
 .bold {
   font-weight: 600;
+}
+.bold-income {
+  color: var(--background);
 }
 
 .van--container p {
@@ -277,7 +283,14 @@ button:hover {
 
 .filters button {
   padding: 10px 0;
-  border-radius: 5px;
+  border-radius: 25px;
+  font-size: 1rem;
+  border: 3px solid var(--background);
+  transition: all 0.25s ease;
+}
+
+.filters button:hover {
+  border: 3px solid #e17654;
 }
 
 .selected {
@@ -460,8 +473,12 @@ button:hover {
 }
 
 .price {
-  font-size: 16px;
   font-weight: 500;
+  color: var(--header-color);
+}
+
+.detail-price {
+  color: var(--header-color);
 }
 
 .van-link {
@@ -610,6 +627,18 @@ form button {
 }
 
 @media (max-width: 1030px) {
+  .about--desc {
+    padding: var(--div-padding) 24px;
+  }
+  .home--main h2 {
+    font-size: var(--mobile-header-size);
+  }
+
+  .home h3,
+  .highlight--box h3 {
+    font-size: var(--mobile-third-header-size);
+  }
+
   .host-van-detail-page {
     flex-direction: column;
   }

@@ -5,10 +5,10 @@ export default function Home() {
     <main className="home--main">
       <section className="content home">
         <h2>
-          You got the travel plans <br />
+          You got the travel plans! <br />
           We got the travel vans.
         </h2>
-        <p>Rend the perfect van for you</p>
+        <h3>Rent the perfect van for you</h3>
         <Link to="vans" className="home--action">
           Find your van
         </Link>
