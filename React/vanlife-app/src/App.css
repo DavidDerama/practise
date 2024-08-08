@@ -31,11 +31,18 @@ main .content {
   flex-direction: column;
 }
 
+.home--main h2 {
+  line-height: var(--header-line-height);
+  font-weight: var(--header-weight);
+  font-size: var(--header-size);
+  width: 80%;
+}
+
 .home {
   align-items: center;
-  gap: 22px;
+  gap: 1rem;
   justify-content: center;
-  padding: 0 26px;
+  padding: 0 24px;
 }
 
 .home--main {
