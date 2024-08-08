@@ -349,7 +349,7 @@ button:hover {
   padding: var(--div-padding) 24px;
   width: 100%;
   flex-direction: column;
-  flex-grow: 1;
+  flex: 1;
 }
 
 .host-main-nav {
@@ -495,11 +495,14 @@ button:hover {
   width: 153px;
   height: 151.56px;
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
+  width: 100%;
+  padding: 12px 0;
 }
 
 .van-images img {
-  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 10px;
 }
@@ -510,6 +513,7 @@ button:hover {
   max-width: var(--content-max-width);
   height: 500px;
   flex: 1;
+  align-items: center;
 }
 
 .van-header-right {
@@ -521,6 +525,7 @@ button:hover {
 
 .van-header-container {
   flex-basis: 440px;
+  height: 100%;
 }
 
 .van-header-container img {
@@ -536,12 +541,13 @@ form {
   justify-content: center;
   align-items: center;
   margin-top: 48px;
-  width: 50%;
+  width: 70%;
   gap: 12px;
 }
 
 .login h2,
-.login h3 {
+.login h3,
+.login h4 {
   text-shadow: 0.07em 0 black, 0 0.07em black, -0.07em 0 black, 0 -0.07em black;
 }
 
@@ -596,7 +602,7 @@ form button {
   align-items: center;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1030px) {
   .host-van-detail-page {
     flex-direction: column;
   }
@@ -619,7 +625,8 @@ form button {
 
   .about--desc {
     max-width: 100%;
-    border: 1px solid black;
+    justify-content: space-between;
+    height: 100%;
   }
 
   .about-container {
@@ -635,5 +642,9 @@ form button {
   }
   .details button {
     display: none;
+  }
+
+  .about--hero {
+    border-radius: 0;
   }
 }

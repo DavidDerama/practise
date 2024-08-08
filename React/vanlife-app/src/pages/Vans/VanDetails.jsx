@@ -37,7 +37,7 @@ export default function VanDetails() {
           <div className="product-desc">
             <div className="product--name--type">
               <h2>{van.name}</h2>
-              <span className={`product--type ${van.type}`}>Simple</span>
+              <span className={`product--type ${van.type}`}>{van.type} </span>
             </div>
             <h3>
               <span className="bold">${van.price}</span>/day

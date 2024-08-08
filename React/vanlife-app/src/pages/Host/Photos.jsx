@@ -7,7 +7,6 @@ export default function Photos() {
     <div className="van-images">
       <img src={imageUrl} />
       <img src={imageUrl} />
-      <img src={imageUrl} />
     </div>
   );
 }

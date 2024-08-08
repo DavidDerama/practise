@@ -9,7 +9,7 @@ export default function Header() {
     <header>
       <section className="content">
         <Link to="/" className="logo">
-          <h1>#VANLIFE</h1>
+          <h1>RentVan</h1>
         </Link>
         <nav>
           <NavLink

@@ -7,6 +7,8 @@ export default function Login() {
     password: "",
   });
 
+  const [isLoading, setIsLoading] = useState("idle");
+
   const prevLocation = useLocation();
 
   const navigate = useNavigate();
@@ -27,30 +29,37 @@ export default function Login() {
 
   function handelSubmit(event) {
     event.preventDefault();
-    event.target.reset();
-    fetch("/api/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email: formData.email,
-        password: formData.password,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.message) {
-          setError(data.message);
-        } else if (data.user) {
-          localStorage.setItem("isLoggedIn", true);
-          navigate(prevLocationLink, { replace: true });
-        }
-      });
+    setIsLoading("loading");
+    setTimeout(() => {
+      fetch("/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.message) {
+            setError(data.message);
+            event.target.reset();
+          } else if (data.user) {
+            localStorage.setItem("isLoggedIn", true);
+            navigate(prevLocationLink, { replace: true });
+          }
+        })
+        .finally(() => {
+          setIsLoading("idle");
+        });
+    }, 500);
   }
 
   return (
     <main className="login">
       <div className="content login-page">
         <h2>Sign in to your account</h2>
+        <h4>Sign in to your account (b@b.com, p123)</h4>
         {error && <h3 className="error">{error}</h3>}
         <form onSubmit={handelSubmit}>
           <input
@@ -66,7 +75,10 @@ export default function Login() {
             placeholder="Password"
             onChange={handleChange}
           />
-          <button>Sign in</button>
+          <button>
+            {isLoading === "idle" && "Sign In"}
+            {isLoading === "loading" && "Loading..."}
+          </button>
         </form>
       </div>
     </main>

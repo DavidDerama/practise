@@ -16,7 +16,7 @@ export default function HostLayout() {
   const isAuthenticated = useOutletContext();
 
   return isAuthenticated ? (
-    <div className="content host-layout ">
+    <div className="content host-layout">
       <nav className="host-main-nav">
         <NavLink to="." end style={({ isActive }) => (isActive ? style : null)}>
           Dashboard
