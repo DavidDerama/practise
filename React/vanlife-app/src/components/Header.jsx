@@ -3,6 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 export default function Header() {
   const style = {
     fontWeight: "800",
+    color: "var(--accent)",
   };
 
   return (

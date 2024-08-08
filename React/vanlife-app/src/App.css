@@ -105,7 +105,7 @@ button:hover {
   justify-content: center;
   padding: 15px;
   width: 50%;
-  background: #ff8c38;
+  background: var(--accent);
   font-weight: 700;
   margin-top: 22px;
   text-decoration: none;
@@ -360,7 +360,8 @@ button:hover {
   padding: 20px 0;
   font-size: 18px;
   font-weight: 700;
-  background: #ff8c38;
+  background: var(--accent);
+  color: var(--header-color);
   border: none;
   border-radius: 5px;
 }
@@ -533,11 +534,10 @@ button:hover {
 
 .host-van-detail-page {
   display: flex;
-  gap: 32px;
+  gap: 48px;
   max-width: var(--content-max-width);
   height: 500px;
   flex: 1;
-  align-items: center;
 }
 
 .van-header-right {
@@ -562,10 +562,8 @@ button:hover {
 form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 48px;
-  width: 70%;
+  margin-top: 32px;
+  width: 300px;
   gap: 12px;
 }
 
@@ -587,12 +585,14 @@ form button {
 form input {
   padding: 9px 13px;
   font-size: 1rem;
+  border-radius: 20px;
+  border: 1px solid black;
 }
 
 form button {
   margin-top: 22px;
   padding: 18px 0;
-  background: #ff8c38;
+  background: var(--accent);
   color: var(--header-color);
   border-radius: 5px;
   border: none;
@@ -600,8 +600,13 @@ form button {
   font-weight: 700;
 }
 
+form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 .login-page {
-  width: 100%;
+  width: 70%;
   padding: 0 24px;
   display: flex;
   flex-direction: column;
@@ -613,10 +618,15 @@ form button {
 .login {
   background-image: url(https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
   background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .error {
   color: red;
+  font-size: 1.3rem;
+  margin-top: 12px;
 }
 
 .error-page {

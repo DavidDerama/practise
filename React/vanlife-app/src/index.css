@@ -1,6 +1,6 @@
 :root {
   --background: #1c1c1c;
-  --accent: #ffffff;
+  --accent: #ff8c38;
   --content-max-width: 1024px;
   --mobile-content-max-width: 400px;
   --div-padding: 32px;
@@ -42,7 +42,7 @@ body {
   padding: 0;
   background-color: var(--background);
   color: var(--header-color);
-  font-family: system-ui, sans-serif;
+  font-family: "Gabarito", sans-serif;
   --sb-track-color: #232e33;
   --sb-thumb-color: #f2f2f2;
   --sb-size: 10px;
@@ -79,4 +79,10 @@ p {
 h3 {
   font-size: var(--third-header-size);
   color: var(--text-color);
+}
+
+a,
+button,
+input {
+  font-family: "Gabarito", sans-serif;
 }

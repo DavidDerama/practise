@@ -7,7 +7,7 @@ export default function Login() {
     password: "",
   });
 
-  const [isLoading, setIsLoading] = useState("idle");
+  const [isLoading, setIsLoading] = useState(false);
 
   const prevLocation = useLocation();
 
@@ -29,7 +29,7 @@ export default function Login() {
 
   function handelSubmit(event) {
     event.preventDefault();
-    setIsLoading("loading");
+    setIsLoading(!isLoading);
     setTimeout(() => {
       fetch("/api/login", {
         method: "POST",
@@ -50,16 +50,15 @@ export default function Login() {
           }
         })
         .finally(() => {
-          setIsLoading("idle");
+          setIsLoading(false);
         });
     }, 500);
   }
 
   return (
     <main className="login">
-      <div className="content login-page">
-        <h2>Sign in to your account</h2>
-        <h4>Sign in to your account (b@b.com, p123)</h4>
+      <div className="login-page">
+        <h2>Sign in to your account (b@b.com, p123)</h2>
         {error && <h3 className="error">{error}</h3>}
         <form onSubmit={handelSubmit}>
           <input
@@ -75,9 +74,8 @@ export default function Login() {
             placeholder="Password"
             onChange={handleChange}
           />
-          <button>
-            {isLoading === "idle" && "Sign In"}
-            {isLoading === "loading" && "Loading..."}
+          <button disabled={isLoading}>
+            {!isLoading ? "Sign In" : "Loading...."}
           </button>
         </form>
       </div>

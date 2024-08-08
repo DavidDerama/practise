@@ -30,6 +30,7 @@ export default function HostVanDetail() {
   const style = {
     fontWeight: "800",
     textDecoration: "underline",
+    color: "var(--accent)",
   };
 
   return (

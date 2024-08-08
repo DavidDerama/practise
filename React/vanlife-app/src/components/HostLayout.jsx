@@ -8,7 +8,7 @@ import {
 
 export default function HostLayout() {
   const style = {
-    fontWeight: "800",
+    fontWeight: "1000",
   };
 
   const location = useLocation();
