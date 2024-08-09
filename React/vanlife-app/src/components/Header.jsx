@@ -1,13 +1,6 @@
 import { NavLink, Link } from "react-router-dom";
-import { useState } from "react";
 
 export default function Header() {
-  const [isLoggedIn, setIsLoggedIn] = useState(
-    localStorage.getItem("isLoggedIn")
-  );
-
-  console.log(isLoggedIn);
-
   const style = {
     fontWeight: "800",
     color: "var(--accent)",
