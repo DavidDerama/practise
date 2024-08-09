@@ -489,9 +489,10 @@ button:hover {
 
 .host-van-details a {
   display: flex;
+  align-items: center;
   color: var(--header-color);
   text-decoration: none;
-  gap: 5px;
+  gap: 10px;
   margin: 37px 0;
 }
 
