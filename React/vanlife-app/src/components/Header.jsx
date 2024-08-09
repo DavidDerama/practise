@@ -1,6 +1,13 @@
 import { NavLink, Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function Header() {
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem("isLoggedIn")
+  );
+
+  console.log(isLoggedIn);
+
   const style = {
     fontWeight: "800",
     color: "var(--accent)",
@@ -12,7 +19,7 @@ export default function Header() {
         <Link to="/" className="logo">
           <h1>RentVan</h1>
         </Link>
-        <nav>
+        <nav className="header-nav">
           <NavLink
             to="host"
             style={({ isActive }) => {
