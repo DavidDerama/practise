@@ -10,7 +10,6 @@ main {
 
 .content {
   max-width: var(--content-max-width);
-  /* width: var(--content-max-width); */
   margin: 0 auto;
   display: flex;
 }
