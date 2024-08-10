@@ -232,6 +232,7 @@ a:hover {
 .bold {
   font-weight: 600;
 }
+
 .bold-income {
   color: var(--background);
 }
