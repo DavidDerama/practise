@@ -10,7 +10,7 @@ export default function Home() {
         </h2>
         <h3>Rent the perfect van for you</h3>
         <Link to="vans" className="home--action">
-          Find your van
+          Find the van for you
         </Link>
       </section>
     </main>
