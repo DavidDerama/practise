@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Outlet } from "react-router-dom";
 
 export default function AuthLayout() {
-  const [isAunenticated, setIsAutenticated] = useState(
+  const [isAuthenticated, setIsAuthenticated] = useState(
     localStorage.getItem("isLoggedIn")
   );
 
-  return <Outlet context={isAunenticated} />;
+  return <Outlet context={isAuthenticated} />;
 }
