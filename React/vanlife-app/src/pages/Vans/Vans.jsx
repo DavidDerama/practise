@@ -86,14 +86,3 @@ export default function Vans() {
     </main>
   );
 }
-
-// <div className="van--container">
-//   <img src={vanImg} alt="" />
-//   <div className="van--name--price">
-//     <p className="bold">Modest Explorer</p>
-//     <p>
-//       <span className="bold price">$60</span>/day
-//     </p>
-//   </div>
-//   <span className="van--type">Simple</span>
-// </div>
