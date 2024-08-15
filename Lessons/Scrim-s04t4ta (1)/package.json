@@ -1,0 +1,18 @@
+{
+  "name": "Scrim-s04t4ta",
+  "description": "https://v2.scrimba.com/react-challenges-c02n/~01",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "vite": "latest"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "*"
+  }
+}
