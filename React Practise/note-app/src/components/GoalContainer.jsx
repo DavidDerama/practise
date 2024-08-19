@@ -29,13 +29,15 @@ export default function GoalContainer({ note, editNote, selectEl }) {
         ref={editInput}
       />
       <div className="goal--buttons">
-        <button
-          className="goal--button"
-          onClick={() => selectEl(note.id)}
-          type="button"
-        >
-          {!note.isSelected ? "Select" : "Unselect"}
-        </button>
+        {!editing && (
+          <button
+            className="goal--button"
+            onClick={() => selectEl(note.id)}
+            type="button"
+          >
+            {!note.isSelected ? "Select" : "Unselect"}
+          </button>
+        )}
         <button
           className="goal--button"
           onClick={() => setEditing(!editing)}
