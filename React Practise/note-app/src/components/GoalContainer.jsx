@@ -10,8 +10,16 @@ export default function GoalContainer({ note, editNote, selectEl }) {
     }
   }, [editing]);
 
+  function formSubmit(event) {
+    event.preventDefault();
+    setEditing(!editing);
+  }
+
   return (
-    <div className={`goal--container ${note.isSelected && "selected"}`}>
+    <form
+      className={`goal--container ${note.isSelected && "selected"}`}
+      onSubmit={formSubmit}
+    >
       <input
         className={`${!editing ? "editFalse" : ""}`}
         defaultValue={note.text}
@@ -21,13 +29,21 @@ export default function GoalContainer({ note, editNote, selectEl }) {
         ref={editInput}
       />
       <div className="goal--buttons">
-        <button className="goal--button" onClick={() => selectEl(note.id)}>
+        <button
+          className="goal--button"
+          onClick={() => selectEl(note.id)}
+          type="button"
+        >
           {!note.isSelected ? "Select" : "Unselect"}
         </button>
-        <button className="goal--button" onClick={() => setEditing(!editing)}>
+        <button
+          className="goal--button"
+          onClick={() => setEditing(!editing)}
+          type="button"
+        >
           {editing ? "Save" : "Edit"}
         </button>
       </div>
-    </div>
+    </form>
   );
 }
