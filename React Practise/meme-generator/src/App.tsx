@@ -1,35 +1,66 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Header } from "./components/Header";
+import { Form } from "./components/Form";
+import { MemeDisplay } from "./components/MemeDisplay";
+import { useEffect, useState } from "react";
+import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+type Meme = {
+  id: string;
+  name: string;
+  url: string;
+  width: number;
+  height: number;
+  box_count: number;
+  captions: number;
+};
+
+export const App = () => {
+  const [memes, setMemes] = useState<Meme[]>([]);
+  const [currentMeme, setCurrentMeme] = useState("");
+  const [memeText, setMemeText] = useState({
+    topText: "",
+    bottomText: "",
+  });
+  useEffect(() => {
+    async function fetchMemes() {
+      const res = await fetch("https://api.imgflip.com/get_memes");
+      const data = await res.json();
+      if (data.success) {
+        setMemes(data.data.memes);
+        setCurrentMeme(data.data.memes[0].url);
+      }
+    }
+
+    fetchMemes();
+  }, []);
+
+  function getNewImg() {
+    const randomNum = Math.ceil(Math.random() * memes?.length);
+    setCurrentMeme(memes[randomNum].url);
+  }
+
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const { value, name } = e.target;
+    setMemeText((prev) => ({ ...prev, [name]: value }));
+    console.log(value, name);
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
-
-export default App
+    <div className="app">
+      <Header />
+      <main>
+        <div className="main-content">
+          <Form getNewImg={getNewImg} handleChange={handleChange} />
+          <MemeDisplay
+            imgSrc={currentMeme}
+            topText={memeText.topText}
+            bottomText={memeText.bottomText}
+          />
+        </div>
+      </main>
+      <footer>
+        <p>Copyright &copy; David Derama</p>
+      </footer>
+    </div>
+  );
+};
