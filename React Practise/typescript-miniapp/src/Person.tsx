@@ -43,7 +43,7 @@ export const Person = ({ firstName, lastName, status }: Person) => {
   }
 
   function handleButtonCLick(e: React.MouseEvent) {
-    console.log("TEst");
+    console.log(e);
   }
 
   function logId(id: number) {
@@ -51,6 +51,7 @@ export const Person = ({ firstName, lastName, status }: Person) => {
   }
 
   const id = 1;
+  console.log(data);
 
   return (
     <>
