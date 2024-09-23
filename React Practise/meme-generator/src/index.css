@@ -42,6 +42,7 @@ body {
   padding: 0;
   background-color: var(--background);
   color: var(--header-color);
+  font-family: "Gabarito", system-ui;
 }
 
 h1,

@@ -1,11 +1,11 @@
 type FormProps = {
-  getNewImg: () => void;
+  getNewImg: (e: React.ChangeEvent<HTMLFormElement>) => void;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export const Form = ({ getNewImg, handleChange }: FormProps) => {
   return (
-    <form>
+    <form onSubmit={getNewImg}>
       <div className="inputs-container">
         <div className="inputs">
           <label htmlFor="top-text">Top Text</label>
@@ -28,9 +28,7 @@ export const Form = ({ getNewImg, handleChange }: FormProps) => {
           />
         </div>
       </div>
-      <button onClick={getNewImg} type="button">
-        Get a new meme image
-      </button>
+      <button>Get a new meme image</button>
     </form>
   );
 };

@@ -34,12 +34,13 @@ export const App = () => {
     fetchMemes();
   }, []);
 
-  function getNewImg() {
+  function getNewImg(e: React.FormEvent<HTMLFormElement>): void {
+    e.preventDefault();
     const randomNum = Math.ceil(Math.random() * memes?.length);
     setCurrentMeme(memes[randomNum].url);
   }
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>): void {
     const { value, name } = e.target;
     setMemeText((prev) => ({ ...prev, [name]: value }));
     console.log(value, name);

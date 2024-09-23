@@ -1,12 +1,14 @@
+type MemeDisplayProps = {
+  imgSrc: string;
+  topText: string;
+  bottomText: string;
+};
+
 export const MemeDisplay = ({
   imgSrc,
   topText,
   bottomText,
-}: {
-  imgSrc: string;
-  topText: string;
-  bottomText: string;
-}) => {
+}: MemeDisplayProps) => {
   return (
     <div className="image-display">
       <h2 className="top-text">{topText}</h2>
