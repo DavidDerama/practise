@@ -71,6 +71,7 @@ function App() {
   }
   return (
     <div className="app">
+      <h1>Salesboard 🔔</h1>
       <div className="profile-img">
         <img src={profileImg} alt="" />
       </div>
