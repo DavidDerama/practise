@@ -1,0 +1,101 @@
+.app {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.profile-img {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  border: 5px solid #44354a;
+  overflow: hidden;
+  margin: 24px 0;
+}
+
+.profile-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.menu-buttons {
+  display: flex;
+  gap: 14px;
+  min-width: 200px;
+  margin-bottom: 24px;
+}
+
+.menu-buttons button {
+  padding: 8px;
+  flex: 1;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #9e4770;
+  cursor: pointer;
+  border: none;
+}
+
+.stats-display {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 80%;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  padding: 12px;
+  border-radius: 24px;
+  background-color: #171717;
+  border: 3px solid #3c3c3c;
+  min-height: 50px;
+}
+
+.stats-container li {
+  list-style-type: none;
+}
+
+.displays {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.motion-container {
+  margin-top: 32px;
+  display: flex;
+  gap: 32px;
+  width: 100%;
+}
+
+.motion-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.motion-item-display {
+  padding: 12px 40px;
+  background-color: #171717;
+  border: 1px solid #3c3c3c;
+  color: var(--header-color);
+  border-radius: 32px;
+  font-size: 24px;
+  text-align: center;
+}

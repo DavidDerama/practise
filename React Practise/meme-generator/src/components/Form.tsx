@@ -1,9 +1,16 @@
 type FormProps = {
   getNewImg: (e: React.ChangeEvent<HTMLFormElement>) => void;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  topText: string;
+  bottomText: string;
 };
 
-export const Form = ({ getNewImg, handleChange }: FormProps) => {
+export const Form = ({
+  getNewImg,
+  handleChange,
+  topText,
+  bottomText,
+}: FormProps) => {
   return (
     <form onSubmit={getNewImg}>
       <div className="inputs-container">
@@ -15,6 +22,7 @@ export const Form = ({ getNewImg, handleChange }: FormProps) => {
             id="top-text"
             placeholder="Bro is"
             onChange={handleChange}
+            value={topText}
           />
         </div>
         <div className="inputs">
@@ -25,6 +33,7 @@ export const Form = ({ getNewImg, handleChange }: FormProps) => {
             placeholder="kinda freaky"
             id="bottom-text"
             onChange={handleChange}
+            value={bottomText}
           />
         </div>
       </div>

@@ -23,6 +23,10 @@ footer {
   background-color: #a818da;
 }
 
+header h2 {
+  font-weight: normal;
+}
+
 header img {
   height: 34px;
 }

@@ -51,7 +51,12 @@ export const App = () => {
       <Header />
       <main>
         <div className="main-content">
-          <Form getNewImg={getNewImg} handleChange={handleChange} />
+          <Form
+            getNewImg={getNewImg}
+            handleChange={handleChange}
+            topText={memeText.topText}
+            bottomText={memeText.bottomText}
+          />
           <MemeDisplay
             imgSrc={currentMeme}
             topText={memeText.topText}
