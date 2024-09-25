@@ -26,19 +26,40 @@
 
 .menu-buttons {
   display: flex;
+  flex-wrap: wrap;
   gap: 14px;
-  min-width: 200px;
+  width: 250px;
   margin-bottom: 24px;
 }
 
 .menu-buttons button {
-  padding: 8px;
-  flex: 1;
   border-radius: 8px;
-  font-size: 1rem;
-  background: #9e4770;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   border: none;
+  font-size: 1rem;
+  padding: 12px;
+  font-weight: bold;
+  color: var(--header-color);
+  background: #9e4770;
+}
+
+.menu-buttons button:first-child,
+.menu-buttons button:nth-child(2) {
+  flex: 1;
+}
+
+.menu-buttons button:last-child {
+  min-width: 100%;
+  flex: 2;
+  border-radius: 30px;
+  border: 2px solid var(--background);
+}
+
+.clear-btn:hover {
+  border: 2px solid var(--header-color);
 }
 
 .stats-display {
@@ -46,7 +67,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  width: 80%;
+  width: 100%;
 }
 
 .stats-container {
@@ -68,7 +89,7 @@
 }
 
 .displays {
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -85,9 +106,9 @@
 .motion-item {
   flex: 1;
   display: flex;
-  align-items: center;
   flex-direction: column;
   gap: 16px;
+  text-align: center;
 }
 
 .motion-item-display {

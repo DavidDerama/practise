@@ -69,13 +69,27 @@ function App() {
       commission: prev.commission + 500 * 0.25,
     }));
   }
+
+  function clearSales() {
+    setSales([]);
+    setAchievements([]);
+    setMotion({
+      revenue: 0,
+      commission: 0,
+    });
+  }
+
   return (
     <div className="app">
       <h1>Salesboard 🔔</h1>
       <div className="profile-img">
         <img src={profileImg} alt="" />
       </div>
-      <MenuButtons addStar={addStar} addFire={addFire} />
+      <MenuButtons
+        addStar={addStar}
+        addFire={addFire}
+        clearSales={clearSales}
+      />
       <div className="displays">
         <SalesDisplay salesArr={sales} />
         <AchievementsDisplay achievementsArr={achievements} />

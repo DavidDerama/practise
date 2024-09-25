@@ -35,6 +35,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: "Gabarito", system-ui;
 }
 
 body {
@@ -42,7 +43,6 @@ body {
   padding: 0;
   background-color: var(--background);
   color: var(--header-color);
-  font-family: "Gabarito", system-ui;
 }
 
 h1,
