@@ -5,5 +5,13 @@ type NoteItemProps = {
 };
 
 export const NoteItem = ({ note }: NoteItemProps) => {
-  return <li>{note.text}</li>;
+  return (
+    <li className="noteitem">
+      <p>{note.text}</p>
+      <div className="noteitem--buttons">
+        <button>Edit</button>
+        <button>Select</button>
+      </div>
+    </li>
+  );
 };
