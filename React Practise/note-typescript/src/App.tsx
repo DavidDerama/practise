@@ -8,11 +8,13 @@ const NotesContext = createContext();
 
 export const App = () => {
   const [notes, setNotes] = useState<Note[]>([
-    { text: "Hello", isSelected: false, editNote: false },
-    { text: "World", isSelected: false, editNote: false },
+    { id: 1, text: "Hello", isSelected: false, editNote: false },
+    { id: 2, text: "World", isSelected: false, editNote: false },
   ]);
 
   const [newNote, setNewNote] = useState<string>("");
+
+  let globalId: number = 3;
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { value } = e.target;
@@ -24,13 +26,13 @@ export const App = () => {
     e.preventDefault();
     setNotes((prev) => [
       ...prev,
-      { text: newNote, isSelected: false, editNote: false },
+      { id: globalId++, text: newNote, isSelected: false, editNote: false },
     ]);
     setNewNote("");
   }
 
   function editNote() {
-    console.log("TEST");
+    console.log(notes);
   }
 
   return (
@@ -53,3 +55,5 @@ export const App = () => {
     </main>
   );
 };
+
+export { NotesContext };
