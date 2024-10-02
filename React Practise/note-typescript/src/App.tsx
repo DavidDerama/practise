@@ -14,8 +14,6 @@ export const App = () => {
 
   const [newNote, setNewNote] = useState<string>("");
 
-  let globalId: number = 3;
-
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { value } = e.target;
     setNewNote(value);
@@ -26,7 +24,12 @@ export const App = () => {
     e.preventDefault();
     setNotes((prev) => [
       ...prev,
-      { id: globalId++, text: newNote, isSelected: false, editNote: false },
+      {
+        id: notes.length + 1,
+        text: newNote,
+        isSelected: false,
+        editNote: false,
+      },
     ]);
     setNewNote("");
   }
