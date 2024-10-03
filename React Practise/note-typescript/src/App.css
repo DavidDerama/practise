@@ -65,6 +65,11 @@
   justify-content: space-between;
 }
 
+.noteitem--buttons {
+  display: flex;
+  gap: 8px;
+}
+
 .selected {
   background-color: blue;
 }

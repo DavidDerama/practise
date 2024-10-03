@@ -11,9 +11,7 @@ export const NoteItem = ({ note }: NoteItemProps) => {
 
   return (
     <li className={`noteitem ${note.isSelected && "selected"}`}>
-      <p>
-        {note.text} {note.id}
-      </p>
+      <p>{note.text}</p>
       <div className="noteitem--buttons">
         <button>Edit</button>
         <button onClick={() => editNote(note.id)}>

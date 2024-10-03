@@ -4,7 +4,12 @@ import { NoteList } from "./components/NoteList";
 import { Note } from "./shared/types";
 import "./App.css";
 
-const NotesContext = createContext();
+type NotesContextType = {
+  deleteSelected: () => void;
+  editNote: (id: number) => void;
+};
+
+const NotesContext = createContext<NotesContextType | undefined>(undefined);
 
 export const App = () => {
   const [notes, setNotes] = useState<Note[]>([
@@ -22,16 +27,18 @@ export const App = () => {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setNotes((prev) => [
-      ...prev,
-      {
-        id: notes.length + 1,
-        text: newNote,
-        isSelected: false,
-        editNote: false,
-      },
-    ]);
-    setNewNote("");
+    if (newNote) {
+      setNotes((prev) => [
+        ...prev,
+        {
+          id: notes.length + 1,
+          text: newNote,
+          isSelected: false,
+          editNote: false,
+        },
+      ]);
+      setNewNote("");
+    }
   }
 
   function editNote(id: number) {
@@ -43,9 +50,16 @@ export const App = () => {
     });
   }
 
+  function deleteSelected() {
+    setNotes((prev) => {
+      return prev.filter((note) => !note.isSelected);
+    });
+    console.log(notes);
+  }
+
   return (
     <main className="app">
-      <NotesContext.Provider value={{ editNote }}>
+      <NotesContext.Provider value={{ editNote, deleteSelected }}>
         <section className="notes">
           <div className="notes-left">
             <h1>Notes</h1>
