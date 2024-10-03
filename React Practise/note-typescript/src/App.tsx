@@ -34,8 +34,13 @@ export const App = () => {
     setNewNote("");
   }
 
-  function editNote() {
-    console.log(notes);
+  function editNote(id: number) {
+    setNotes((prev) => {
+      const notesModified = prev.map((note) =>
+        note.id === id ? { ...note, isSelected: !note.isSelected } : note
+      );
+      return notesModified;
+    });
   }
 
   return (
