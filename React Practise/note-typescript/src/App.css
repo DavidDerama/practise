@@ -77,12 +77,25 @@
 .note-list {
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 0 12px 0 0;
   display: flex;
   flex-direction: column;
   gap: 12px;
   height: 100%;
   overflow-y: auto;
+}
+
+.note-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.note-list::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px #232e33;
+}
+
+.note-list::-webkit-scrollbar-thumb {
+  background: var(--header-color);
+  border-radius: 3px;
 }
 
 .noteitem {
