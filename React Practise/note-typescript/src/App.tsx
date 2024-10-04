@@ -7,6 +7,7 @@ import "./App.css";
 type NotesContextType = {
   deleteSelected: () => void;
   selectNote: (id: number) => void;
+  isEditing: boolean;
 };
 
 const NotesContext = createContext<NotesContextType | undefined>(undefined);
@@ -18,6 +19,8 @@ export const App = () => {
   ]);
 
   const [newNote, setNewNote] = useState<string>("");
+
+  const [isEditing, setIsEditing] = useState<boolean>(false);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { value } = e.target;
@@ -59,7 +62,7 @@ export const App = () => {
 
   return (
     <main className="app">
-      <NotesContext.Provider value={{ selectNote, deleteSelected }}>
+      <NotesContext.Provider value={{ selectNote, deleteSelected, isEditing }}>
         <section className="notes">
           <div className="notes-left">
             <h1>Notes</h1>

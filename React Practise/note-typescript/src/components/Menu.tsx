@@ -8,7 +8,11 @@ type MenuProps = {
 };
 
 export const Menu = ({ handleChange, handleSubmit, newNote }: MenuProps) => {
-  const { deleteSelected } = useContext(NotesContext);
+  const { deleteSelected } = useContext(NotesContext) ?? {};
+
+  if (!deleteSelected) {
+    throw new Error("deleteSelected is not available");
+  }
 
   return (
     <form className="menu" onSubmit={handleSubmit}>
