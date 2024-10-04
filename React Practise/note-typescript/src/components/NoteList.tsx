@@ -9,5 +9,5 @@ export const NoteList = ({ notes }: NoteListProps) => {
   const displayedNotes = notes.map((note) => {
     return <NoteItem note={note} />;
   });
-  return <ul className="notelist">{displayedNotes}</ul>;
+  return <ul className="note-list">{displayedNotes}</ul>;
 };
