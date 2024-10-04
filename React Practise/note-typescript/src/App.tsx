@@ -6,7 +6,7 @@ import "./App.css";
 
 type NotesContextType = {
   deleteSelected: () => void;
-  editNote: (id: number) => void;
+  selectNote: (id: number) => void;
 };
 
 const NotesContext = createContext<NotesContextType | undefined>(undefined);
@@ -41,7 +41,7 @@ export const App = () => {
     }
   }
 
-  function editNote(id: number) {
+  function selectNote(id: number) {
     setNotes((prev) => {
       const notesModified = prev.map((note) =>
         note.id === id ? { ...note, isSelected: !note.isSelected } : note
@@ -59,7 +59,7 @@ export const App = () => {
 
   return (
     <main className="app">
-      <NotesContext.Provider value={{ editNote, deleteSelected }}>
+      <NotesContext.Provider value={{ selectNote, deleteSelected }}>
         <section className="notes">
           <div className="notes-left">
             <h1>Notes</h1>

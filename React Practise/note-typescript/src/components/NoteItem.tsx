@@ -7,14 +7,14 @@ type NoteItemProps = {
 };
 
 export const NoteItem = ({ note }: NoteItemProps) => {
-  const { editNote } = useContext(NotesContext);
+  const { selectNote } = useContext(NotesContext);
 
   return (
     <li className={`noteitem ${note.isSelected && "selected"}`}>
       <p>{note.text}</p>
       <div className="noteitem--buttons">
         <button>Edit</button>
-        <button onClick={() => editNote(note.id)}>
+        <button onClick={() => selectNote(note.id)}>
           {note.isSelected ? "Unselect" : "Select"}
         </button>
       </div>
