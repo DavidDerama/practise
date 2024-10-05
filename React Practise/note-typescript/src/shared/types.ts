@@ -4,3 +4,8 @@ export type Note = {
   isSelected: boolean;
   isEditing: boolean;
 };
+
+export type EditNote = {
+  text: string;
+  id: string;
+};

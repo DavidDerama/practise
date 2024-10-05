@@ -1,14 +1,9 @@
 import { useContext, useRef, useEffect, useState } from "react";
-import { Note } from "../shared/types";
+import { Note, EditNote } from "../shared/types";
 import { NotesContext } from "../App";
 
 type NoteItemProps = {
   note: Note;
-};
-
-type EditNote = {
-  text: string;
-  id: string;
 };
 
 export const NoteItem = ({ note }: NoteItemProps) => {
@@ -17,13 +12,17 @@ export const NoteItem = ({ note }: NoteItemProps) => {
     text: note.text,
   });
   const inputRef = useRef<HTMLInputElement | null>(null);
-  const { selectNote, editNote } = useContext(NotesContext) ?? {};
+  const { selectNote, editNote, changeNoteChanges } =
+    useContext(NotesContext) ?? {};
 
   if (!selectNote) {
     throw new Error("selectNote is not available");
   }
 
   if (!editNote) {
+    throw new Error("editNote is not available");
+  }
+  if (!changeNoteChanges) {
     throw new Error("editNote is not available");
   }
 
@@ -42,12 +41,16 @@ export const NoteItem = ({ note }: NoteItemProps) => {
   }
 
   function saveNotesChanges(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefaultI();
+    e.preventDefault();
+    console.log("rewaf");
   }
 
   return (
-    <li className={`noteitem ${note.isSelected && "selected"}`}>
-      <form>
+    <li>
+      <form
+        className={`noteitem ${note.isSelected && "selected"}`}
+        onSubmit={saveNotesChanges}
+      >
         <input
           name={note.id}
           type="text"
@@ -56,24 +59,28 @@ export const NoteItem = ({ note }: NoteItemProps) => {
           ref={inputRef}
           onChange={editNoteValue}
         />
+        <div className="noteitem--buttons">
+          {!note.isEditing ? (
+            <>
+              {!note.isSelected && (
+                <button onClick={() => editNote(note.id)} type="button">
+                  Edit
+                </button>
+              )}
+              <button onClick={() => selectNote(note.id)} type="button">
+                {note.isSelected ? "Cancel" : "Select"}
+              </button>
+            </>
+          ) : (
+            <>
+              <button type="submit">Save</button>
+              <button onClick={() => editNote(note.id)} type="button">
+                Cancel
+              </button>
+            </>
+          )}
+        </div>
       </form>
-      <div className="noteitem--buttons">
-        {!note.isEditing ? (
-          <>
-            {!note.isSelected && (
-              <button onClick={() => editNote(note.id)}>Edit</button>
-            )}
-            <button onClick={() => selectNote(note.id)}>
-              {note.isSelected ? "Cancel" : "Select"}
-            </button>
-          </>
-        ) : (
-          <>
-            <button>Save</button>
-            <button onClick={() => editNote(note.id)}>Cancel</button>
-          </>
-        )}
-      </div>
     </li>
   );
 };

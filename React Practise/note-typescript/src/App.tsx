@@ -1,15 +1,15 @@
 import React, { useState, createContext, useEffect } from "react";
 import { Menu } from "./components/Menu";
 import { NoteList } from "./components/NoteList";
-import { Note } from "./shared/types";
+import { Note, EditNote } from "./shared/types";
+import { nanoid } from "nanoid";
 import "./App.css";
 
 type NotesContextType = {
   deleteSelected: () => void;
   selectNote: (id: string) => void;
   editNote: (id: string) => void;
-  editNoteValue: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  saveNoteChange: (e: React.FormEvent<HTMLFormElement>) => void;
+  changeNoteChanges: (obj: EditNote) => void;
 };
 
 const NotesContext = createContext<NotesContextType | undefined>(undefined);
@@ -38,7 +38,7 @@ export const App = () => {
       setNotes((prev) => [
         ...prev,
         {
-          id: `notes${notes.length + 1}`,
+          id: nanoid(),
           text: newNote,
           isSelected: false,
           isEditing: false,
@@ -64,16 +64,16 @@ export const App = () => {
     console.log(notes);
   }
 
-  function editNoteValue(e: React.ChangeEvent<HTMLInputElement>) {
-    const { value, name } = e.target;
-    setNotes((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  }
-
-  function saveNoteChange(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+  function changeNoteChanges(obj: EditNote) {
+    const { text, id } = obj;
+    setNotes((prev) => {
+      const prevModified = prev.map((note) =>
+        note.id === id
+          ? { id, text, isSelected: false, isEditing: false }
+          : note
+      );
+      return prevModified;
+    });
   }
 
   function editNote(id: string) {
@@ -92,8 +92,7 @@ export const App = () => {
           selectNote,
           deleteSelected,
           editNote,
-          editNoteValue,
-          saveNoteChange,
+          changeNoteChanges,
         }}
       >
         <section className="notes">
