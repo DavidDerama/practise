@@ -1,4 +1,4 @@
-import { useContext, useRef, useEffect } from "react";
+import { useContext, useRef, useEffect, useState } from "react";
 import { Note } from "../shared/types";
 import { NotesContext } from "../App";
 
@@ -6,7 +6,16 @@ type NoteItemProps = {
   note: Note;
 };
 
+type EditNote = {
+  text: string;
+  id: string;
+};
+
 export const NoteItem = ({ note }: NoteItemProps) => {
+  const [noteValue, setNoteValue] = useState<EditNote>({
+    id: note.id,
+    text: note.text,
+  });
   const inputRef = useRef<HTMLInputElement | null>(null);
   const { selectNote, editNote } = useContext(NotesContext) ?? {};
 
@@ -24,14 +33,30 @@ export const NoteItem = ({ note }: NoteItemProps) => {
     }
   }, [note.isEditing]);
 
+  function editNoteValue(e: React.ChangeEvent<HTMLInputElement>) {
+    const { value } = e.target;
+    setNoteValue((prev) => ({
+      ...prev,
+      text: value,
+    }));
+  }
+
+  function saveNotesChanges(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefaultI();
+  }
+
   return (
     <li className={`noteitem ${note.isSelected && "selected"}`}>
-      <input
-        type="text"
-        defaultValue={note.text}
-        disabled={!note.isEditing}
-        ref={inputRef}
-      />
+      <form>
+        <input
+          name={note.id}
+          type="text"
+          defaultValue={noteValue.text}
+          disabled={!note.isEditing}
+          ref={inputRef}
+          onChange={editNoteValue}
+        />
+      </form>
       <div className="noteitem--buttons">
         {!note.isEditing ? (
           <>
