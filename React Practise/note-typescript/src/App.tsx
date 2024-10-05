@@ -7,20 +7,18 @@ import "./App.css";
 type NotesContextType = {
   deleteSelected: () => void;
   selectNote: (id: number) => void;
-  isEditing: boolean;
+  editNote: (id: number) => void;
 };
 
 const NotesContext = createContext<NotesContextType | undefined>(undefined);
 
 export const App = () => {
   const [notes, setNotes] = useState<Note[]>([
-    { id: 1, text: "Hello", isSelected: false, editNote: false },
-    { id: 2, text: "World", isSelected: false, editNote: false },
+    { id: 1, text: "Hello", isSelected: false, isEditing: false },
+    { id: 2, text: "World", isSelected: false, isEditing: false },
   ]);
 
   const [newNote, setNewNote] = useState<string>("");
-
-  const [isEditing, setIsEditing] = useState<boolean>(false);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { value } = e.target;
@@ -37,7 +35,7 @@ export const App = () => {
           id: notes.length + 1,
           text: newNote,
           isSelected: false,
-          editNote: false,
+          isEditing: false,
         },
       ]);
       setNewNote("");
@@ -60,9 +58,24 @@ export const App = () => {
     console.log(notes);
   }
 
+  function editNote(id: number) {
+    setNotes((prev) => {
+      const notesModified = prev.map((note) =>
+        note.id === id ? { ...note, isEditing: !note.isEditing } : note
+      );
+      return notesModified;
+    });
+  }
+
   return (
     <main className="app">
-      <NotesContext.Provider value={{ selectNote, deleteSelected, isEditing }}>
+      <NotesContext.Provider
+        value={{
+          selectNote,
+          deleteSelected,
+          editNote,
+        }}
+      >
         <section className="notes">
           <div className="notes-left">
             <h1>Notes</h1>
