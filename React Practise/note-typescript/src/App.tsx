@@ -10,6 +10,7 @@ type NotesContextType = {
   selectNote: (id: string) => void;
   editNote: (id: string) => void;
   changeNoteChanges: (obj: EditNote) => void;
+  editingMode: boolean;
 };
 
 const NotesContext = createContext<NotesContextType | undefined>(undefined);
@@ -20,9 +21,11 @@ export const App = () => {
     return notesLocal ? JSON.parse(notesLocal) : [];
   });
 
+  const [editingMode, setEditingMode] = useState<boolean>(false);
+
   useEffect(() => {
-    // localStorage.setItem("notes", JSON.stringify(notes));
-  }, []);
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }, [notes]);
 
   const [newNote, setNewNote] = useState<string>("");
 
@@ -61,19 +64,17 @@ export const App = () => {
     setNotes((prev) => {
       return prev.filter((note) => !note.isSelected);
     });
-    console.log(notes);
   }
 
   function changeNoteChanges(obj: EditNote) {
-    const { text, id } = obj;
+    const { id } = obj;
     setNotes((prev) => {
       const prevModified = prev.map((note) =>
-        note.id === id
-          ? { id, text, isSelected: false, isEditing: false }
-          : note
+        note.id === id ? { ...obj, isSelected: false, isEditing: false } : note
       );
       return prevModified;
     });
+    setEditingMode(false);
   }
 
   function editNote(id: string) {
@@ -83,6 +84,7 @@ export const App = () => {
       );
       return notesModified;
     });
+    setEditingMode((prev) => !prev);
   }
 
   return (
@@ -93,6 +95,7 @@ export const App = () => {
           deleteSelected,
           editNote,
           changeNoteChanges,
+          editingMode,
         }}
       >
         <section className="notes">

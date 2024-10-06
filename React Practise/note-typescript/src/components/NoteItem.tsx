@@ -12,7 +12,7 @@ export const NoteItem = ({ note }: NoteItemProps) => {
     text: note.text,
   });
   const inputRef = useRef<HTMLInputElement | null>(null);
-  const { selectNote, editNote, changeNoteChanges } =
+  const { selectNote, editNote, changeNoteChanges, editingMode } =
     useContext(NotesContext) ?? {};
 
   if (!selectNote) {
@@ -20,9 +20,6 @@ export const NoteItem = ({ note }: NoteItemProps) => {
   }
 
   if (!editNote) {
-    throw new Error("editNote is not available");
-  }
-  if (!changeNoteChanges) {
     throw new Error("editNote is not available");
   }
 
@@ -42,7 +39,11 @@ export const NoteItem = ({ note }: NoteItemProps) => {
 
   function saveNotesChanges(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log("rewaf");
+    if (changeNoteChanges) {
+      changeNoteChanges(noteValue);
+    } else {
+      console.error("changeNoteChanges is undefined.");
+    }
   }
 
   return (
@@ -54,27 +55,49 @@ export const NoteItem = ({ note }: NoteItemProps) => {
         <input
           name={note.id}
           type="text"
-          defaultValue={noteValue.text}
+          value={noteValue.text}
           disabled={!note.isEditing}
           ref={inputRef}
           onChange={editNoteValue}
         />
-        <div className="noteitem--buttons">
+        <div
+          className={`noteitem--buttons ${
+            editingMode && !note.isEditing && "editingMode"
+          }`}
+        >
           {!note.isEditing ? (
             <>
               {!note.isSelected && (
-                <button onClick={() => editNote(note.id)} type="button">
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    editNote(note.id);
+                  }}
+                  type="button"
+                >
                   Edit
                 </button>
               )}
-              <button onClick={() => selectNote(note.id)} type="button">
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  selectNote(note.id);
+                }}
+                type="button"
+              >
                 {note.isSelected ? "Cancel" : "Select"}
               </button>
             </>
           ) : (
             <>
               <button type="submit">Save</button>
-              <button onClick={() => editNote(note.id)} type="button">
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  editNote(note.id);
+                }}
+                type="button"
+              >
                 Cancel
               </button>
             </>
