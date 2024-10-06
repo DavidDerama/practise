@@ -125,11 +125,25 @@
 }
 
 .noteitem--buttons button {
-  border-radius: 12px;
-  padding: 4px 12px;
+  border-radius: 16px;
+  padding: 4px 16px;
   border: none;
-  background-color: transparent;
+  color: var(--background);
   border: 2px solid var(--header-color);
+  font-weight: bold;
+}
+
+.noteitem--buttons button:last-child {
+  color: var(--background);
+}
+
+.noteitem--buttons button:first-child {
+  background-color: transparent;
+  color: var(--header-color);
+}
+
+.noteitem--buttons button:hover {
+  opacity: 0.8;
 }
 
 .selected {
