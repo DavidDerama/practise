@@ -18,7 +18,7 @@ export const Menu = ({ handleChange, handleSubmit, newNote }: MenuProps) => {
     <form className="menu" onSubmit={handleSubmit}>
       <input type="text" onChange={handleChange} value={newNote} />
       <div className="menu-buttons">
-        <button type="submit">Send</button>
+        <button type="submit">Write</button>
         <button type="button" onClick={deleteSelected}>
           Delete
         </button>
