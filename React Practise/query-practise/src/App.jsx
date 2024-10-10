@@ -1,22 +1,18 @@
 import { useState } from "react";
 import "./App.css";
 
-import {
-  useQuery,
-  useMutation,
-  QueryClient,
-  useQueryClient,
-} from "react-query";
+import { useQuery, useMutation, useQueryClient } from "react-query";
 
 function App() {
   const queryClient = useQueryClient();
 
   const { data, loading, error } = useQuery({
-    queryKey: ["todos"],
+    queryKey: ["posts"],
     queryFn: () =>
-      fetch("https://jsonplaceholder.typicode.com/todos").then((res) =>
+      fetch("https://jsonplaceholder.typicode.com/posts").then((res) =>
         res.json()
       ),
+    refetchInterval: 4000,
   });
 
   const { mutate, isLoading, isError } = useMutation({
@@ -26,8 +22,8 @@ function App() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newPost),
       }).then((res) => res.json()),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["posts"] });
+    onSuccess: (newPost) => {
+      queryClient.setQueryData(["posts"], (oldPosts) => [...oldPosts, newPost]);
     },
   });
 
