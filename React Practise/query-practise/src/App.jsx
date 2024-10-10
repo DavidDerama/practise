@@ -1,9 +1,16 @@
 import { useState } from "react";
 import "./App.css";
 
-import { useQuery, useMutation } from "react-query";
+import {
+  useQuery,
+  useMutation,
+  QueryClient,
+  useQueryClient,
+} from "react-query";
 
 function App() {
+  const queryClient = useQueryClient();
+
   const { data, loading, error } = useQuery({
     queryKey: ["todos"],
     queryFn: () =>
@@ -19,6 +26,9 @@ function App() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newPost),
       }).then((res) => res.json()),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["posts"] });
+    },
   });
 
   return (
