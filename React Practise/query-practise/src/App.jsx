@@ -8,11 +8,7 @@ function App() {
 
   const postId = 2;
 
-  const {
-    data: posts,
-    loading,
-    error,
-  } = useQuery({
+  const { data: posts } = useQuery({
     queryKey: ["posts"],
     queryFn: () =>
       fetch("https://jsonplaceholder.typicode.com/posts").then((res) =>
