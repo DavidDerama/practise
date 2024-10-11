@@ -6,16 +6,31 @@ import { useQuery, useMutation, useQueryClient } from "react-query";
 function App() {
   const queryClient = useQueryClient();
 
-  const { data, loading, error } = useQuery({
+  const postId = 2;
+
+  const {
+    data: posts,
+    loading,
+    error,
+  } = useQuery({
     queryKey: ["posts"],
     queryFn: () =>
       fetch("https://jsonplaceholder.typicode.com/posts").then((res) =>
         res.json()
       ),
     refetchInterval: 4000,
+    refetchOnWindowFocus: false,
   });
 
-  const { mutate, isLoading, isError } = useMutation({
+  const { data: post, loading: postLoading } = useQuery({
+    queryFn: () =>
+      fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`).then(
+        (res) => res.json()
+      ),
+    queryKey: ["post", postId],
+  });
+
+  const { mutate, isLoading } = useMutation({
     mutationFn: (newPost) =>
       fetch("https://jsonplaceholder.typicode.com/todos", {
         method: "POST",
@@ -30,6 +45,7 @@ function App() {
   return (
     <div className="app">
       <h1>React Query Practise</h1>
+      <h1>{post?.title}</h1>
       <button
         onClick={() =>
           mutate({
@@ -44,7 +60,7 @@ function App() {
       </button>
 
       {isLoading && <p>Data being sent</p>}
-      {data?.map((todo) => {
+      {posts?.map((todo) => {
         return (
           <h1>
             {todo.id}: {todo.title}
