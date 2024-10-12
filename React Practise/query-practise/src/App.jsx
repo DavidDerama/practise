@@ -26,6 +26,8 @@ function App() {
     queryKey: ["post", postId],
   });
 
+  const { data: testData, loading: testLoading } = useQuery();
+
   const { mutate, isLoading } = useMutation({
     mutationFn: (newPost) =>
       fetch("https://jsonplaceholder.typicode.com/todos", {
