@@ -13,8 +13,7 @@ export const SearchForm = () => {
 
   function handelSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    navigate("/haku");
-    console.log(haku);
+    navigate(`/haku?q=${haku}`);
   }
 
   return (
