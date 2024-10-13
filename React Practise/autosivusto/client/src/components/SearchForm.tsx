@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FaMagnifyingGlass } from "react-icons/fa6";
 
 export const SearchForm = () => {
   const [haku, setHaku] = useState("");
@@ -13,7 +14,9 @@ export const SearchForm = () => {
 
   function handelSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    navigate(`/haku?q=${haku}`);
+    if (haku.length) {
+      navigate(`/haku?q=${haku}`);
+    }
   }
 
   return (
@@ -24,7 +27,9 @@ export const SearchForm = () => {
         onChange={handleChange}
         value={haku}
       />
-      <button>Search</button>
+      <button>
+        <FaMagnifyingGlass />
+      </button>
     </form>
   );
 };

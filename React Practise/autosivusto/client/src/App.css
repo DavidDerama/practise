@@ -28,8 +28,7 @@ main {
 
 header {
   padding: 24px 0;
-  background-color: #171717;
-  border-bottom: 1px solid #3c3c3c;
+  background-color: #121212;
   position: relative;
 }
 
@@ -44,6 +43,26 @@ header {
 
 .search-form {
   display: flex;
+  background-color: #171717;
+  border: 1px solid #3c3c3c;
+  padding: 8px 12px;
+  gap: 14px;
+  border-radius: 4px;
+}
+
+.search-form input {
+  font-size: 1rem;
+  background-color: transparent;
+  border: none;
+  color: var(--header-color);
+}
+
+.search-form button {
+  background-color: transparent;
+  font-size: 16px;
+  border: none;
+  padding: 0;
+  color: var(--header-color);
 }
 
 input:focus,
@@ -82,7 +101,7 @@ button:focus {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  margin-top: 12px;
+  margin-top: 24px;
 }
 
 .auto-boxi {
@@ -96,7 +115,7 @@ button:focus {
   background-color: #171717;
   border: 1px solid #3c3c3c;
   border-radius: 8px;
-  gap: 12px;
+  gap: 8px;
 }
 
 .auto-logo {
