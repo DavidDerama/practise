@@ -37,9 +37,19 @@ app.get("/api/haku", (req, res) => {
   res.json(autoFilter);
 });
 
+app.get("/api/maara", (req, res) => {
+  res.json({ length: autot.length });
+});
+
 app.post("/api/lisaa", (req, res) => {
-  const uusiAutoOlio = req.body;
-  autot.push({ id: autot.length + 1, ...uusiAutoOlio });
+  const { merkki, malli, vuosimalli, omistaja } = req.body;
+  autot.push({
+    id: autot.length + 1,
+    vuosimalli: parseInt(vuosimalli),
+    merkki,
+    malli,
+    omistaja,
+  });
   fs.writeFile(
     "autot.json",
     JSON.stringify(autot),
