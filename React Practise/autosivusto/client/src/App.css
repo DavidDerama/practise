@@ -18,6 +18,7 @@ main {
   justify-content: center;
   align-items: center;
   height: 100%;
+  padding: 16px 0;
 }
 
 .error-page {
@@ -138,4 +139,42 @@ button:focus {
 .label {
   color: var(--label-color);
   font-weight: bolder;
+}
+
+.lisaa-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 12px 0;
+  width: 40%;
+  margin-top: 24px;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.lisaa-form button {
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.form-input input {
+  width: 100%;
+}
+
+.form-input label {
+  font-weight: bolder;
+  font-size: 24px;
+}
+
+.form-input input {
+  font-size: 24px;
+  padding: 4px 8px;
 }
