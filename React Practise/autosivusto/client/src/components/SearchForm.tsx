@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaMagnifyingGlass } from "react-icons/fa6";
+import { toast } from "react-toastify";
 
 export const SearchForm = () => {
   const [haku, setHaku] = useState("");
@@ -16,6 +17,10 @@ export const SearchForm = () => {
     e.preventDefault();
     if (haku.length) {
       navigate(`/haku?q=${haku}`);
+    } else {
+      toast.info("Search input is required", {
+        closeButton: false,
+      });
     }
   }
 

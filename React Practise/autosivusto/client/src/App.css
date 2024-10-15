@@ -109,11 +109,11 @@ button:focus {
   gap: 12px;
   flex-wrap: wrap;
   margin-top: 24px;
+  width: 100%;
 }
 
 .auto-boxi {
   flex: 1 0 300px;
-  border: 1px solid white;
   padding: 16px;
   display: flex;
   flex-direction: column;

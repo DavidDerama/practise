@@ -5,10 +5,16 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export const Layout = () => {
-  function notify(message: string) {
-    toast.success(message, {
-      closeButton: false,
-    });
+  function notify(message: string, type: string) {
+    if (type === "success") {
+      toast.success(message, {
+        closeButton: false,
+      });
+    } else if (type === "error") {
+      toast.error(message, {
+        closeButton: false,
+      });
+    }
   }
 
   return (

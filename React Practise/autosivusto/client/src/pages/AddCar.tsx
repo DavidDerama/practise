@@ -23,7 +23,7 @@ export const AddCar = () => {
         mode: "cors",
         body: JSON.stringify(newCar),
       }).then((res) => res.json()),
-    onSuccess: (data) => notify(data.message),
+    onSuccess: (data) => notify(data.message, "success"),
   });
 
   const { data: carId } = useQuery({

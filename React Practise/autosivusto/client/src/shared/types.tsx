@@ -9,5 +9,5 @@ export type Auto = {
 export type FormData = Omit<Auto, "id">;
 
 export type OutletContextType = {
-  notify: (message: string) => void;
+  notify: (message: string, type: string) => void;
 };
