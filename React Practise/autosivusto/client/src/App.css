@@ -172,6 +172,13 @@ button:focus {
   cursor: pointer;
   background-color: #6019e5;
   color: var(--header-color);
+  outline: 2px solid var(--background);
+  outline-offset: -2px;
+  transition: all 0.25s ease-in;
+}
+
+.lisaa-form button:hover {
+  outline: 2px solid var(--header-color);
 }
 
 .form-input input {
