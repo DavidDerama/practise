@@ -23,13 +23,13 @@ app.get("/api/autot", (req, res) => {
 app.get("/api/haku", (req, res) => {
   const hakutermi = req.query.q;
 
-  const hakutermiMuokattu = hakutermi[0].toUpperCase() + hakutermi.slice(1);
+  const hakutermiMuokattu = hakutermi.toLowerCase();
 
   const autoFilter = autot.filter((auto) => {
     if (
-      auto.merkki.includes(hakutermiMuokattu) ||
-      auto.malli.includes(hakutermiMuokattu) ||
-      auto.omistaja.includes(hakutermiMuokattu)
+      auto.merkki.toLowerCase().includes(hakutermiMuokattu) ||
+      auto.malli.toLowerCase().includes(hakutermiMuokattu) ||
+      auto.omistaja.toLowerCase().includes(hakutermiMuokattu)
     ) {
       return auto;
     }
