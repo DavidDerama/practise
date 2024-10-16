@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FormData, Auto, OutletContextType } from "../shared/types";
-import { useMutation, useQuery } from "react-query";
+import { useMutation, useQuery, useQueryClient } from "react-query";
 import { useOutletContext, useNavigate } from "react-router-dom";
 
 export const AddCar = () => {
@@ -15,6 +15,8 @@ export const AddCar = () => {
 
   const navigate = useNavigate();
 
+  const queryClient = useQueryClient();
+
   const { mutate } = useMutation({
     mutationFn: (newCar: Auto) =>
       fetch("http://localhost:3000/api/lisaa", {
@@ -23,7 +25,10 @@ export const AddCar = () => {
         mode: "cors",
         body: JSON.stringify(newCar),
       }).then((res) => res.json()),
-    onSuccess: (data) => notify(data.message, "success"),
+    onSuccess: (data) => {
+      notify(data.message, "success");
+      queryClient.invalidateQueries({ queryKey: "autot" });
+    },
   });
 
   const { data: carId } = useQuery({

@@ -51,7 +51,7 @@ header {
 .search-form {
   display: flex;
   background-color: #171717;
-  border: 1px solid #3c3c3c;
+  border: 2px solid #3c3c3c;
   padding: 8px 12px;
   gap: 14px;
   border-radius: 4px;
@@ -120,7 +120,7 @@ button:focus {
   justify-content: center;
   align-items: center;
   background-color: #171717;
-  border: 1px solid #3c3c3c;
+  border: 2px solid #3c3c3c;
   border-radius: 8px;
   gap: 8px;
 }
@@ -172,7 +172,7 @@ button:focus {
   cursor: pointer;
   background-color: #6019e5;
   color: var(--header-color);
-  outline: 2px solid var(--background);
+  outline: 2px solid transparent;
   outline-offset: -2px;
   transition: all 0.25s ease-in;
 }
@@ -184,7 +184,7 @@ button:focus {
 .form-input input {
   width: 100%;
   background-color: #171717;
-  border: 1px solid #3c3c3c;
+  border: 2px solid #3c3c3c;
   color: var(--header-color);
   border-radius: 6px;
   padding: 12px 16px;

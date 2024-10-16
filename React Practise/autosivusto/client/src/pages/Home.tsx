@@ -8,7 +8,6 @@ export const Home = () => {
       fetch("http://localhost:3000/api/autot", {
         mode: "cors",
       }).then((res) => res.json()),
-    refetchOnWindowFocus: false,
   });
 
   return (
