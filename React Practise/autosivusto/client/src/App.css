@@ -72,6 +72,11 @@ header {
   color: var(--header-color);
 }
 
+.search-form button:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
 input:focus,
 button:focus {
   outline: none;
