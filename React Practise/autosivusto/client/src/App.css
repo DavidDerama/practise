@@ -16,7 +16,6 @@ input::-webkit-inner-spin-button {
 }
 
 .content {
-  /* border: 1px solid white; */
   max-width: var(--content-max-width);
   margin: 0 auto;
   display: flex;
