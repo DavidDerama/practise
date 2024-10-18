@@ -87,7 +87,7 @@ button:focus {
 }
 
 .nav-bar {
-  background-color: #6019e5;
+  background-color: var(--accent);
 }
 
 .nav-bar ul {
@@ -174,7 +174,7 @@ button:focus {
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
-  background-color: #6019e5;
+  background-color: var(--accent);
   color: var(--header-color);
   outline: 2px solid transparent;
   outline-offset: -2px;
