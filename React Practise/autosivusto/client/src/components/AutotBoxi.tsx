@@ -1,5 +1,6 @@
 import { Auto } from "../shared/types";
 import { FaCarOn } from "react-icons/fa6";
+import { FaTrash } from "react-icons/fa6";
 
 type AutotBoxiProps = {
   autot: Auto[];
@@ -17,6 +18,7 @@ export const AutotBoxi = ({ autot }: AutotBoxiProps) => {
         </h3>
         <p>{auto.omistaja}</p>
         <p className="label">{auto.vuosimalli}</p>
+        <button></button>
       </div>
     );
   });
