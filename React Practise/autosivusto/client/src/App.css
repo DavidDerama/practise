@@ -200,3 +200,23 @@ button:focus {
   font-size: 18px;
   font-weight: bolder;
 }
+
+.remove-car-btn {
+  border: 1px solid black;
+  border-radius: 50%;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  font-size: 16px;
+  background-color: #ff4b4b;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+}
+
+.remove-car-btn:hover {
+  color: var(--header-color);
+}
