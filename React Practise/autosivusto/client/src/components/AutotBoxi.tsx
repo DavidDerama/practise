@@ -18,7 +18,9 @@ export const AutotBoxi = ({ autot }: AutotBoxiProps) => {
         </h3>
         <p>{auto.omistaja}</p>
         <p className="label">{auto.vuosimalli}</p>
-        <button></button>
+        <button className="remvoe-car-btn">
+          <FaTrash />
+        </button>
       </div>
     );
   });
