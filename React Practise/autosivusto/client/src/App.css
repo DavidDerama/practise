@@ -202,8 +202,9 @@ button:focus {
 }
 
 .remove-car-btn {
-  border: 1px solid black;
+  color: #1c1c1c;
   border-radius: 50%;
+  border: none;
   padding: 8px;
   display: flex;
   justify-content: center;
