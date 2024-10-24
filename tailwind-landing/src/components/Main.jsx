@@ -1,12 +1,12 @@
 export const Main = () => {
   return (
-    <main className="flex-grow py-20 px-5 bg-gray-200">
-      <div className="max-w-screen-lg mx-auto flex flex-col  gap-10">
+    <main className="grow bg-light px-5 py-20">
+      <div className="mx-auto flex max-w-screen-lg flex-col gap-10">
         <section>
-          <h2 className="text-xl text-indigo-700 font-bold border-b border-gray-300 pb-2 mb-4">
+          <h2 className="text-light_heading mb-4 border-b border-gray-300 pb-2 text-2xl font-bold">
             How It Works
           </h2>
-          <p className="text-gray-600">
+          <p className="text-light_paragraph leading-[1.625]">
             Tailwind is designed for rapid development of modern applications.
             At its core, it is a robust mobile-first design system built with
             developer experience in mind. After using Tailwind CSS, you will
@@ -15,12 +15,12 @@ export const Main = () => {
           </p>
         </section>
         <section>
-          <h2 className="text-xl text-indigo-700 font-bold border-b border-gray-300 pb-2 mb-4">
+          <h2 className="text-light_heading mb-4 border-b border-gray-300 pb-2 text-2xl font-bold">
             Advantages
           </h2>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <div className="bg-white rounded-md overflow-hidden border-b-4 border-pink-500 flex-grow flex items-center justify-center flex-col py-6 px-3 gap-3 text-sm text-center basis-40">
-              <div className="w-14 h-14 rounded-full  bg-blue-20 text-indigo-700 p-2 flex justify-center items-center bg-gray-200">
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <div className="flex grow basis-40 flex-col items-center justify-center gap-3 overflow-hidden rounded-md border-b-4 border-pink-500 bg-white px-3 py-6 text-center text-sm">
+              <div className="bg-blue-20 flex h-14 w-14 items-center justify-center rounded-full bg-gray-200 p-2 text-indigo-700">
                 <svg
                   class="h-12 w-12 fill-current"
                   xmlns="http://www.w3.org/2000/svg"
@@ -34,13 +34,13 @@ export const Main = () => {
                 </svg>
               </div>
               <h3 className="font-bold">No Custom CSS</h3>
-              <p className="text-gray-600 font-light">
+              <p className="font-light text-gray-600">
                 Tailwind's advanced class extraction will leave your project
                 free of custom CSS.
               </p>
             </div>
-            <div className="bg-white rounded-md overflow-hidden border-b-4 border-pink-500 flex-grow flex items-center justify-center flex-col py-6 px-3 gap-3 text-sm text-center basis-40">
-              <div className="w-14 h-14 rounded-full  bg-blue-20 text-indigo-700 p-2 flex justify-center items-center bg-gray-200">
+            <div className="flex grow basis-40 flex-col items-center justify-center gap-3 overflow-hidden rounded-md border-b-4 border-pink-500 bg-white px-3 py-6 text-center text-sm">
+              <div className="bg-blue-20 flex h-14 w-14 items-center justify-center rounded-full bg-gray-200 p-2 text-indigo-700">
                 <svg
                   class="h-12 w-12 fill-current"
                   xmlns="http://www.w3.org/2000/svg"
@@ -50,13 +50,13 @@ export const Main = () => {
                 </svg>
               </div>
               <h3 className="font-bold">Developer Experience</h3>
-              <p className="text-gray-600 font-light">
+              <p className="font-light text-gray-600">
                 Tailwind is designed with your happiness in mind. The ease of
                 performing changes is refreshing.
               </p>
             </div>
-            <div className="bg-white rounded-md overflow-hidden border-b-4 border-pink-500 flex-grow flex items-center justify-center flex-col py-6 px-3 gap-3 text-sm text-center basis-40">
-              <div className="w-14 h-14 rounded-full  bg-blue-20 text-indigo-700 p-2 flex justify-center items-center bg-gray-200">
+            <div className="flex grow basis-40 flex-col items-center justify-center gap-3 overflow-hidden rounded-md border-b-4 border-pink-500 bg-white px-3 py-6 text-center text-sm">
+              <div className="bg-blue-20 flex h-14 w-14 items-center justify-center rounded-full bg-gray-200 p-2 text-indigo-700">
                 <svg
                   class="h-12 w-12 fill-current"
                   xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +66,7 @@ export const Main = () => {
                 </svg>
               </div>
               <h3 className="font-bold">Mobile Friendly</h3>
-              <p className="text-gray-600 font-light">
+              <p className="font-light text-gray-600">
                 Modern applications demand mobile-friendly & Tailwind's
                 responsive modifiers make it easy.
               </p>
