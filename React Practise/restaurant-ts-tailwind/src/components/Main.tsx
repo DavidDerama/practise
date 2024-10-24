@@ -23,6 +23,10 @@ const Main = () => {
     setOrder((prev) => prev.filter((item) => item.id !== id));
   }
 
+  function resetOrder() {
+    setOrder([]);
+  }
+
   const totalPriceArr = order.map((item) => item.price);
 
   const menuItems = menuArray.map((food) => {
@@ -55,6 +59,7 @@ const Main = () => {
             order={order}
             removeItemFromOrder={removeItemFromOrder}
             totalPriceArr={totalPriceArr}
+            resetOrder={resetOrder}
           />
         ) : (
           ""

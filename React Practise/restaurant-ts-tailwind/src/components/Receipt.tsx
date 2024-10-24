@@ -14,12 +14,14 @@ type ReceiptProps = {
   order: Order[];
   removeItemFromOrder: (id: string) => void;
   totalPriceArr: number[];
+  resetOrder: () => void;
 };
 
 const Receipt = ({
   order,
   removeItemFromOrder,
   totalPriceArr,
+  resetOrder,
 }: ReceiptProps) => {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -54,6 +56,7 @@ const Receipt = ({
       ccn: "",
       cvv: "",
     });
+    resetOrder();
     setTimeout(() => {
       setOrderSuccessful(false);
     }, 300);
