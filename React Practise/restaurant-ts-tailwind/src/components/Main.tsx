@@ -7,6 +7,7 @@ import menuArray from "@/data";
 const Main = () => {
   const [order, setOrder] = useState<Order[]>([]);
 
+
   function addItemToOrder(item: MenuItem) {
     const { name, price } = item;
     const newItem = {
@@ -15,19 +16,28 @@ const Main = () => {
       price,
     };
     setOrder((prev) => {
-      return [...prev, newItem];
+      const findIfItemIsInOrder = order.find(food => food.name === item.name)
+      if(findIfItemIsInOrder){
+        return prev
+      } else {
+        return [...prev, newItem];
+      }
     });
   }
 
-  function removeItemFromOrder(id: string) {
-    setOrder((prev) => prev.filter((item) => item.id !== id));
+  function removeItemFromOrder(id: string) {  
+    setOrder((prev) => {
+      const newArr = prev.filter((item) => item.id !== id)
+      return newArr
+    });
   }
 
   function resetOrder() {
     setOrder([]);
   }
 
-  const totalPriceArr = order.map((item) => item.price);
+
+
 
   const menuItems = menuArray.map((food) => {
     return (
@@ -36,11 +46,11 @@ const Main = () => {
         key={food.id}
       >
         <h3 className="text-6xl font-medium">{food.emoji}</h3>
-        <p className="text-3xl font-medium mt-3">{food.name}</p>
-        <p className="text-dark_label text-lg">{food.ingredients.join()}</p>
+        <p className="mt-3 text-3xl font-medium">{food.name}</p>
+        <p className="text-lg text-dark_label">{food.ingredients.join()}</p>
         <p className="text-3xl">${food.price}</p>
         <button
-          className="text-3xl text-dark px-4 py-2 flex justify-center items-center rounded-full mt-3 bg-accent hover:opacity-80 text-light"
+          className="flex items-center justify-center px-4 py-2 mt-3 text-3xl transition-all duration-200 border-2 border-transparent rounded-full text-light bg-accent hover:border-light"
           onClick={() => addItemToOrder(food)}
         >
           +
@@ -49,16 +59,16 @@ const Main = () => {
     );
   });
 
+
   return (
     <main className="grow">
-      <section className="max-w-screen-xl mx-auto py-20 px-4 text-light">
+      <section className="max-w-screen-xl px-4 py-20 mx-auto text-light">
         <h2 className="text-3xl font-semibold">Menu</h2>
         <div className="flex flex-wrap gap-6 mt-6">{menuItems}</div>
         {order.length ? (
           <Receipt
             order={order}
             removeItemFromOrder={removeItemFromOrder}
-            totalPriceArr={totalPriceArr}
             resetOrder={resetOrder}
           />
         ) : (

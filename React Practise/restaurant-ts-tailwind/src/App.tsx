@@ -4,7 +4,7 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="font-gabarito flex flex-col min-h-screen bg-dark">
+    <div className="flex flex-col min-h-screen font-gabarito bg-dark scrollbar-thumb-sky-700 scrollbar-track-sky-300">
       <Header />
       <Main />
       <Footer />

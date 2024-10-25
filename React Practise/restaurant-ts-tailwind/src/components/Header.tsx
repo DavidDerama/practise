@@ -1,10 +1,10 @@
 const Header = () => {
   return (
-    <header className="bg-desktop bg-cover">
-      <section className="max-w-screen-xl mx-auto px-4 text-white">
-        <div className=" h-60 flex justify-end pb-10 flex-col">
+    <header className="bg-fixed bg-center bg-no-repeat bg-cover bg-desktop">
+      <section className="max-w-screen-xl px-4 py-2 mx-auto text-white">
+        <div className="flex flex-col justify-end pb-10  h-60 [text-shadow:_4px_3px_rgb(28_28_28)]">
           <h1 className="text-5xl font-semibold">David's Diner</h1>
-          <p className="text-3xl text-shadow [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)] font-light">
+          <p className="text-3xl font-light text-shadow">
             The best burgers and pizzas in town.
           </p>
         </div>

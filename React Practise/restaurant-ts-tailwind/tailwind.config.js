@@ -67,7 +67,7 @@ export default {
         gabarito: ["Gabarito", "serif"],
       },
       backgroundImage: {
-        desktop: 'url("./src/assets/burger.jpg")',
+        desktop: 'url("https://images7.alphacoders.com/129/1290221.jpg")',
       },
     },
   },
