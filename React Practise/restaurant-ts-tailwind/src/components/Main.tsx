@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { MenuItem, Order } from "@/shared/types";
+import About from "./About";
 import { nanoid } from "nanoid";
 import Receipt from "./Receipt";
 import menuArray from "@/data";
@@ -50,8 +51,9 @@ const Main = () => {
         <p className="text-lg text-dark_label">{food.ingredients.join()}</p>
         <p className="text-3xl">${food.price}</p>
         <button
-          className="flex items-center justify-center px-4 py-2 mt-3 text-3xl transition-all duration-200 border-2 border-transparent rounded-full text-light bg-accent hover:border-light"
+          className="flex items-center justify-center px-4 py-2 mt-3 text-3xl transition-all duration-200 border-2 border-transparent rounded-full text-light bg-accent disabled:cursor-not-allowed"
           onClick={() => addItemToOrder(food)}
+          disabled={order.some(item => item.name == food.name)}
         >
           +
         </button>
@@ -62,18 +64,21 @@ const Main = () => {
 
   return (
     <main className="grow">
-      <section className="max-w-screen-xl px-4 py-20 mx-auto text-light">
-        <h2 className="text-3xl font-semibold">Menu</h2>
-        <div className="flex flex-wrap gap-6 mt-6">{menuItems}</div>
-        {order.length ? (
-          <Receipt
-            order={order}
-            removeItemFromOrder={removeItemFromOrder}
-            resetOrder={resetOrder}
-          />
-        ) : (
-          ""
-        )}
+      <section className="flex flex-col max-w-screen-xl gap-10 px-4 py-20 mx-auto text-light">
+        <About/>
+        <div>
+          <h2 className="mb-6 text-3xl font-semibold">Menu</h2>
+          <div className="flex flex-wrap gap-6">{menuItems}</div>
+          {order.length ? (
+            <Receipt
+              order={order}
+              removeItemFromOrder={removeItemFromOrder}
+              resetOrder={resetOrder}
+            />
+          ) : (
+            ""
+          )}
+        </div>
       </section>
     </main>
   );
