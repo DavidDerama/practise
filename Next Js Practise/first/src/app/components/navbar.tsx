@@ -18,7 +18,7 @@ export default function NavBar() {
     } else {
       params.delete("q");
     }
-    replace(`${pathname}?${params.toString()}`);
+    replace(`search/?${params.toString()}`);
   }
 
   return (
