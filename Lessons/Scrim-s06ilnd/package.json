@@ -1,0 +1,14 @@
+{
+  "name": "Scrim-s06ilnd",
+  "description": "https://v2.scrimba.com/build-a-product-card-with-tailwind-css-c07sjqf1ak/~03m5",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vite": "latest"
+  },
+  "devDependencies": {}
+}
