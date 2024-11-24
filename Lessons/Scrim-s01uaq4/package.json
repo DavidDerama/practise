@@ -1,0 +1,14 @@
+{
+  "name": "Scrim-s01uaq4",
+  "description": "https://v2.scrimba.com/learn-python-c03/~01o",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vite": "latest"
+  },
+  "devDependencies": {}
+}
