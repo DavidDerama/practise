@@ -40,7 +40,7 @@ export default function AccountsWrapper({ className }: { className?: string }) {
     );
   });
   return (
-    <div className="flex flex-col gap-4 w-full">
+    <div className="flex flex-col gap-4 w-1/2 ">
       <h2 className="text-2xl font-bold">Accounts</h2>
       <div className={twMerge("flex gap-2", className)}>{accountsEl}</div>
     </div>
