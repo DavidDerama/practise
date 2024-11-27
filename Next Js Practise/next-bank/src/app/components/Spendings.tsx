@@ -15,21 +15,16 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart";
 const chartData = [
-  { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
-  { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
-  { month: "June", desktop: 214, mobile: 140 },
+  { month: "Rent", amount: 186 },
+  { month: "Groceries", amount: 305 },
+  { month: "Restaurants", amount: 237 },
+  { month: "Transport", amount: 73 },
+  { month: "Internet", amount: 209 },
 ];
 const chartConfig = {
-  desktop: {
-    label: "Desktop",
+  amount: {
+    label: "Amount",
     color: "hsl(var(--chart-1))",
-  },
-  mobile: {
-    label: "Mobile",
-    color: "hsl(var(--chart-2))",
   },
   label: {
     color: "hsl(var(--background))",
@@ -38,7 +33,7 @@ const chartConfig = {
 
 export default function Spendings() {
   return (
-    <div className="flex flex-col gap-4 w-1/2 lg">
+    <div className="flex flex-col gap-4 sm:w-1/2 w-full lg">
       <h2 className="text-2xl font-bold">Spendings</h2>
       <Card className="border-none shadow-none">
         <CardContent className="p-0">
@@ -58,33 +53,33 @@ export default function Spendings() {
                 tickLine={false}
                 tickMargin={10}
                 axisLine={false}
-                tickFormatter={(value) => value.slice(0, 3)}
                 hide
               />
-              <XAxis dataKey="desktop" type="number" hide />
+              <XAxis dataKey="amount" type="number" hide />
               <ChartTooltip
                 cursor={false}
                 content={<ChartTooltipContent indicator="line" />}
               />
               <Bar
-                dataKey="desktop"
+                dataKey="amount"
                 layout="vertical"
-                fill="var(--color-desktop)"
-                radius={4}
+                fill="#FFD18C"
+                radius={10}
               >
                 <LabelList
                   dataKey="month"
                   position="insideLeft"
-                  offset={8}
-                  className="fill-[--color-label]"
-                  fontSize={12}
+                  offset={10}
+                  className="fill-[#1c1c1c] font-bold"
+                  fontSize={14}
                 />
                 <LabelList
-                  dataKey="desktop"
+                  dataKey="amount"
                   position="right"
                   offset={8}
                   className="fill-foreground"
                   fontSize={12}
+                  formatter={(value) => `$${value}`}
                 />
               </Bar>
             </BarChart>

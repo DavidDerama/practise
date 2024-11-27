@@ -12,7 +12,7 @@ export default function Home() {
         </button>
       </div>
 
-      <Accounts />
+      <Accounts fullWidth={true} />
     </div>
   );
 }

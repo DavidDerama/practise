@@ -4,7 +4,13 @@ import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { twMerge } from "tailwind-merge";
 
-export default function AccountsWrapper({ className }: { className?: string }) {
+export default function AccountsWrapper({
+  className,
+  fullWidth,
+}: {
+  className?: string;
+  fullWidth: boolean;
+}) {
   const [accounts, setAccounts] = useState([
     {
       name: "Main Account",
@@ -23,6 +29,8 @@ export default function AccountsWrapper({ className }: { className?: string }) {
     },
   ]);
 
+  const fullWidthClass = fullWidth ? "w-full" : "w-1/2";
+
   const accountsEl = accounts.map((acc) => {
     return (
       <Card
@@ -40,7 +48,7 @@ export default function AccountsWrapper({ className }: { className?: string }) {
     );
   });
   return (
-    <div className="flex flex-col gap-4 w-1/2 ">
+    <div className={twMerge("flex flex-col gap-4", fullWidthClass)}>
       <h2 className="text-2xl font-bold">Accounts</h2>
       <div className={twMerge("flex gap-2", className)}>{accountsEl}</div>
     </div>
