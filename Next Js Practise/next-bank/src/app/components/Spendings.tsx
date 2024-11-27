@@ -15,11 +15,11 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart";
 const chartData = [
-  { month: "Rent", amount: 186 },
-  { month: "Groceries", amount: 305 },
-  { month: "Restaurants", amount: 237 },
-  { month: "Transport", amount: 73 },
-  { month: "Internet", amount: 209 },
+  { category: "Rent", amount: 186 },
+  { category: "Groceries", amount: 305 },
+  { category: "Restaurants", amount: 237 },
+  { category: "Transport", amount: 73 },
+  { category: "Internet", amount: 209 },
 ];
 const chartConfig = {
   amount: {
@@ -48,7 +48,7 @@ export default function Spendings() {
             >
               <CartesianGrid horizontal={false} />
               <YAxis
-                dataKey="month"
+                dataKey="category"
                 type="category"
                 tickLine={false}
                 tickMargin={10}
@@ -67,7 +67,7 @@ export default function Spendings() {
                 radius={10}
               >
                 <LabelList
-                  dataKey="month"
+                  dataKey="category"
                   position="insideLeft"
                   offset={10}
                   className="fill-[#1c1c1c] font-bold"
@@ -79,7 +79,7 @@ export default function Spendings() {
                   offset={8}
                   className="fill-foreground"
                   fontSize={12}
-                  formatter={(value) => `$${value}`}
+                  formatter={(value: unknown) => `$ ${value}`}
                 />
               </Bar>
             </BarChart>

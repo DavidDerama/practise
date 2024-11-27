@@ -31,17 +31,18 @@ export default function AccountsWrapper({
 
   const fullWidthClass = fullWidth ? "w-full" : "w-1/2";
 
-  const accountsEl = accounts.map((acc) => {
+  const accountsEl = accounts.map((acc, index) => {
     return (
       <Card
-        className={`grow border-2 border-[#FFA724] ${
+        className={`grow border-2 border-[#FFA724] p-0 ${
           acc.name == "Main Account" ? "bg-[#FFD18C]" : ""
         } `}
+        key={index}
       >
-        <CardHeader>
+        <CardHeader className="pl-4">
           <CardTitle>{acc.name}</CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="pl-4 ">
           <p>$ {acc.amount}</p>
         </CardContent>
       </Card>
