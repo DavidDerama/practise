@@ -1,10 +1,16 @@
 import Content from "./components/Content";
+import TeamSection from "./components/TeamSection";
+import LandingHero from "./components/LandingHero";
+
 export default function Home() {
   return (
-    <main className="grow">
-      <Content className="py-8 px-3">
-        <h1>Test</h1>
-      </Content>
-    </main>
+    <>
+      <LandingHero />
+      <main className="grow">
+        <Content className="py-20 px-3">
+          <TeamSection />
+        </Content>
+      </main>
+    </>
   );
 }

@@ -1,10 +1,14 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
+  const pathname = usePathname();
+  console.log(pathname);
   return (
-    <header className="py-5 fixed flex items-center bg-[#0E2E3B] w-screen">
-      <Link href={".."} className="ml-12 self-center">
+    <header className="py-5 fixed flex items-center w-screen z-50">
+      <Link href={".."} className="ml-6 sm:ml-12 self-center">
         <Image
           src={
             "https://criticalforce.fi/images/critical_force_logotype_orange.svg"
@@ -14,22 +18,49 @@ export default function Header() {
           height={54}
         ></Image>
       </Link>
-      <nav className="absolute left-1/2 translate-x-[-50%] self-center">
-        <ul className="flex gap-10 uppercase font-bold text-white text-lg">
+      <nav className="absolute left-1/2 translate-x-[-50%] self-center hidden lg:block">
+        <ul className="flex gap-6 uppercase font-bold text-light text-lg">
           <li>
-            <Link href="https://www.youtube.com/">Games</Link>
+            <Link
+              className={`border border-transparent rounded-lg py-2 px-5 hover:bg-gray-400 hover:backdrop-blur-md hover:bg-opacity-50 ${
+                pathname == "/games" ? "text-special" : ""
+              }`}
+              href="games"
+            >
+              Games
+            </Link>
           </li>
           <li>
-            <Link href="https://www.youtube.com/">About Us</Link>
+            <Link
+              className="border border-transparent rounded-lg py-2 px-5 hover:bg-gray-400 hover:backdrop-blur-md hover:bg-opacity-50"
+              href="https://www.youtube.com/"
+            >
+              About Us
+            </Link>
           </li>
           <li>
-            <Link href="https://www.youtube.com/">Careers</Link>
+            <Link
+              className="border border-transparent rounded-lg py-2 px-5 hover:bg-gray-400 hover:backdrop-blur-md hover:bg-opacity-50"
+              href="https://criticalforce.teamtailor.com/"
+            >
+              Careers
+            </Link>
           </li>
           <li>
-            <Link href="https://www.youtube.com/">News</Link>
+            <Link
+              className="border border-transparent rounded-lg py-2 px-5 hover:bg-gray-400 hover:backdrop-blur-md hover:bg-opacity-50"
+              href="https://criticalforce.fi/news/"
+            >
+              News
+            </Link>
           </li>
           <li>
-            <Link href="https://www.youtube.com/">Contact</Link>
+            <Link
+              className="border border-transparent rounded-lg py-2 px-5 hover:bg-gray-400 hover:backdrop-blur-md hover:bg-opacity-50"
+              href="https://criticalforce.fi/contact/"
+            >
+              Contact
+            </Link>
           </li>
         </ul>
       </nav>

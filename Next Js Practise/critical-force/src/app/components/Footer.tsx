@@ -10,11 +10,11 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="py-20 bg-[#121212] border border-[#2d2d2d] text-white">
+    <footer className="py-20 bg-[#121212] border border-[#2d2d2d] text-light">
       <Content>
         <div className="border-b-[1px] border-[#1c1c1c] pb-6">
-          <div className="flex justify-between">
-            <div className="flex flex-col gap-10">
+          <div className="flex lg:flex-row flex-col lg:justify-between">
+            <div className="flex flex-col gap-10 lg:mb-0 mb-8">
               <div>
                 <Image
                   src={
@@ -37,45 +37,45 @@ export default function Footer() {
               <div className="flex gap-5 text-[#FB6504]">
                 <Link
                   href="https://x.com/criticalforcelt"
-                  className="hover:text-white transition-transform duration-200"
+                  className="hover:text-light transition-transform duration-200"
                 >
                   <FaSquareXTwitter size={30} />
                 </Link>
                 <Link
                   href="https://www.instagram.com/criticalforceofficial/"
-                  className="hover:text-white transition-transform duration-200"
+                  className="hover:text-light transition-transform duration-200"
                 >
                   <FaInstagram size={30} />
                 </Link>
                 <Link
                   href="https://www.facebook.com/CriticalForceLtd/"
-                  className="hover:text-white transition-transform duration-200"
+                  className="hover:text-light transition-transform duration-200"
                 >
                   <FaFacebook size={30} />
                 </Link>
                 <Link
                   href="https://www.youtube.com/channel/UCNpHMVFR_rogCGt72n7YfDA"
-                  className="hover:text-white transition-transform duration-200"
+                  className="hover:text-light transition-transform duration-200"
                 >
                   <FaYoutube size={30} />
                 </Link>
               </div>
             </div>
-            <div className="flex justify-end items-center gap-24 w-1/2">
+            <div className="flex lg:justify-end lg.items-center gap-24 w-1/2">
               <div className="flex flex-col gap-10">
-                <h2 className="font-semibold text-[#FB652C] text-xl tracking-[-0.4px]">
+                <h2 className="font-semibold text-special text-xl tracking-[-0.4px]">
                   Quick Links
                 </h2>
-                <ul className="flex flex-col gap-3">
-                  <li>
+                <ul className="flex flex-col gap-3 text-dark_label">
+                  <li className="hover:text-light">
                     <Link href="https://criticalforce.teamtailor.com/">
                       Find a job
                     </Link>
                   </li>
-                  <li>
+                  <li className="hover:text-light">
                     <Link href="https://criticalforce.fi/news">News</Link>
                   </li>
-                  <li>
+                  <li className="hover:text-light">
                     <Link href="https://criticalforce.fi/contact">
                       Contact us
                     </Link>
@@ -83,19 +83,19 @@ export default function Footer() {
                 </ul>
               </div>
               <div className="flex flex-col gap-10">
-                <h2 className="font-semibold text-[#FB652C] text-xl tracking-[-0.4px]">
+                <h2 className="font-semibold text-special text-xl tracking-[-0.4px]">
                   Company
                 </h2>
-                <ul className="flex flex-col gap-3">
-                  <li>
+                <ul className="flex flex-col gap-3 text-dark_label">
+                  <li className="hover:text-light">
                     <Link href="https://criticalforce.fi/about-us">
                       About us
                     </Link>
                   </li>
-                  <li>
+                  <li className="hover:text-light">
                     <Link href="https://criticalforce.fi/games">Games</Link>
                   </li>
-                  <li>
+                  <li className="hover:text-light">
                     <Link href="https://criticalforce.fi/contact">
                       Press kit
                     </Link>
