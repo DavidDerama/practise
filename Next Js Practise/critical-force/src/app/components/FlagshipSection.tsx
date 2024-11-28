@@ -2,7 +2,6 @@ import { ContainerScroll } from "./ContainerScroll";
 import Image from "next/image";
 import Link from "next/link";
 import TextTicker from "./TextTicker";
-
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
