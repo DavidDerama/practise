@@ -63,7 +63,7 @@ export default function Footer() {
             </div>
             <div className="flex justify-end items-center gap-24 w-1/2">
               <div className="flex flex-col gap-10">
-                <h2 className="font-semibold text-[#FB652C] text-xl">
+                <h2 className="font-semibold text-[#FB652C] text-xl tracking-[-0.4px]">
                   Quick Links
                 </h2>
                 <ul className="flex flex-col gap-3">
@@ -83,7 +83,7 @@ export default function Footer() {
                 </ul>
               </div>
               <div className="flex flex-col gap-10">
-                <h2 className="font-semibold text-[#FB652C] text-xl">
+                <h2 className="font-semibold text-[#FB652C] text-xl tracking-[-0.4px]">
                   Company
                 </h2>
                 <ul className="flex flex-col gap-3">
