@@ -1,7 +1,7 @@
 import TeamSection from "./components/TeamSection";
 import NewsSection from "./components/NewsSection";
 import LandingHero from "./components/LandingHero";
-import FlagshipSection from "./components/Flagship";
+import FlagshipSection from "./components/FlagshipSection";
 
 export default function Home() {
   return (
