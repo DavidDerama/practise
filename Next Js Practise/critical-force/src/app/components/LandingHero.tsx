@@ -5,8 +5,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function LandingHero() {
   return (
-    <div className="bg-[url('https://criticalforce.fi/images/topBanner_1920.jpg')] bg-cover bg-center sm:bg-top  bg-no-repeat flex items-end h-[70vh] shadow-lg">
-      <Content className="pb-20  w-full">
+    <div className="bg-[url('https://criticalforce.fi/images/topBanner_1920.jpg')] bg-cover bg-top bg-no-repeat flex items-end h-[80vh] shadow-lg">
+      <Content className="pb-20 pl-3 w-full flex justify-start">
         <div className="text-light flex flex-col gap-5 items-start">
           <h1
             className={`text-6xl tracking-[-0.4px] font-bold ${inter.className}`}

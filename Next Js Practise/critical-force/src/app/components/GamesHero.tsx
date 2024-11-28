@@ -7,10 +7,10 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function GamesHero() {
   return (
-    <div className="bg-[url('https://criticalforce.fi/images/cops_834.jpg')] bg-cover bg-center sm:bg-top  bg-no-repeat flex items-end h-[70vh] shadow-lg backdrop-blur-lg pt-20">
+    <div className="bg-[url('https://criticalforce.fi/images/cops_834.jpg')] bg-cover bg-center sm:bg-top  bg-no-repeat flex items-end h-[80vh] shadow-lg backdrop-blur-sm">
       <div className="absolute inset-0 bg-dark bg-opacity-40 backdrop-blur-sm"></div>
       <div className="relative z-10 flex items-end h-full w-full">
-        <Content className="pb-24 pt-10 sm:pt-0 w-full">
+        <Content className="pb-16 pt-10 sm:pt-0 w-full">
           <div className="text-light flex flex-col gap-5">
             <h1
               className={`text-4xl tracking-[-0.4px] font-bold ${inter.className}`}
@@ -24,7 +24,7 @@ export default function GamesHero() {
               individual scoreboard. Will you fight as a member of Coalition or
               The Breach?
             </p>
-            <div className="flex flex-wrap gap-3 max-w-[500px]">
+            <div className="flex flex-wrap gap-3 max-w-[500px] mt-3">
               <Link
                 href="https://criticalopsgame.com/"
                 className="border py-2 px-4 rounded flex items-center justify-center"

@@ -19,8 +19,8 @@ export default {
         dark_heading: "#e2e2e2",
         dark_paragraph: "#c2c2c2",
         dark_label: "#a2a2a2",
-        dark_input_bg: "#171717",
-        dark_input_border: "#3c3c3c",
+        dark_box_bg: "#171717",
+        dark_box_border: "#3c3c3c",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {

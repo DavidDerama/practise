@@ -5,9 +5,8 @@ import { usePathname } from "next/navigation";
 
 export default function Header() {
   const pathname = usePathname();
-  console.log(pathname);
   return (
-    <header className="py-5 fixed flex items-center w-screen z-50">
+    <header className="py-5 fixed flex items-center w-screen bg-[#121212] backdrop-blur-md z-50 shadow-lg">
       <Link href={".."} className="ml-6 sm:ml-12 self-center">
         <Image
           src={

@@ -70,3 +70,22 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.bg-image-1 {
+  @apply bg-[url('https://criticalforce.fi/news/22/thumbnail.jpg')];
+}
+
+.bg-image-2 {
+  @apply bg-[url('https://criticalforce.fi/news/21/thumbnail.jpg')];
+}
+
+.bg-image-3 {
+  @apply bg-[url('https://criticalforce.fi/news/20/thumbnail.png')];
+}
+
+.bg-image-4 {
+  @apply bg-[url('https://criticalforce.fi/news/19/thumbnail.png')];
+}
+.bg-image-5 {
+  @apply bg-[url('https://criticalforce.fi/news/18/thumbnail.jpg')];
+}

@@ -1,4 +1,5 @@
 import { Carousel, Card } from "@/app/components/Carousel";
+import Content from "./Content";
 
 export default function TeamSection() {
   const cards = data.map((card, index) => (
@@ -6,13 +7,17 @@ export default function TeamSection() {
   ));
 
   return (
-    <div className="w-full">
-      <div className="mb-12 flex flex-col gap-4 text-light">
-        <h2 className="text-4xl font-bold">Meet the team</h2>
-        <p className="text-lg">Our essence, Great team == Exceptional games!</p>
+    <Content className="py-3 px-3">
+      <div className="w-full">
+        <div className="mb-12 flex flex-col gap-3 text-light">
+          <h2 className="text-4xl font-bold">Meet the team</h2>
+          <p className="text-lg text-dark_label">
+            Our essence, Great team == Exceptional games!
+          </p>
+        </div>
+        <Carousel items={cards} />
       </div>
-      <Carousel items={cards} />
-    </div>
+    </Content>
   );
 }
 
