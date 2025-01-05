@@ -11,6 +11,10 @@ export default function Profile() {
   const queryClient = useQueryClient();
   const router = useRouter();
 
+  if (isFetching) {
+    return <></>;
+  }
+
   async function handleLogout() {
     const supabase = supabaseBrowser();
     queryClient.clear();
