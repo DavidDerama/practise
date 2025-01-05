@@ -7,7 +7,15 @@ export default function Header() {
     <Content>
       <header className="flex justify-between">
         <Link href={".."}>TEST</Link>
-        <Profile />
+        <div className="flex gap-4">
+          <Link
+            href={"dashboard"}
+            className="bg-black py-2 px-3 text-white rounded-sm font-medium"
+          >
+            Dashboard
+          </Link>
+          <Profile />
+        </div>
       </header>
     </Content>
   );

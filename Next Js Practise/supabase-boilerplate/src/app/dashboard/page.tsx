@@ -1,10 +1,10 @@
 import Content from "@/components/Content";
 
-export default function Home() {
+export default function Page() {
   return (
     <main className="flex-grow">
       <Content>
-        <h1>Home Page</h1>
+        <h1>Dashboard</h1>
       </Content>
     </main>
   );
