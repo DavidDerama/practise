@@ -38,5 +38,6 @@ export async function updateTodoById(id: number) {
     .from("todo")
     .update({ title: "Hello", content: "World" })
     .eq("id", id);
+  revalidatePath("/dashboard");
   return res;
 }
