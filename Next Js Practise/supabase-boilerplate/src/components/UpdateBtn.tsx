@@ -1,10 +1,14 @@
 "use client";
 
 import { updateTodoById } from "@/actions/todo";
+import toast from "react-hot-toast";
 
 export default function UpdateBtn({ id }: { id: number }) {
   async function updateTodo(id: number) {
     const res = await updateTodoById(id);
+    if (res.statusText === "No Content") {
+      toast.success("Todo updated successfully");
+    }
     console.log(res);
   }
   return (

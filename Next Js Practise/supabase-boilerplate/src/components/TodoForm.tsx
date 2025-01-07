@@ -19,7 +19,7 @@ import toast from "react-hot-toast";
 
 const formSchema = z.object({
   title: z.string(),
-  content: z.string(),
+  content: z.string().min(5),
 });
 
 type Form = z.infer<typeof formSchema>;
