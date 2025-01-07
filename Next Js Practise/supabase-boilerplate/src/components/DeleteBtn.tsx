@@ -1,10 +1,14 @@
 "use client";
 
 import { deleteTodoById } from "@/actions/todo";
+import toast from "react-hot-toast";
 
 export default function DeleteBtn({ id }: { id: number }) {
   async function deleteTodo(id: number) {
     const res = await deleteTodoById(id);
+    if (res.statusText === "No Content") {
+      toast.success("Todo deleted successfully");
+    }
     console.log(res);
   }
   return (

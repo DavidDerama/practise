@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { createTodo } from "@/actions/todo";
+import toast from "react-hot-toast";
 
 const formSchema = z.object({
   title: z.string(),
@@ -34,7 +35,9 @@ export default function TodoForm() {
 
   async function onSubmit(data: Form) {
     const res = await createTodo(data);
-    console.log(res);
+    if (res.statusText === "Created") {
+      toast.success("Todo created successfully");
+    }
     form.reset();
   }
 
