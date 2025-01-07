@@ -5,18 +5,20 @@ import UpdateBtn from "./UpdateBtn";
 export default async function Todos() {
   const { data } = await readTodos();
 
-  const todosEl = data?.map(({ title, content, id }) => {
-    return (
-      <li>
-        <h3>{title}</h3>
-        <p>{content}</p>
-        <div className="flex gap-4">
-          <DeleteBtn id={id} />
-          <UpdateBtn id={id} />
-        </div>
-      </li>
-    );
-  });
+  const todosEl = data
+    ?.sort((a, b) => a.id - b.id)
+    .map(({ title, content, id }) => {
+      return (
+        <li key={id}>
+          <h3>{title}</h3>
+          <p>{content}</p>
+          <div className="flex gap-4">
+            <DeleteBtn id={id} />
+            <UpdateBtn id={id} />
+          </div>
+        </li>
+      );
+    });
 
   return (
     <div>

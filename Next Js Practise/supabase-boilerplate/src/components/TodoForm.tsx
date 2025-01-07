@@ -17,8 +17,8 @@ import { Input } from "@/components/ui/input";
 import { createTodo } from "@/actions/todo";
 
 const formSchema = z.object({
-  title: z.string().min(5, "Title must be at least 5 characters"),
-  content: z.string().min(5, "Content must be at least 5 characters"),
+  title: z.string(),
+  content: z.string(),
 });
 
 type Form = z.infer<typeof formSchema>;
@@ -30,7 +30,6 @@ export default function TodoForm() {
       title: "",
       content: "",
     },
-    mode: "onSubmit",
   });
 
   async function onSubmit(data: Form) {
