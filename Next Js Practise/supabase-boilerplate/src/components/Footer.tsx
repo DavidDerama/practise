@@ -1,5 +1,4 @@
 import Content from "./Content";
-import Link from "next/link";
 
 export default function Footer() {
   return (
