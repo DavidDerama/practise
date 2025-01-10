@@ -1,5 +1,5 @@
-import { title } from "process";
 import React from "react";
+import Checkout from "./Checkout";
 
 export default function price() {
   const prices = [
@@ -8,18 +8,21 @@ export default function price() {
       description: "Lorem idasasdsad sad sa",
       benefits: ["Fast", "Cheap", "Effective"],
       amount: 10,
+      priceId: "price_1QgCFDHPqm5Ili6sraKI1W9Q",
     },
     {
-      title: "Hobby",
+      title: "Pro",
       description: "Lorem idasasdsad sad sa",
       benefits: ["Fast", "Cheap", "Effective"],
-      amount: 20,
+      amount: 50,
+      priceId: "price_1QgCFpHPqm5Ili6sJBexhLer",
     },
     {
-      title: "Hobby",
+      title: "Premium",
       description: "Lorem idasasdsad sad sa",
       benefits: ["Fast", "Cheap", "Effective"],
       amount: 30,
+      priceId: "price_1QgCFzHPqm5Ili6sqzgmcLTY",
     },
   ];
   return (
@@ -31,9 +34,8 @@ export default function price() {
             <h1 className="font-bold text-3xl mb-3">${price.amount}</h1>
             <h1>{price.description}</h1>
             <h1>{price.benefits.join(" ")}</h1>
-            <button className="w-full py-3 bg-blue-600 text-white mt-4 rounded-md">
-              Getting Started
-            </button>
+
+            <Checkout priceId={price.priceId} />
           </div>
         );
       })}
