@@ -20,6 +20,7 @@ export async function POST(req: any) {
     switch (event.type) {
       case "invoice.payment_succeeded":
         console.log(event.data.object);
+        //Update supabase
         break;
       default:
         console.log(`Unhandled event type ${event.type}`);
