@@ -21,7 +21,7 @@ export default function price() {
       title: "Premium",
       description: "Lorem idasasdsad sad sa",
       benefits: ["Fast", "Cheap", "Effective"],
-      amount: 30,
+      amount: 100,
       priceId: "price_1QgCFzHPqm5Ili6sqzgmcLTY",
     },
   ];

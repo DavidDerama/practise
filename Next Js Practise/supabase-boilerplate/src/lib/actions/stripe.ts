@@ -10,7 +10,7 @@ export async function checkout(
   redirectTo: string
 ) {
   return JSON.stringify(
-    stripe.checkout.sessions.create({
+    await stripe.checkout.sessions.create({
       success_url: redirectTo || process.env.SITE_URL,
       cancel_url: process.env.SITE_URL,
       customer_email: email,

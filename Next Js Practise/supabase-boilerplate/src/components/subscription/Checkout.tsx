@@ -4,14 +4,17 @@ import { checkout } from "@/lib/actions/stripe";
 import { useRouter } from "next/navigation";
 import { loadStripe } from "@stripe/stripe-js";
 
-import React from "react";
+import React, { useState } from "react";
 
 export default function Checkout({ priceId }: { priceId: string }) {
   const { data: user } = useUser();
 
   const router = useRouter();
-  async function handelCheckout() {
-    if (user?.id && user.email) {
+
+  const [loading, setLoading] = useState(false);
+  async function handleCheckout() {
+    if (user?.id && user?.email) {
+      setLoading(true);
       const data = JSON.parse(
         await checkout(user.email, priceId, location.origin)
       );
@@ -20,16 +23,18 @@ export default function Checkout({ priceId }: { priceId: string }) {
       if (res?.error) {
         alert("Fail to checkout");
       }
+      setLoading(false);
     } else {
       router.push("/auth?next=" + location.pathname);
     }
   }
   return (
     <button
-      onClick={handelCheckout}
+      onClick={handleCheckout}
       className="w-full py-3 bg-blue-600 text-white mt-4 rounded-md"
+      disabled={loading}
     >
-      Getting Started
+      {loading ? "Loading......" : "Getting Started"}
     </button>
   );
 }
