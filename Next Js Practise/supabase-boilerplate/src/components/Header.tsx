@@ -9,6 +9,7 @@ export default function Header() {
       <header className="flex justify-between">
         <Link href={".."}>Home</Link>
         <div className="flex gap-4">
+          <Link href="/subscription">Subscription</Link>
           <DashboardBtn />
           <Profile />
         </div>
