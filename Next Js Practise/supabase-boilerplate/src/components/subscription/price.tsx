@@ -1,5 +1,7 @@
+"use client";
 import React from "react";
 import Checkout from "./Checkout";
+import useUser from "@/app/hooks/useUser";
 
 export default function price() {
   const prices = [
@@ -25,6 +27,14 @@ export default function price() {
       priceId: "price_1QgCFzHPqm5Ili6sqzgmcLTY",
     },
   ];
+  const { data: user, isLoading } = useUser();
+
+  if (isLoading) {
+    return <></>;
+  }
+  if (user?.subscription?.customer_id) {
+    return <></>;
+  }
   return (
     <div className="flex gap-3">
       {prices.map((price, index) => {

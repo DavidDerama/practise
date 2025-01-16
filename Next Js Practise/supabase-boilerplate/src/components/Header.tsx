@@ -10,6 +10,7 @@ export default function Header() {
         <Link href={".."}>Home</Link>
         <div className="flex gap-4">
           <Link href="/subscription">Subscription</Link>
+          <Link href="/profile">Profile</Link>
           <DashboardBtn />
           <Profile />
         </div>
