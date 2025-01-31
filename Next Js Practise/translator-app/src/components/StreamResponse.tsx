@@ -1,17 +1,35 @@
 "use client";
-import React from "react";
-import { useChat } from "ai/react";
 
-export default function StreamResponse() {
-  const { messages } = useChat();
+import { Message } from "@/lib/actions";
+
+export default function StreamResponse({
+  conversation,
+}: {
+  conversation: Message[];
+}) {
   return (
-    <div className="mb-4 p-4 border rounded-md w-1/2 mx-auto flex flex-col gap-3 items-center ">
-      {messages.map((message) => (
-        <div key={message.id}>
-          <div>{message.role}</div>
-          <div>{message.content}</div>
+    <>
+      {conversation.length ? (
+        <div className="mb-4 p-4 border rounded-md w-1/2 mx-auto">
+          {conversation.map((message, index) => (
+            <div className="flex flex-col gap-5 w-full">
+              {message.role === "assistant" ? (
+                <div className="py-2 px-4 rounded-r-md rounded-bl-md bg-green-400 text-black mb-3">
+                  <p className="font-bold">{message.role}:</p>
+                  <p>{message.content}</p>
+                </div>
+              ) : (
+                <div className="py-2 px-4 rounded-l-md rounded-br-md bg-blue-500 text-white mb-3">
+                  <p className="font-bold">{message.role}:</p>
+                  <p>{message.content.split("#")[0]}</p>
+                </div>
+              )}
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
+      ) : (
+        ""
+      )}
+    </>
   );
 }
