@@ -82,7 +82,9 @@ export default function TranslateForm({
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button type="submit" className="w-full py-5">
+          Submit
+        </Button>
       </form>
     </Form>
   );

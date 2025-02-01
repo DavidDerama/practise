@@ -16,7 +16,7 @@ export async function continueConversation(history: Message[]) {
     const { textStream } = streamText({
       model: openai("gpt-3.5-turbo"),
       system:
-        "You are a beginner language translator. Make sure your translations are accurate while also easy to understand.If text doesn't make sense, reply with try again.",
+        "You are a beginner language translator. Make sure your translations are accurate while also easy to understand.If text doesn't make sense, reply with try again. Only give me the suer a translation of the sentence nothing more.",
       messages: history,
     });
 
