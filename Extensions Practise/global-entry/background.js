@@ -38,7 +38,6 @@ function handleNotifications(appointments) {
 }
 
 function createNotification(appointment) {
-  console.log(appointment);
   chrome.notifications.create({
     title: "Global Entry Drops",
     message: `Found an open interview at ${appointment.timestamp}`,
@@ -48,6 +47,7 @@ function createNotification(appointment) {
 }
 
 chrome.runtime.onInstalled.addListener((details) => {
+  handleOnStop();
   fetchLocations();
 });
 
