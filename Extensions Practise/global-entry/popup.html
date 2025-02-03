@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./popup.js" defer></script>
+    <style>
+      body {
+        width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="w-full border mx-auto px-3 py-2">
+      <h1 class="font-bold text-xl">Global Entry Drops</h1>
+      <section class="mt-6">
+        <p class="font-bold mb-2">Status</p>
+        <div class="flex gap-3 mb-3">
+          <span
+            class="py-1 px-4 text-sm rounded text-white bg-green-400"
+            id="runningSpan"
+            >Running</span
+          >
+          <span
+            class="py-1 px-4 text-sm rounded text-white bg-red-500"
+            id="stoppedSpan"
+            >Stopped</span
+          >
+        </div>
+        <div class="flex flex-col gap-3">
+          <div>
+            <label class="font-bold">Location ID:</label>
+            <div>
+              <select name="" id="locationId">
+                <option value="los_angeles">Los Angeles</option>
+                <option value="seattle">Seattle</option>
+              </select>
+            </div>
+            <p id="locationIdError" style="display: none">
+              Please select a valid location
+            </p>
+          </div>
+          <div>
+            <label class="font-bold">Start date:</label>
+            <div class="control">
+              <input
+                type="date"
+                id="startDate"
+                class="border w-full rounded p-1"
+              />
+            </div>
+            <p id="startDateError" style="display: none">
+              Please enter a valid start date
+            </p>
+          </div>
+          <div>
+            <label class="font-bold">End date:</label>
+            <div class="control">
+              <input
+                type="date"
+                id="endDate"
+                class="border w-full rounded p-1"
+              />
+            </div>
+            <p id="endDateError" style="display: none">
+              Please enter a valid end date
+            </p>
+          </div>
+          <div class="w-full flex flex-col gap-3">
+            <button
+              id="startButton"
+              class="bg-green-400 py-1 px-4 rounded text-white"
+            >
+              Save & Start
+            </button>
+            <button
+              id="stopButton"
+              class="bg-red-500 py-1 px-4 rounded text-white"
+            >
+              Stop
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
